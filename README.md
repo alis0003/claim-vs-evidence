@@ -83,8 +83,9 @@ only in the eventual trusted publisher job. HTTP errors never echo token/header/
 ubuntu-24.04, with no secret inputs, third-party Actions, cache or uploaded artifacts.
 The live workflow template is inert at `deployment/publish.yml.disabled`. It cannot
 run merely by adding a secret. Activate only after parent readiness confirmation,
-state-branch provisioning/protection, and explicit review. Keep the schedule commented
-until an authorized one-card end-to-end test succeeds. Public scheduling can be late
+state-branch provisioning/protection, and explicit review. The manual-test template requires explicit confirmation and a credential-free
+duplicate guard check. Scheduling is a separate reviewed change after that test
+succeeds. Public scheduling can be late
 or skipped; the hard time window prevents publishing after pilot expiry.
 
 ## Current deployment status
@@ -106,8 +107,9 @@ its genuine screenshot hash/save-time provenance is recorded. queue.json stays e
 until the explicit parent live-test step and token readiness.
 
 Durable state branch is initialized at pinned genesis
-`26d1b1261d6b904a38ce8bd9df973d6b5d07c65d`. Branch protection and parent readiness
-remain prerequisites to live use. Code commit d2b7dc0126621a6d2e0d60f75b6fdd7f09610267
+`26d1b1261d6b904a38ce8bd9df973d6b5d07c65d`. Only deletion and force-push blocks are approved for the state branch; a separate
+browser worker owns applying them. Confirm those protections and parent readiness
+before live use; linear history is not requested. Code commit d2b7dc0126621a6d2e0d60f75b6fdd7f09610267
 triggered offline CI; its outcome must be checked in Actions, not inferred from
 local tests. Campaign remains inactive with no activation/end dates.
 

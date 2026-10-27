@@ -3,16 +3,21 @@
 name: Bounded Instagram pilot
 on:
   workflow_dispatch:
-  # Uncomment only after a successful authorized live end-to-end test.
-  # schedule:
-  #   - cron: '17 */3 * * *'
+    inputs:
+      confirm_first_live_test:
+        description: 'Explicitly authorized one-card live test (schedule stays disabled)'
+        type: boolean
+        required: true
+        default: false
+  # This is the first manual test template. Schedule enablement is a separate
+  # reviewed change after successful live + duplicate verification.
 permissions: {}
 concurrency:
   group: claimvsevidence-publishing
   cancel-in-progress: false
 jobs:
   publish:
-    if: github.repository == 'alis0003/claim-vs-evidence' && github.ref == 'refs/heads/main' && vars.PUBLISHING_ENABLED == 'true'
+    if: github.repository == 'alis0003/claim-vs-evidence' && github.ref == 'refs/heads/main' && vars.PUBLISHING_ENABLED == 'true' && inputs.confirm_first_live_test == true
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     permissions:
@@ -38,3 +43,13 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
         run: python3 pilot.py --live
+      - name: Independently verify duplicate guard without Instagram token
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c credential.helper= fetch --no-tags https://github.com/alis0003/claim-vs-evidence.git refs/heads/publishing-state
+          state_sha=$(git rev-parse FETCH_HEAD)
+          [[ "$state_sha" =~ ^[0-9a-f]{40}$ ]]
+          git show "$state_sha:state.json" > "$RUNNER_TEMP/public-publishing-state.json"
+          python3 verify_duplicate.py --queue queue.json --state "$RUNNER_TEMP/public-publishing-state.json"
+          echo "Verified public state commit: $state_sha"
