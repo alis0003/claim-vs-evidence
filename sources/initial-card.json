@@ -1,0 +1,14 @@
+{
+  "source_url": "https://factcheck.afp.com/doc.afp.com.D3XP2T4",
+  "source_published_date": "2026-10-23",
+  "claim_date_basis": "AFP reports a false Facebook post on 18 October 2026; not an independently verified timestamp for the screenshot shown.",
+  "checked_at": "2026-10-27T13:38:12.954422+00:00",
+  "original_upload_date_basis": "15 February 2026, attributed to AFP; not independently verified.",
+  "archive_url": "https://perma.cc/8X4Q-5YPQ?type=image",
+  "archive_status": "Not accessible via executor browsing; parent source provenance pending.",
+  "approved_png_library_id": "libfile_283d3f23d1208191ac741ba5354bad1e",
+  "approved_png_sha256": "8a077323a05f9cdd2b62a0ee9bc801c2e3608fe21ac7f44e0e6e0f3e4fe22907",
+  "jpeg_sha256": "331ddae4235807b4db6ceff28cfcc1ac9f44e53f6e36e39ba8d6f8812f763e2b",
+  "pixel_review": "Approved PNG and converted JPEG inspected; narrow claim/evidence distinction preserved.",
+  "date_precision": "Day-level dates represented at 00:00 UTC; exact source/post times not asserted."
+}

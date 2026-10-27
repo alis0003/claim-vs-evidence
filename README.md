@@ -90,12 +90,19 @@ confirmed the repository and write access. Code deployment uses expected-head ch
 this source snapshot prepares offline CI only. No existing repository is modified.
 The invalid CLI credential is not reused; parent owns Instagram Secret insertion.
 
-Initial PNG Library ID: libfile_283d3f23d1208191ac741ba5354bad1e. The supported
-Library materialization attempt and single fresh consumer-local retry both failed
-with `library file transfer failed: download failed`, exit 1. No HTTP status or
-underlying network reason was returned. No bytes were installed. No further retry
-or alternate transfer route was used. Initial card remains in
-`drafts/initial-card-review.md`; no JPEG, hash or ready queue item is fabricated.
+Initial PNG Library ID: libfile_283d3f23d1208191ac741ba5354bad1e. Library download
+failed initially and on one supported retry with generic `download failed` (no
+HTTP status). Parent then explicitly authorized a public GitHub asset route. That
+route succeeded; PNG hash matched, PNG/JPEG pixels were inspected, and the committed
+1080x1350 sRGB JPEG was anonymously fetched with matching SHA-256 (212685 bytes).
+See `sources/initial-card.json` and `drafts/initial-queue.json`. Initial queue remains
+held for original screenshot provenance and parent review; queue.json is empty.
+
+Durable state branch is initialized at pinned genesis
+`26d1b1261d6b904a38ce8bd9df973d6b5d07c65d`. Branch protection and parent readiness
+remain prerequisites to live use. Code commit d2b7dc0126621a6d2e0d60f75b6fdd7f09610267
+triggered offline CI; its outcome must be checked in Actions, not inferred from
+local tests. Campaign remains inactive with no activation/end dates.
 
 ## API documentation provenance
 

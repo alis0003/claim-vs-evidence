@@ -4,7 +4,7 @@
   "parent_confirmed_secret_ready": false,
   "initial_queue_reviewed": false,
   "live_test_completed": false,
-  "state_genesis": null,
+  "state_genesis": "26d1b1261d6b904a38ce8bd9df973d6b5d07c65d",
   "active": false,
   "activation_at": null,
   "end_at": null,
