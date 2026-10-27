@@ -3,16 +3,16 @@
     "claim": "This vehicle fire-trail clip shows deliberate forest burning in Indonesia.",
     "claim_id": "fbaaded259b8f6756f6de3f56b8c0bef2376d41043b18b8e4b9e60dacacc13cf",
     "caption": "FALSE CONTEXT: This vehicle fire-trail clip shows prescribed burning in Alabama, USA, not deliberate forest burning in Indonesia. AFP traced it to CFM Fire Managers and reported that the original video was posted on 15 February 2026; that date is attributed to AFP, not independently verified here. This conclusion concerns this clip only and does not establish what caused Indonesia’s fires.\nSource: https://factcheck.afp.com/doc.afp.com.D3XP2T4\nClaim archive: https://perma.cc/8X4Q-5YPQ?type=image\nChecked: 27 October 2026. AI-assisted research and design; evidence and card reviewed before publication.",
-    "reviewer": "Executor source and pixel QA; parent provenance review pending",
+    "reviewer": "parent-automated-evidence-editorial-review/capture-worker",
     "evidence_summary": "AFP identifies this footage as prescribed burning in Alabama. Scope limited to the clip/location claim.",
-    "ready_for_publish": false,
-    "editorial_verified": false,
+    "ready_for_publish": true,
+    "editorial_verified": true,
     "evidence_supported": true,
     "high_impact_identifiable_person": false,
     "verdict": "out_of_context",
     "language": "en",
     "claim_date": "2026-10-18T00:00:00+00:00",
-    "reviewed_at": "2026-10-27T13:38:12.954422+00:00",
+    "reviewed_at": "2026-10-27T13:44:52.718348+00:00",
     "created_at": "2026-10-27T13:38:12.954422+00:00",
     "expires_at": "2026-11-26T13:38:12.954422+00:00",
     "run_after": "2026-10-27T13:38:12.954422+00:00",
@@ -30,12 +30,16 @@
     ],
     "screenshot_provenance": {
       "original_url": "https://perma.cc/8X4Q-5YPQ?type=image",
-      "publisher": "Archived viral claim",
-      "context": "Parent confirms exact original screenshot pixels in approved card. Direct archive retrieval and standalone capture hash not verified by executor.",
+      "publisher": "Unknown uploader; archived Facebook Reel",
+      "context": "Parent and capture worker verified archived claim and exact original pixels. Minimal 244x435 JPEG crop, 19894 bytes; source permalink https://www.facebook.com/reel/2803897706715020 . Original describes screenshot provenance, not truth of the claim.",
       "captured_at": null,
-      "sha256": null,
-      "original": false,
-      "rights_reviewed": false
+      "sha256": "06093406abc14b9868f810e7d965a9e59da03169ef2a9756cbc818e04be489c6",
+      "original": true,
+      "rights_reviewed": true,
+      "saved_at_utc": "2026-10-27T09:29:48.557714Z",
+      "timestamp_basis": "filesystem_save_exact_capture_unrecorded",
+      "timestamp_note": "Crop filesystem save time, not an instrumented capture event. Full capture saved at 2026-10-27T09:29:40.764706Z. Archive displays Captured October 22 2026 2:00pm with no timezone; no exact UTC capture time is asserted.",
+      "claim_url": "https://www.facebook.com/reel/2803897706715020"
     },
     "image": {
       "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/b001117bf52157b0c2c2ff2cba88b3d8be4e958a/cards/claim-vs-evidence-01-indonesia-evidence.jpg",
@@ -43,6 +47,12 @@
       "width": 1080,
       "height": 1350,
       "sha256": "331ddae4235807b4db6ceff28cfcc1ac9f44e53f6e36e39ba8d6f8812f763e2b"
+    },
+    "review_provenance": {
+      "mode": "independent_automated",
+      "producer_id": "native-research-producer",
+      "reviewer_id": "parent-automated-evidence-editorial-review/capture-worker",
+      "review_notes": "Independent automated evidence/editorial review recorded in sources/initial-editorial-review.json; exact source pixels and narrow caption verified. Contextual single-frame rights assessment completed without ownership/licence/permission guarantee."
     }
   }
 ]

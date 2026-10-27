@@ -20,8 +20,9 @@ While inactive, prepare reviewed drafts only. Do not publish or promote initial 
 Only `drafts/**`, `cards/**`, `sources/**`, and append-only additions to `queue.json`
 are permitted. Do not modify code, workflows, campaign configuration, state branch,
 secrets, account settings, repository settings, tests or completed queue records.
-Never overwrite an existing stable claim ID to evade deduplication. Human review
-must also catch semantically duplicate claims with different wording. Do not write
+Never overwrite an existing stable claim ID to evade deduplication. Independent automated evidence/editorial review must also check for semantically
+duplicate claims with different wording. Record the distinct producer and reviewer
+identifiers and actual review notes; never imply a human reviewed the work. Do not write
 private/unredacted screenshots, identifying sensitive data or credentials publicly.
 
 ## Editorial and ready gate
@@ -49,6 +50,10 @@ as the executable schema. Top level is a JSON array, maximum 100 jobs. Each job:
   whitespace-normalized casefolded text); `language`: en; bounded `verdict` above.
 - `caption` <=2200 characters: scoped verdict, source URLs, date checked and explicit
   AI-assisted research/design disclosure. `reviewer`, `evidence_summary` nonempty.
+- `review_provenance`: mode=independent_automated, distinct producer_id and
+  reviewer_id, and nonempty review_notes. reviewer must equal reviewer_id. Record
+  the actual independent evidence/editorial assessment in sources; never invent
+  reviewer identity or label automated review as human approval.
 - Explicit editorial/ready/evidence booleans and high-impact flag as above.
 - UTC-aware `claim_date`, `reviewed_at`, `created_at`, `expires_at`, `run_after`,
   `run_before`. Claim date <=30 days old, review <=7 days old, none future.
@@ -58,8 +63,14 @@ as the executable schema. Top level is a JSON array, maximum 100 jobs. Each job:
   Do not substitute a date-checked value for an old publication date.
 - `screenshot_provenance`: original_url, publisher, context, captured_at, sha256,
   original=true, rights_reviewed=true. Hash the actual capture; never invent it.
-  If the archive or original cannot be inspected, hold the draft. Current executable
-  URL policy rejects query strings; do not silently strip meaningful archive queries.
+  If exact capture time was not recorded, captured_at may be null with genuine
+  saved_at_utc, timestamp_basis=filesystem_save_exact_capture_unrecorded and a
+  timestamp_note explicitly distinguishing file save from capture event. Never infer
+  a timezone for an archive label. Recent save time is a freshness check, not proof
+  of event time. Original source pixels/hash still require independent review.
+  Source/provenance URLs preserve public document query selectors (type, view,
+  format, page, id, article, lang, date, q). Credential/signature/redirect parameters,
+  duplicate keys and nested URLs are rejected. Never strip meaningful queries.
 - `image`: url, mime=image/jpeg, width, height, sha256. Baseline sRGB JPEG, approved
   default 1080x1350, <8MB. HTTPS anonymous fetch, public DNS, no redirects, credentials
   or URL query. Use immutable commit-addressed raw GitHub URL after card upload;

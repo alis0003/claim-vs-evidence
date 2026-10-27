@@ -16,6 +16,7 @@ def jpeg():
     return b'\xff\xd8\xff\xc0'+struct.pack('>H B H H B',17,8,1080,1080,3)+b'\x01\x11\x00\x02\x11\x00\x03\x11\x00\xff\xda\x00\x08\x01\x01\x00\x00\x3f\x00\x01\xff\xd9'
 def job():
     return dict(claim='A testable claim for mocked tests',claim_id=p.claim_id('A testable claim for mocked tests'),
+      review_provenance=dict(mode='independent_automated',producer_id='test-producer',reviewer_id='test-editor',review_notes='Separate review of evidence, scope and semantic duplicates'),
       caption='A reviewed explanation. Sources: https://www.nasa.gov/fact',reviewer='test-editor',evidence_summary='Verified against original evidence',
       ready_for_publish=True,editorial_verified=True,evidence_supported=True,high_impact_identifiable_person=False,verdict='true',language='en',
       claim_date=iso(-24),reviewed_at=iso(-1),created_at=iso(-2),expires_at=iso(24),run_after=iso(-1),run_before=iso(1),
@@ -110,6 +111,41 @@ class Tests(unittest.TestCase):
     def test_unsafe_urls(self):
         for url in ['http://www.nasa.gov/x','https://127.0.0.1/a','https://169.254.169.254/a','https://[::1]/a','https://example.com/x','https://me:password@www.nasa.gov/a','https://www.nasa.gov/a?token=secret','https://x.local/a']:
             with self.subTest(url=url),self.assertRaises(p.Stop): p.public_url(url)
+    def test_source_query_preserved_and_media_query_denied(self):
+        url='https://perma.cc/8X4Q-5YPQ?type=image'
+        self.assertEqual(p.public_url(url,allow_source_query=True).query,'type=image')
+        with self.assertRaises(p.Stop):p.public_url(url)
+        self.job['sources'][0]['url']=url
+        self.job['screenshot_provenance']['original_url']=url
+        p.validate(self.job,NOW)
+        calls=[]
+        def recording(url,**kwargs):
+            calls.append((url,kwargs));return fetch(url,**kwargs)
+        p.preflight(self.job,recording)
+        self.assertEqual(calls[0][0],url);self.assertTrue(calls[0][1]['source'])
+    def test_honest_filesystem_save_time_without_capture_timestamp(self):
+        provenance=self.job['screenshot_provenance']
+        provenance.update(captured_at=None,saved_at_utc=iso(-2),
+            timestamp_basis='filesystem_save_exact_capture_unrecorded',
+            timestamp_note='Exact capture event was not recorded; saved_at_utc is the filesystem save time only.')
+        p.validate(self.job,NOW)
+        provenance['saved_at_utc']=iso(-24*31)
+        with self.assertRaisesRegex(p.Stop,'stale_or_future_evidence'):p.validate(self.job,NOW)
+    def test_missing_capture_requires_explicit_save_time_basis(self):
+        provenance=self.job['screenshot_provenance'];provenance['captured_at']=None
+        with self.assertRaises(p.Stop):p.validate(self.job,NOW)
+        provenance.update(saved_at_utc=iso(-2),timestamp_note='approximate',timestamp_basis='capture')
+        with self.assertRaisesRegex(p.Stop,'missing_provenance_time_basis'):p.validate(self.job,NOW)
+    def test_source_queries_cannot_hide_credentials_or_redirects(self):
+        for q in ['access_token=secret','token=secret','sig=secret','redirect=https%3A%2F%2F127.0.0.1','q=https%3A%2F%2F127.0.0.1','type=image&type=video','type=%250a','type=image%0a','key=secret']:
+            with self.subTest(q=q),self.assertRaises(p.Stop):
+                p.public_url('https://perma.cc/8X4Q-5YPQ?'+q,allow_source_query=True)
+        for url in ['https://127.0.0.1/x?type=image','https://u:p@perma.cc/x?type=image']:
+            with self.assertRaises(p.Stop):p.public_url(url,allow_source_query=True)
+    def test_independent_automated_review_required(self):
+        for review in [None,dict(mode='human'),dict(mode='independent_automated',producer_id='test-editor',reviewer_id='test-editor',review_notes='same producer')]:
+            item=copy.deepcopy(self.job);item['review_provenance']=review
+            with self.assertRaisesRegex(p.Stop,'missing_independent_review'):p.validate(item,NOW)
     def test_private_dns(self):
         with patch.object(p.socket,'getaddrinfo',return_value=[(2,1,6,'',('127.0.0.1',443))]):
             self.fails('unsafe_dns',lambda:p.request('https://www.nasa.gov/fact'))

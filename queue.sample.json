@@ -34,7 +34,10 @@
       "context": "REPLACE",
       "original_url": "https://example.invalid/original",
       "captured_at": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
-      "sha256": "REPLACE_WITH_ORIGINAL_CAPTURE_SHA256"
+      "sha256": "REPLACE_WITH_ORIGINAL_CAPTURE_SHA256",
+      "saved_at_utc": null,
+      "timestamp_basis": null,
+      "timestamp_note": "If exact capture time is unrecorded, set captured_at=null and record genuine filesystem saved_at_utc with explicit filesystem_save_exact_capture_unrecorded basis."
     },
     "image": {
       "url": "https://example.invalid/card.jpg",
@@ -43,6 +46,12 @@
       "height": 1080,
       "sha256": "REPLACE_WITH_JPEG_SHA256"
     },
-    "ready_for_publish": false
+    "ready_for_publish": false,
+    "review_provenance": {
+      "mode": "independent_automated",
+      "producer_id": "native-research-producer",
+      "reviewer_id": "REPLACE",
+      "review_notes": "PENDING independent evidence, provenance and semantic-duplicate review; do not mark ready."
+    }
   }
 ]

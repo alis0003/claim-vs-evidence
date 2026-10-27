@@ -1,23 +1,21 @@
-# Initial card — HOLD, not in publish queue
+# Initial card — reviewed draft, no publication
 
-Approved PNG obtained via the explicitly authorized public GitHub asset route;
-its SHA-256 matched the parent-provided original. Executor inspected PNG and JPEG
-pixels. Conversion preserves the design and screenshot: baseline sRGB 1080x1350,
-212685 bytes. Public immutable JPEG URL and hash are in initial-queue.json.
-Anonymous fetch returned HTTP 200 image/jpeg with matching bytes and dimensions.
+Independent automated evidence/editorial review is recorded in
+sources/initial-editorial-review.json. Parent confirmed the narrow caption and AFP
+attribution; capture worker verified the archived claim and exact original pixels.
+Executor inspected PNG and final sRGB 1080x1350 JPEG; anonymous public bytes/hash match.
 
-AFP article was read on 27 October 2026. The verdict is narrowly out_of_context:
-this clip shows prescribed burning in Alabama, not deliberate Indonesian forest
-burning. The original 15 February upload date is attributed to AFP, not independently
-verified. No claim about the causes of all Indonesian fires is made.
+Original crop SHA256: 06093406abc14b9868f810e7d965a9e59da03169ef2a9756cbc818e04be489c6.
+Exact capture event was not recorded: captured_at stays null. The genuine crop
+filesystem save time is 2026-10-27T09:29:48.557714Z, not a capture timestamp. Archive
+label October 22 2026 2:00pm has no timezone. October 18 claim date comes from AFP.
 
-The original Library attempt and one fresh consumer-local retry each failed with
-generic `download failed`, exit 1; no HTTP status was exposed. Neither installed bytes.
-The parent then explicitly authorized the GitHub public asset route, which succeeded.
+Contextual rights assessment: necessary single claim still used for direct fact-check
+criticism with overlays/watermark and source attribution preserved. No AFP article
+or comparison graphic reproduced. No ownership, licence or legal-permission guarantee
+is asserted. This is automated editorial review, not a claim of human approval.
 
-Remaining before promotion: parent confirms original screenshot provenance/capture
-hash and date, rights review and exact claim-date interpretation; archive URL/query
-compatibility; initial queue approval; secret readiness; pilot activation/window and
-protected durable state. Draft has false ready/editorial flags and null provenance
-fields intentionally. queue.json remains empty. Refresh the 24-hour run window only
-at approval; never falsify evidence dates to satisfy validation.
+initial-queue.json is ready and validates. campaign.initial_queue_reviewed=true.
+Campaign remains inactive; token readiness false; operational queue empty; no live
+workflow active. Refresh only the run window when explicitly authorized for live
+execution; retain honest evidence dates. No publication has occurred.

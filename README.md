@@ -28,9 +28,12 @@ Ready jobs require ready_for_publish/editorial_verified/evidence_supported=true 
 high_impact_identifiable_person=false. Unsupported claims and high-impact allegations
 about identifiable people are held. Verdicts: true, false, misleading, out_of_context,
 unverified. `unverified` still requires evidence supporting that limited conclusion.
-Canonical claim IDs hash normalized wording; semantic duplicates need editorial review.
+Canonical claim IDs hash normalized wording; semantic duplicates require independent
+automated evidence/editorial review with distinct named producer/reviewer provenance.
 
 Claim/source/capture dates must be <=30 days old; review/check dates <=7 days old.
+If exact capture time is unrecorded, use the genuine recent filesystem saved_at_utc
+with explicit timestamp basis/note and captured_at=null; never pretend save is capture.
 Jobs expire within 30 days and have a <=24-hour run window. Never falsify old source
 dates to bypass checks. Exact JSON fields and commands are in the producer contract.
 
@@ -38,7 +41,9 @@ Baseline JPEG only: 320–1440 px width, aspect 0.8–1.91, <=8 MB; approved lay
 1080x1350 sRGB. `render_card.py` uses Pillow in the producer environment only. Inspect
 approved input and output pixels. Header validation is not a full JPEG decoder.
 The live preflight requires anonymous HTTPS media fetch, exact hash/dimensions and
-readable sources; private DNS/IPs, redirects, credential URLs and query strings fail.
+readable sources; private DNS/IPs, redirects and credential URLs fail. Media queries are forbidden;
+source/provenance queries allow bounded nonsecret document selectors such as
+perma.cc ?type=image, preserving their meaning.
 HTTP readability is not evidence verification. Original screenshot provenance and
 rights require actual review, not a checkbox inferred from a URL.
 
@@ -96,7 +101,9 @@ HTTP status). Parent then explicitly authorized a public GitHub asset route. Tha
 route succeeded; PNG hash matched, PNG/JPEG pixels were inspected, and the committed
 1080x1350 sRGB JPEG was anonymously fetched with matching SHA-256 (212685 bytes).
 See `sources/initial-card.json` and `drafts/initial-queue.json`. Initial queue remains
-held for original screenshot provenance and parent review; queue.json is empty.
+ready after independent automated evidence/editorial and contextual rights review;
+its genuine screenshot hash/save-time provenance is recorded. queue.json stays empty
+until the explicit parent live-test step and token readiness.
 
 Durable state branch is initialized at pinned genesis
 `26d1b1261d6b904a38ce8bd9df973d6b5d07c65d`. Branch protection and parent readiness

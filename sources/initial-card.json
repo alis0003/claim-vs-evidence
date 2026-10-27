@@ -5,10 +5,21 @@
   "checked_at": "2026-10-27T13:38:12.954422+00:00",
   "original_upload_date_basis": "15 February 2026, attributed to AFP; not independently verified.",
   "archive_url": "https://perma.cc/8X4Q-5YPQ?type=image",
-  "archive_status": "Not accessible via executor browsing; parent source provenance pending.",
+  "archive_status": "Parent/capture worker visually verified archived claim and original source pixels; executor archive browsing unavailable.",
   "approved_png_library_id": "libfile_283d3f23d1208191ac741ba5354bad1e",
   "approved_png_sha256": "8a077323a05f9cdd2b62a0ee9bc801c2e3608fe21ac7f44e0e6e0f3e4fe22907",
   "jpeg_sha256": "331ddae4235807b4db6ceff28cfcc1ac9f44e53f6e36e39ba8d6f8812f763e2b",
   "pixel_review": "Approved PNG and converted JPEG inspected; narrow claim/evidence distinction preserved.",
-  "date_precision": "Day-level dates represented at 00:00 UTC; exact source/post times not asserted."
+  "date_precision": "Day-level dates represented at 00:00 UTC; exact source/post times not asserted.",
+  "original_claim_url": "https://www.facebook.com/reel/2803897706715020",
+  "crop_sha256": "06093406abc14b9868f810e7d965a9e59da03169ef2a9756cbc818e04be489c6",
+  "crop_size_bytes": 19894,
+  "crop_dimensions": [
+    244,
+    435
+  ],
+  "crop_saved_at_utc": "2026-10-27T09:29:48.557714Z",
+  "capture_event_timestamp": null,
+  "archive_capture_label": "October 22 2026 2:00pm (timezone not shown)",
+  "timestamp_note": "Filesystem save times are not instrumented capture times. October 18 claim date is AFP-reported, not visible in archived screenshot. No ownership or license is asserted."
 }

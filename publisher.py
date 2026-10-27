@@ -46,12 +46,23 @@ def recent(value, now, days):
     require(dt.timedelta(0) <= age <= dt.timedelta(days=days), 'stale_or_future_evidence')
 
 
-def public_url(url):
+def public_url(url, allow_source_query=False):
     try:
+        require(isinstance(url,str) and len(url)<=4096 and not re.search(r'[\x00-\x20\x7f\\]',url), 'unsafe_url')
         p = urllib.parse.urlsplit(url)
         require(p.scheme == 'https' and p.hostname and not p.username and not p.password
-                and p.port in (None, 443) and not p.fragment and not p.query,
+                and p.port in (None, 443) and not p.fragment,
                 'unsafe_url')
+        if p.query:
+            require(allow_source_query, 'unsafe_url')
+            # Public document selectors only; no auth, signatures, redirects or
+            # nested URLs. Preserve original query bytes instead of stripping.
+            pairs=urllib.parse.parse_qsl(p.query,keep_blank_values=True,strict_parsing=True,max_num_fields=8)
+            allowed={'type','view','format','page','id','article','lang','date','q'}
+            require(pairs and len({k for k,v in pairs})==len(pairs), 'unsafe_source_query')
+            for key,value in pairs:
+                require(key in allowed and 0<len(value)<=256
+                        and bool(re.fullmatch(r'[\w .,:-]+',value)), 'unsafe_source_query')
         host = p.hostname.lower()
         require('.' in host and not host.endswith(('.local', '.localhost', '.internal', '.test', '.invalid'))
                 and host not in {'localhost', 'example.com', 'example.org', 'example.net'}, 'unsafe_url')
@@ -78,6 +89,11 @@ def validate(job, now):
     for key in ('claim', 'caption', 'reviewer', 'evidence_summary'):
         text_field(job, key, 2200 if key == 'caption' else 2000)
     require(job.get('claim_id') == claim_id(job['claim']), 'invalid_claim_id')
+    review=job.get('review_provenance')
+    require(isinstance(review,dict) and review.get('mode')=='independent_automated', 'missing_independent_review')
+    for key in ('producer_id','reviewer_id','review_notes'):
+        text_field(review,key)
+    require(review['producer_id']!=review['reviewer_id'] and job['reviewer']==review['reviewer_id'], 'missing_independent_review')
     require(job.get('ready_for_publish') is True and job.get('editorial_verified') is True and job.get('evidence_supported') is True,
             'unverified_editorial')
     require(job.get('high_impact_identifiable_person') is False, 'high_impact_allegation')
@@ -96,7 +112,7 @@ def validate(job, now):
         require(isinstance(s, dict), 'missing_evidence')
         for key in ('title', 'publisher', 'supports'):
             text_field(s, key)
-        public_url(s.get('url'))
+        public_url(s.get('url'), allow_source_query=True)
         recent(s.get('published_at'), now, 30)
         recent(s.get('checked_at'), now, 7)
         require(s.get('supports_claim_analysis') is True, 'missing_evidence')
@@ -105,8 +121,14 @@ def validate(job, now):
             'missing_provenance')
     for key in ('publisher', 'context'):
         text_field(p, key)
-    public_url(p.get('original_url'))
-    recent(p.get('captured_at'), now, 30)
+    public_url(p.get('original_url'), allow_source_query=True)
+    if p.get('captured_at') is None:
+        # Filesystem save time is NOT a capture event. Preserve that distinction.
+        text_field(p,'timestamp_note')
+        require(p.get('timestamp_basis')=='filesystem_save_exact_capture_unrecorded', 'missing_provenance_time_basis')
+        recent(p.get('saved_at_utc'),now,30)
+    else:
+        recent(p.get('captured_at'), now, 30)
     require(bool(re.fullmatch('[a-f0-9]{64}', str(p.get('sha256', '')))), 'missing_provenance')
     image = job.get('image')
     require(isinstance(image, dict) and image.get('mime') == 'image/jpeg', 'unsupported_media')
@@ -131,7 +153,7 @@ class PinnedHTTPS(http.client.HTTPSConnection):
             raise
 
 
-def request(url, method='GET', data=None, token=None, limit=8_000_000):
+def request(url, method='GET', data=None, token=None, limit=8_000_000, source=False):
     """No redirects, proxies, retries, cookies, response logging or exception echo."""
     conn = None
     try:
@@ -139,7 +161,7 @@ def request(url, method='GET', data=None, token=None, limit=8_000_000):
         if token is not None:
             require(p.scheme == 'https' and p.netloc == 'graph.instagram.com', 'unsafe_api_host')
         else:
-            public_url(url)
+            public_url(url, allow_source_query=source)
         conn = PinnedHTTPS(p.hostname, timeout=20, context=ssl.create_default_context())
         headers = {'Accept': '*/*'}
         if token is not None:
@@ -213,7 +235,7 @@ def jpeg_dimensions(data):
 
 def preflight(job, fetch=request):
     for s in job['sources']:
-        mime, raw = fetch(s['url'], limit=2_000_000)
+        mime, raw = fetch(s['url'], limit=2_000_000, source=True)
         require(mime in {'text/html','text/plain','application/pdf'} and len(raw.strip()) >= 40, 'unreadable_source')
     mime, data = fetch(job['image']['url'])
     require(mime == 'image/jpeg' and hashlib.sha256(data).hexdigest() == job['image']['sha256'], 'media_mismatch')

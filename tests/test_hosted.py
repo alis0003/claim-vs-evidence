@@ -102,6 +102,15 @@ class PilotTests(unittest.TestCase):
         self.env=dict(GITHUB_ACTIONS='true',GITHUB_REPOSITORY=REPOSITORY,GITHUB_REF='refs/heads/main',
           GITHUB_SHA='b'*40,GITHUB_EVENT_NAME='workflow_dispatch',PUBLISHING_ENABLED='true')
     def test_exact_30_day_window(self):pilot.gate(self.config,self.env,NOW)
+    def test_first_manual_live_test_does_not_require_completed_flag(self):
+        self.assertFalse(self.config['live_test_completed'])
+        self.env.update(INSTAGRAM_ACCESS_TOKEN='mock-instagram',GITHUB_TOKEN='mock-github')
+        fake_publisher=unittest.mock.Mock()
+        fake_publisher.run.return_value='sent'
+        with patch.object(pilot,'GitHubJournal') as journal, patch.object(pilot,'Publisher',return_value=fake_publisher):
+            self.assertEqual(pilot.run(self.config,[job()],True,self.env,lambda:NOW,lambda t:object(),lambda t:object()),'sent')
+        fake_publisher.run.assert_called_once()
+        self.assertFalse(self.config['live_test_completed'])
     def test_end_is_exclusive(self):
         with self.assertRaisesRegex(p.Stop,'pilot_outside_window'):pilot.gate(self.config,self.env,NOW+dt.timedelta(days=29))
     def test_short_or_long_duration_rejected(self):

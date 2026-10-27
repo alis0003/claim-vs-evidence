@@ -1,0 +1,12 @@
+{
+  "review_type": "independent_automated_evidence_editorial_review",
+  "reviewer_id": "parent-automated-evidence-editorial-review/capture-worker",
+  "producer_id": "native-research-producer",
+  "reviewed_at": "2026-10-27T13:44:52.718348+00:00",
+  "evidence_review": "Parent confirmed narrow false-context caption and AFP attribution. Capture worker visually verified archived claim and exact original source pixels; executor inspected approved PNG and converted JPEG.",
+  "rights_review_scope": "Necessary single claim still for direct fact-check criticism; original overlays/watermark preserved; clear false-context label and source attribution. No AFP article or comparison graphic reproduced.",
+  "rights_limits": "No ownership, licence, or legal-permission guarantee is asserted.",
+  "capture_timestamp_note": "Exact capture event unrecorded. Use genuine filesystem save timestamp with explicit basis; archive displayed time lacks timezone.",
+  "approved_for_ready_draft": true,
+  "live_publication_authorized": false
+}
