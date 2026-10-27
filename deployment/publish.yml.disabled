@@ -1,0 +1,40 @@
+# REVIEWED TEMPLATE ONLY: deliberately outside .github/workflows and disabled.
+# Move into workflows only after parent confirms secret + reviewed initial queue.
+name: Bounded Instagram pilot
+on:
+  workflow_dispatch:
+  # Uncomment only after a successful authorized live end-to-end test.
+  # schedule:
+  #   - cron: '17 */3 * * *'
+permissions: {}
+concurrency:
+  group: claimvsevidence-publishing
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'alis0003/claim-vs-evidence' && github.ref == 'refs/heads/main' && vars.PUBLISHING_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - name: Read exact public commit without credentials
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 https://github.com/alis0003/claim-vs-evidence.git "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Offline tests
+        run: python3 -m unittest discover -s tests -q
+      - name: Publish at most one due reviewed card within the pilot
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
+        run: python3 pilot.py --live
