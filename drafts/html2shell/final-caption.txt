@@ -1,0 +1,11 @@
+FALSE: The satirical “HTML2Shell” graphic misuses CVE-2026-42069. Kirby’s official advisory identifies missing read-access controls for authenticated Panel users, not remote code execution in HTML. The issue was patched in Kirby 4.9.0 and 5.4.0. This does not rule out actual browser or web-app vulnerabilities.
+
+Screenshot: Lead Stories’ fact-check by Maarten Schenk (25 October 2026), reproducing a graphic credited to @polydaic on X. Lead Stories dates the post to 24 October; we did not independently access the original X post. This attributed excerpt is shown to explain and critique the claim; it does not imply ownership or a reuse licence.
+
+Primary advisory (23 April 2026):
+https://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2
+
+Recent fact-check and screenshot source:
+https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html
+
+Checked 28 October 2026. AI-assisted research and design, with independent automated evidence/editorial review.
