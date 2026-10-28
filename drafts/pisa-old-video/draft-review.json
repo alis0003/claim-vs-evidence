@@ -1,0 +1,49 @@
+{
+  "result": "PASS_PUBLIC_DRAFT_STORAGE_ONLY",
+  "reviewer_id": "/root/review_final_html2shell",
+  "review_task": "pisa-draft-visual-review",
+  "mode": "independent_automated",
+  "human_review": false,
+  "reviewed_at": "2026-10-28T10:51:35.194270+00:00",
+  "assets": [
+    {
+      "path": "drafts/pisa-old-video/draft-card.jpg",
+      "sha256": "494b3195f70d59d2c5e7ffbe13fdd294af9e1f5a2103f61d3b0abb7621270465",
+      "bytes": 320847,
+      "width": 1080,
+      "height": 1350,
+      "mode": "RGB",
+      "progressive": false
+    },
+    {
+      "path": "drafts/pisa-old-video/caption-draft.txt",
+      "sha256": "45233d33d0d67f208c2b785dd472b5b581c0e51a31c1fef74294ffd769c3ef75",
+      "bytes": 790,
+      "characters": 788
+    }
+  ],
+  "ready_for_publish": false,
+  "queue_promotion_approved": false,
+  "final_publication_approved": false,
+  "visual_review": [
+    "Actual JPEG and native generation output viewed. Main text readable; no overlapping or cropped text.",
+    "Symbolic tower and calendar illustration carries prominent AI illustration — not actual footage label.",
+    "No people, flag demonstration, protest reconstruction or source screenshot is depicted.",
+    "Visible footer states DRAFT — NOT APPROVED FOR PUBLICATION.",
+    "No personal/sensitive data or credentials visible."
+  ],
+  "factual_review": {
+    "prior_source_review_at": "2026-10-28T10:49:30Z",
+    "verdict_scope": "out_of_context: one older clip represented as new October 2026 footage.",
+    "assessment": "Card and caption preserve attribution of the video match to Lead Stories. ANSA and Sky corroborate a November 2023 event; their old dates remain visible and unchanged. Caption explicitly avoids denying other 2026 protests.",
+    "original_access_note": "No original X, archive or embedded media accessed; no firsthand clip comparison claimed."
+  },
+  "generation_provenance_note": "Parent reports native imagegen with no external references; actual output inspected. Review makes no ownership/licence/legal-guarantee claim and infers no generation timestamp.",
+  "public_draft_assessment": "Suitable for public repository draft storage with current hold labels. This does not establish full candidate readiness or authorize posting.",
+  "remaining_blockers": [
+    "Anonymous Lead Stories source check recorded dns_failure with no HTTP response, no retries; not a successful preflight.",
+    "Any publication version needs updated final-byte review and complete candidate validation; current draft caption still expressly holds publication."
+  ],
+  "material_draft_concerns": [],
+  "actions": "Only this local draft review file written; no remote mutation, queue, settings, state or publication action."
+}

@@ -1,0 +1,56 @@
+{
+  "status": "held_not_ready",
+  "claim": "This video shows a new Palestinian flag protest at the Leaning Tower of Pisa in October 2026.",
+  "proposed_verdict": "out_of_context",
+  "claim_date": null,
+  "circulation_observed_date": "2026-10-20",
+  "claim_date_basis": "dated_fact_check_documents_circulation",
+  "checked_at": "2026-10-28 10:49:58 UTC",
+  "source_findings": [
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-video-of-palestinian-flag-at-tower-of-pisa-does-not-show-october-2026-italian-protests-its-from-2023.html",
+      "published_date": "2026-10-20",
+      "role": "recent_fact_check",
+      "finding": "Reports this clip predates October2026 and circulated in November2023. Match attributed to Lead Stories; original X not inspected."
+    },
+    {
+      "url": "https://www.ansa.it/english/news/2023/11/17/students-wave-palestinian-flag-from-leaning-tower-of-pisa_0f10e0e0-77ba-4932-b7f4-a600d5139c3d.html",
+      "published_date": "2023-11-17",
+      "role": "contemporaneous_documentary",
+      "finding": "Contemporary reporting documents Palestinian flag demonstration at Pisa. Page time17:08 has no timezone; retain date-only."
+    },
+    {
+      "url": "https://news.sky.com/video/israel-hamas-war-palestinian-flag-flown-from-italys-leaning-tower-of-pisa-during-demonstration-13011602",
+      "published_date": "2023-11-19",
+      "role": "contemporaneous_documentary",
+      "finding": "Dated video-page description corroborates November2023 demonstration. Video not played; exact clip match not independently established."
+    }
+  ],
+  "access_limits": "Original X returned403 in parent research. Not requested, retried, archived or obtained elsewhere in this producer run. No third-party article images acquired.",
+  "anonymous_preflight": {
+    "status": "blocked",
+    "stage": "Lead Stories source GET",
+    "result": "dns_failure",
+    "attempts": 1,
+    "http_response_received": false,
+    "retries": 0
+  },
+  "duplicates": {
+    "checked_head": "b69d9614a773268fc883586a59628886961f7ad0",
+    "result": "No semantic duplicate among current queue and sent ledger (Hormuz aerial geolocation; polar-bear rescue)."
+  },
+  "independent_source_review": {
+    "reviewer_id": "/root/review_final_html2shell",
+    "reviewed_at": "2026-10-28T10:49:30Z",
+    "result": "PASS source-only",
+    "notes": "Narrow out_of_context verdict; match attributed to Lead Stories; date-only original2023 documentary dates; Oct20 circulation-by. No final-byte or queue approval."
+  },
+  "ready_for_publish": false,
+  "remaining_gates": [
+    "Publication-final composition and new independent final-byte review (current image intentionally draft-labelled)",
+    "Full candidate schema validation",
+    "Supported anonymous source/media preflight",
+    "Fresh head duplicate recheck and append-only promotion"
+  ],
+  "draft_visual_review": "draft-review.json: independent public-draft-only PASS; not publication approval"
+}

@@ -1,0 +1,15 @@
+{
+  "generator": "Built-in ChatGPT image generation; image_gen__imagegen",
+  "generation_reference": "exec-8ab48aa0-b375-44fb-bdcb-3f206e05715d",
+  "generation_prompt": "Create an original editorial fact-check draft card, portrait 1080x1350 style. Cream background, dark navy typography, teal accents. Top small brand CLAIM VS EVIDENCE. Large title OLD VIDEO, NEW CONTEXT. Subheading: Pisa flag clip dates to 2023. Central clearly hand-drawn paper-cut illustration of a simplified leaning bell tower beside two abstract blank calendar sheets. No flag, people, protest, smoke, documentary imagery or recreation of an actual event. No external assets. Prominent band reads exactly: AI illustration \u2014 not actual footage. Below: CLAIM: This clip shows a new October 2026 protest. EVIDENCE: Lead Stories traces the video to November 2023. ANSA and Sky reported the event in 2023. Footer: DRAFT \u2014 not approved for publication. Sources: Lead Stories (20 Oct 2026); ANSA (17 Nov 2023); Sky News (19 Nov 2023). Clear spacious readable typography. This symbolic illustration is not evidence and must not resemble any real footage.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-28T10:50:38Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Actual service completion timestamp not returned; completed original pixels inspected by this observation time.",
+  "input_assets": [],
+  "third_party_inputs_used": false,
+  "derived_from_denied_material": false,
+  "context": "Symbolic original tower and calendars; no actual protest reconstruction. Draft not publication ready.",
+  "display_label": "AI illustration \u2014 not actual footage",
+  "original_sha256": "e36f8318ff10632bfee64732bd771acb5716dae4592f5b62bf0bf03d5dd5bcde"
+}
