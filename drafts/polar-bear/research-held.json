@@ -1,0 +1,48 @@
+{
+  "status": "held_asset_acquisition_denied",
+  "ready_for_publish": false,
+  "checked_at": "2026-10-28T07:35:21.938098+00:00",
+  "claim": "A video documents a real man rescuing, raising and releasing an injured polar bear cub.",
+  "provisional_verdict": "false",
+  "evidence_summary": "Lead Stories reports tracing the clip to an October21 Instagram post with creator-added AI disclosure. Origin and disclosure are attributed to that reporting; original Instagram was not independently inspected. No detector percentages or fabricated view counts are asserted.",
+  "sources": [
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-of-man-who-rescues-raises-releases-injured-polar-bear-cub.html",
+      "publisher": "Lead Stories",
+      "author": "Sarah Thompson",
+      "published_date": "2026-10-23",
+      "role": "recent_fact_check"
+    }
+  ],
+  "claim_date": null,
+  "circulation_observed_date": "2026-10-23",
+  "claim_date_note": "Fact-check publication establishes circulation by this date; original post date is secondary reporting.",
+  "proposed_photo": {
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wet_polar_bear.jpg",
+    "creator": "Martin Eklund / Teadrinker",
+    "license_exact": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "public_rights_evidence": "File-specific dedication and VRT confirmation ticket 2019111310019632; private correspondence not accessed.",
+    "published_photo_date": "2016-11-22",
+    "expected_source_sha1": "b4b64f7419ce90d0511ca69263c45967614d4883",
+    "expected_hash_basis": "Commons metadata only; not independently verified against downloaded bytes",
+    "asset_sha256": null,
+    "acquired_at": null,
+    "label": "Illustrative photo \u2014 not a frame from the viral video.",
+    "attribution": "Photo: Martin Eklund / Wikimedia Commons, CC0."
+  },
+  "acquisition": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Wet_polar_bear.jpg",
+    "result": "proxy_connect_403_forbidden",
+    "source_server_response_observed": false,
+    "bytes_obtained": false,
+    "retried": false,
+    "alternate_route_used": false
+  },
+  "remaining": [
+    "Authorized supported asset acquisition with actual bytes and hash verification; do not bypass the denied route.",
+    "Render and independent final JPEG/caption/rights review.",
+    "Full candidate validation and anonymous runner preflight.",
+    "Verified append-only promotion before scheduling readiness."
+  ]
+}
