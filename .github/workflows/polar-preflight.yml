@@ -1,0 +1,47 @@
+# Anonymous final-candidate check only. No secrets or Instagram calls.
+name: Polar-bear candidate preflight
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [sources/polar-bear-candidate.json]
+permissions: {}
+concurrency:
+  group: claimvsevidence-public-preflight
+  cancel-in-progress: false
+jobs:
+  public-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # No Actions dependencies or unverified action SHAs. Built-in git reads the
+      # public repository at the exact workflow commit; no auth or credentials.
+      - name: Read public source at exact commit
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 "https://github.com/${SOURCE_REPO}.git" "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Anonymous source and JPEG validation (no Instagram credentials)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PYTHON'
+          import datetime, json
+          from publisher import validate_ready, preflight, UTC, Stop
+          job = json.load(open('sources/polar-bear-candidate.json'))
+          try:
+              validate_ready(job, datetime.datetime.now(UTC))
+              preflight(job)
+          except Stop as error:
+              raise SystemExit('Public preflight failed: ' + str(error)) from None
+          print('Anonymous source and image preflight passed; no Instagram API calls.')
+          PYTHON

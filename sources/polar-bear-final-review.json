@@ -1,0 +1,86 @@
+{
+  "result": "PASS_SCOPED_FINAL_EDITORIAL_AND_ORIGINAL_ILLUSTRATION_REVIEW",
+  "reviewer_id": "/root/review_final_html2shell",
+  "review_task": "polar-bear-original-ai-illustration",
+  "producer_id": "/root",
+  "mode": "independent_automated",
+  "human_review": false,
+  "reviewed_at": "2026-10-28T08:50:55.122283+00:00",
+  "editorial_verified": true,
+  "rights_reviewed": true,
+  "scope": "Final exact JPEG and UTF-8 caption. No queue validation, schedule activation or publication is performed by this review.",
+  "jpeg": {
+    "path": "cards/polar-bear-ai-fact-check.jpg",
+    "sha256": "ec9082766bfc83ddf2ec3cfe2442c365d7140fa5b2f2a17f32e186c4d0002d72",
+    "bytes": 304283,
+    "width": 1080,
+    "height": 1350,
+    "encoding": "baseline RGB JPEG"
+  },
+  "original_illustration": {
+    "path": "cards/polar-bear-original-ai-illustration.png",
+    "sha256": "880aeae0e60953a194f3a8a1acb4cb25f1b94d3418ba019d0f30a31f5ffef250",
+    "bytes": 2335623,
+    "width": 1536,
+    "height": 1024
+  },
+  "caption": {
+    "path": "drafts/polar-bear/caption-final.txt",
+    "sha256": "4f5d3a27726a04c9055345889bceca4143f8e793338500930c3ed2351b3de80a",
+    "bytes": 908,
+    "characters": 906
+  },
+  "source_review": {
+    "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-of-man-who-rescues-raises-releases-injured-polar-bear-cub.html",
+    "publisher": "Lead Stories",
+    "author": "Sarah Thompson",
+    "published_date": "2026-10-23",
+    "checked_at": "2026-10-28T08:50:55.122283+00:00",
+    "method": "Independently read source through supported browser reader.",
+    "finding": "The report identifies the rescue story as AI-generated, traces it to an AI-content account, and reports a creator-added disclosure on an October 21 Instagram post. Card and caption explicitly attribute these observations.",
+    "original_social_post_access": "Not attempted; no independent original-video inspection claimed.",
+    "date_precision": "October 21 original-post date is secondary reporting, not an independently verified event timestamp. October 23 fact-check establishes circulation by then."
+  },
+  "visual_review": {
+    "actual_original_and_final_pixels_inspected": true,
+    "findings": [
+      "Prominent AI illustration — not actual footage banner appears immediately above the artwork.",
+      "Generic healthy cub on ice; no man, injury, veterinary care, rescue action or reconstructed viral-video scene.",
+      "Footer and caption explicitly say the illustration is not event evidence.",
+      "No cropped or overlapping text; source, publication date and limited scope readable.",
+      "No third-party screenshot, watermark, logo or identifiable person visible in the illustration."
+    ]
+  },
+  "illustration_provenance_review": {
+    "tool_basis": "Parent reports user-approved built-in image generation from an original prompt without external image assets; this reviewer did not run the generation call.",
+    "generation_at": null,
+    "generation_time_note": "Exact generation event timestamp is unknown; neither receipt observation nor local byte verification time is a generation timestamp.",
+    "parent_reported_receipt_observed_at": "2026-10-28T08:46:43Z",
+    "parent_reported_local_verification_time_note": "2026-10-28 around 08:47 UTC; no more precise event time inferred.",
+    "source_bytes_hash_independently_verified": true,
+    "not_screenshot_or_event_evidence": true,
+    "denied_asset_route": "No denied image fetched or reused by reviewer. The separate original illustration is not a retry of the prior denied screenshot or Commons image acquisition."
+  },
+  "rights_review": {
+    "assessment": "PASS for the scoped original-illustration gate on the supplied generation provenance and inspected bytes. No reused source screenshot is in the final card.",
+    "ownership_asserted": false,
+    "exclusive_rights_asserted": false,
+    "external_image_licence_asserted": false,
+    "legal_permission_guarantee": false,
+    "note": "User approval and original-generation provenance support this production use; this is not a determination of exclusive copyright or a legal guarantee."
+  },
+  "duplicate_review": {
+    "remote_queue_read": true,
+    "remote_sent_ledger_read": true,
+    "existing_claim_id": "bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf",
+    "existing_topic": "Hormuz/Bangladesh video location",
+    "finding": "Polar-bear AI rescue story is materially distinct. No exact or semantic duplicate in current operational queue or sent ledger."
+  },
+  "material_concerns": [],
+  "handoff_requirements": [
+    "Bind all review attestations to these unchanged JPEG and UTF-8 caption hashes.",
+    "Use original-AI-illustration provenance, never screenshot_provenance original=true for generated art.",
+    "Retain research-held.json as historical denied-route record; new candidate provenance must clearly identify the separately approved AI illustration.",
+    "Parent must complete full candidate validation, immutable public-image preflight and append-only queue promotion before enabling scheduling."
+  ]
+}
