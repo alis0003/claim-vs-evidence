@@ -1,0 +1,47 @@
+# One authorized normal request for a distinct Full Fact case, not an AFP retry.
+name: Full Fact source readiness
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fullfact-readiness.yml']
+permissions: {}
+concurrency:
+  group: claimvsevidence-fullfact-readiness
+  cancel-in-progress: false
+jobs:
+  public-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # No Actions dependencies or unverified action SHAs. Built-in git reads the
+      # public repository at the exact workflow commit; no auth or credentials.
+      - name: Read public source at exact commit
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 "https://github.com/${SOURCE_REPO}.git" "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: One normal Full Fact source check, no credentials or retries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PYTHON'
+          from publisher import request, Stop
+          url = 'https://fullfact.org/world/viral-clip-ships-hormuz-false/'
+          try:
+              mime, body = request(url, limit=2000000, source=True)
+          except Stop as error:
+              print('FULLFACT_READINESS=' + str(error))
+              raise SystemExit(1) from None
+          if mime not in ('text/html', 'text/plain') or len(body.strip()) < 40:
+              raise SystemExit('FULLFACT_READINESS=unreadable_source')
+          print('FULLFACT_READINESS=http_200; mime=' + mime + '; bytes=' + str(len(body)))
+          PYTHON
