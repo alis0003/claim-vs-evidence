@@ -1,0 +1,12 @@
+FALSE: This specific video of people collecting floating iPhone boxes in the Strait of Hormuz is AI-generated, according to Full Fact. Its 27 October check reports a SynthID watermark and continuity errors, including a changing number of boxes. These are Full Fact’s findings; we did not run the detector or independently inspect the referenced Facebook post.
+
+The sinking itself was real: Singapore’s Maritime and Port Authority confirmed that GFS PRIDE sank and its crew were safely evacuated. This video check does not establish what cargo was aboard or deny other real cargo-recovery footage. It does not identify who caused the sinking.
+
+AI illustration — not actual footage. The accompanying artwork is an original generic illustration, not a video frame or evidence of the event.
+
+Sources:
+https://fullfact.org/world/video-people-collecting-iPhones-Strait-Hormuz-ai-generated/
+https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-shows-people-fishing-iphones-out-of-water-after-missile-attack-on-ship-in-strait-of-hormuz-it-is-ai.html
+https://www.mpa.gov.sg/media-centre/details/two-singapore-registered-vessels-struck-in-strait-of-hormuz
+
+Checked 28 October 2026. AI-assisted research, design and original illustration; independent automated evidence/editorial review.
