@@ -57,5 +57,88 @@
       "height": 1350,
       "sha256": "66dd0f5a85c7795ee7de96bce8311c65245fab09ab3a67a9e326df17bf65c36e"
     }
+  },
+  {
+    "claim": "A viral video documents a real man rescuing, raising and releasing an injured polar bear cub.",
+    "claim_id": "55558b2a3a51b49258a7c1799e14a9a7e573ff16b52a817c7571104917d81038",
+    "caption": "FALSE: The polar-bear-cub rescue story in the viral video is not a documented real rescue. Lead Stories traced the clip to an AI-content creator and reported a creator-added AI disclosure on the original 21 October 2026 Instagram post. Those origin and disclosure findings are attributed to Lead Stories; we did not independently inspect the original video.\n\nAI illustration — not actual footage. The image is a new, generic illustration of a cub. It is not a frame from the viral video and is not evidence of any rescue.\n\nSource: Sarah Thompson, Lead Stories, 23 October 2026:\nhttps://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-of-man-who-rescues-raises-releases-injured-polar-bear-cub.html\n\nChecked 28 October 2026. AI-assisted research, design and original illustration; independent automated evidence/editorial review. This finding concerns this specific video, not all wildlife rescues.\n",
+    "reviewer": "/root/review_final_html2shell",
+    "evidence_summary": "Lead Stories traces the viral rescue story to an AI-content creator and reports an AI disclosure. Original-post observations are attributed to this reporting; no independent original-video inspection or detector measurement is claimed.",
+    "editorial_verified": true,
+    "evidence_supported": true,
+    "high_impact_identifiable_person": false,
+    "verdict": "false",
+    "language": "en",
+    "claim_date": null,
+    "claim_date_basis": "dated_fact_check_documents_circulation",
+    "circulation_observed_date": "2026-10-23",
+    "circulation_evidence_url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-of-man-who-rescues-raises-releases-injured-polar-bear-cub.html",
+    "claim_date_note": "Fact-check publication establishes circulation by October23. October21 original-post date is secondary attribution to Lead Stories, not independently inspected.",
+    "reviewed_at": "2026-10-28T08:50:55.122283+00:00",
+    "created_at": "2026-10-28T08:52:13.844771+00:00",
+    "expires_at": "2026-11-04T08:52:13.844771+00:00",
+    "run_after": "2026-10-28T08:52:13.844771+00:00",
+    "run_before": "2026-10-29T07:52:13.844771+00:00",
+    "sources": [
+      {
+        "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-of-man-who-rescues-raises-releases-injured-polar-bear-cub.html",
+        "title": "Fact Check: FAKE Video Of Man Who Rescues, Raises, Releases Injured Polar Bear Cub",
+        "publisher": "Lead Stories",
+        "supports": "Reported creator-added AI disclosure and origin of this specific polar-bear rescue clip.",
+        "published_date": "2026-10-23",
+        "checked_at": "2026-10-28T08:50:55.122283+00:00",
+        "supports_claim_analysis": true,
+        "evidence_role": "recent_fact_check",
+        "independent_fact_check": true
+      }
+    ],
+    "image": {
+      "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/20da731a8a84d634ada3e51feb95e7e95a9876b6/cards/polar-bear-ai-fact-check.jpg",
+      "mime": "image/jpeg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "ec9082766bfc83ddf2ec3cfe2442c365d7140fa5b2f2a17f32e186c4d0002d72"
+    },
+    "ready_for_publish": true,
+    "review_provenance": {
+      "mode": "independent_automated",
+      "producer_id": "publishing-executor-polar-bear-composition",
+      "reviewer_id": "/root/review_final_html2shell",
+      "review_notes": "Independent final-byte source/editorial/provenance and semantic-duplicate review PASS, including user-approved original AI illustration and non-footage disclosure. See sources/polar-bear-final-review.json."
+    },
+    "visual_provenance": {
+      "generator": "Built-in ChatGPT image generation; image_gen__imagegen",
+      "generation_reference": "libfile_8220fa80748881919a27a2d679e2bd83",
+      "generation_prompt": "Use case: illustration-story.\nAsset type: original editorial illustration for a polar-bear fact-check card.\nPrimary request: a young polar bear cub standing calmly on an Arctic snowbank beside still dark-blue water, with distant low sea ice and a pale sky.\nStyle/medium: unmistakably nonphotographic editorial illustration, textured gouache and crisp simplified shapes; visually sophisticated, gentle and clear.\nComposition/framing: landscape composition, cub fully visible with natural anatomy and four paws, spacious uncluttered background, designed to crop well in a card.\nConstraints: This is a fictional generic wildlife illustration, not a portrayal of any real event. No rescue, danger, injury, human, person, ship, aircraft, harness, logos, writing, text, or watermark. Do not resemble a still from actual footage. Original art with no external assets.",
+      "generated_asset_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/03b1c724a0c4902998caaa638ffca0e246ef4344/cards/polar-bear-original-ai-illustration.png",
+      "asset_sha256": "880aeae0e60953a194f3a8a1acb4cb25f1b94d3418ba019d0f30a31f5ffef250",
+      "generated_at": null,
+      "generation_completed_by": "2026-10-28T08:49:01+00:00",
+      "generation_time_basis": "completion_observed",
+      "generation_time_note": "Exact generation-event time is unavailable. Parent confirms generation on 2026-10-28; reported approximate 08:22 UTC is not an exact event timestamp. Publishing executor verified and inspected completed original bytes before this recorded observation time.",
+      "consent_basis": "User explicitly approved original AI illustration with prominent non-footage disclosure; parent confirmed this exact original asset and its repository transfer.",
+      "context": "Generic fictional cub illustration, not a rescue reconstruction or evidence for the verdict.",
+      "transformations": "Full original illustration resized proportionally into a labelled editorial card; no crop or external image inputs. Final full card converted to sRGB baseline JPEG.",
+      "user_approved": true,
+      "third_party_inputs_used": false,
+      "input_assets": [],
+      "derived_from_denied_material": false,
+      "not_event_evidence": true,
+      "actual_event_reconstruction": false,
+      "kind": "ai_illustration",
+      "display_label": "AI illustration — not actual footage",
+      "generation_record_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/20da731a8a84d634ada3e51feb95e7e95a9876b6/sources/polar-bear-generation.json",
+      "facts_independently_sourced": true,
+      "claim_presented_as_text": true,
+      "visual_review": {
+        "label_visible": true,
+        "context_verified": true,
+        "reviewer_id": "/root/review_final_html2shell",
+        "jpeg_sha256": "ec9082766bfc83ddf2ec3cfe2442c365d7140fa5b2f2a17f32e186c4d0002d72",
+        "caption_sha256": "4f5d3a27726a04c9055345889bceca4143f8e793338500930c3ed2351b3de80a",
+        "reviewed_at": "2026-10-28T08:50:55.122283+00:00",
+        "notes": "Distinct agent inspected final JPEG and original generated pixels, verified prominent disclosure and generic non-event context, independently read fact-check and checked semantic duplicates. sources/polar-bear-final-review.json."
+      }
+    }
   }
 ]
