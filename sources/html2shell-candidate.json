@@ -1,0 +1,72 @@
+{
+  "claim": "CVE-2026-42069 describes HTML2Shell, a critical HTML remote-code-execution vulnerability.",
+  "claim_id": "de4cda6a6f2e7a494aea6cf4a3c508b9a50da62f420aac640d2ef9206bd145b7",
+  "caption": "FALSE: The satirical \u201cHTML2Shell\u201d graphic misuses CVE-2026-42069. Kirby\u2019s official advisory identifies missing read-access controls for authenticated Panel users, not remote code execution in HTML. The issue was patched in Kirby 4.9.0 and 5.4.0. This does not rule out actual browser or web-app vulnerabilities.\n\nScreenshot: Lead Stories\u2019 fact-check by Maarten Schenk (25 October 2026), reproducing a graphic credited to @polydaic on X. Lead Stories dates the post to 24 October; we did not independently access the original X post. This attributed excerpt is shown to explain and critique the claim; it does not imply ownership or a reuse licence.\n\nPrimary advisory (23 April 2026):\nhttps://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2\n\nRecent fact-check and screenshot source:\nhttps://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html\n\nChecked 28 October 2026. AI-assisted research and design, with independent automated evidence/editorial review.\n",
+  "reviewer": "/root/review_final_html2shell",
+  "evidence_summary": "A real older Kirby advisory concerns authenticated Panel read permissions. A recent independent fact-check identifies the HTML2Shell graphic as satire misusing that CVE number.",
+  "editorial_verified": true,
+  "evidence_supported": true,
+  "high_impact_identifiable_person": false,
+  "verdict": "false",
+  "language": "en",
+  "claim_date": null,
+  "claim_date_basis": "dated_fact_check_documents_circulation",
+  "claim_date_note": "Original X post timestamp not independently accessed. Lead Stories October25 report establishes circulation by then; its October24 post date is secondary attribution only.",
+  "circulation_observed_date": "2026-10-25",
+  "circulation_evidence_url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+  "reviewed_at": "2026-10-28T07:06:03.568327+00:00",
+  "created_at": "2026-10-28T07:07:08.915593+00:00",
+  "expires_at": "2026-11-04T07:07:08.915593+00:00",
+  "run_after": "2026-10-28T07:07:08.915593+00:00",
+  "run_before": "2026-10-29T06:07:08.915593+00:00",
+  "sources": [
+    {
+      "checked_at": "2026-10-28T06:56:30.784601+00:00",
+      "supports_claim_analysis": true,
+      "url": "https://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2",
+      "title": "Read access to site, user and role information is not gated by permissions",
+      "publisher": "Kirby / GitHub Security Advisory",
+      "supports": "CVE identity, affected authenticated Panel users, read-access impact and patch versions.",
+      "published_date": "2026-04-23",
+      "evidence_role": "primary_documentary",
+      "primary_source": true,
+      "publication_date_verified": true,
+      "publication_date_basis": "Official GitHub advisory displays Apr 23, 2026; independently read during this review.",
+      "documentary_relevance": "Original CVE identity and vulnerability scope; not evidence of recent circulation."
+    },
+    {
+      "checked_at": "2026-10-28T06:56:30.784601+00:00",
+      "supports_claim_analysis": true,
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+      "title": "Fact Check: JOKE CVE-2026-42069 HTML2Shell Issue NOT A Real Internet Security Vulnerability",
+      "publisher": "Lead Stories",
+      "supports": "Satirical context, reproduced claim graphic, credit to @polydaic on X and attributed original-post date.",
+      "published_date": "2026-10-25",
+      "evidence_role": "recent_fact_check",
+      "independent_fact_check": true
+    }
+  ],
+  "screenshot_provenance": {
+    "original": true,
+    "rights_reviewed": true,
+    "publisher": "Lead Stories; graphic credited to @polydaic on X",
+    "context": "Genuine screenshot of the Lead Stories reproduction, not a direct capture of X. One attributed claim graphic used for direct critical commentary; no article body. Scoped independent use review records no ownership, licence or legal-permission guarantee. Review: sources/html2shell-final-review.json.",
+    "original_url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+    "captured_at": "2026-10-28T06:30:11.281Z",
+    "sha256": "b32935ba44bda9de2cdcb33d506f093c6030408baf0b2ae0ef09b8ea76441511"
+  },
+  "image": {
+    "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/0918165832555c9cd0f1f8253a7a937f293de84c/cards/html2shell-fact-check.jpg",
+    "mime": "image/jpeg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "1bd6e9e0d57e7408bf52b1cb9dc1be11ce035e82fef80dacb3e3e831a3dc7d39"
+  },
+  "ready_for_publish": true,
+  "review_provenance": {
+    "mode": "independent_automated",
+    "producer_id": "/root/compose_html2shell_draft",
+    "reviewer_id": "/root/review_final_html2shell",
+    "review_notes": "Distinct agent independently read primary and recent fact-check evidence, inspected exact final JPEG/caption hashes and genuine crop, assessed limited attributed critical use without licence claims, and checked semantic duplicates. PASS; full record sources/html2shell-final-review.json."
+  }
+}

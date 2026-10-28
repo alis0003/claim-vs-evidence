@@ -1,0 +1,73 @@
+{
+  "result": "PASS_SCOPED_EDITORIAL_AND_SCREENSHOT_USE_REVIEW",
+  "reviewer_id": "/root/review_final_html2shell",
+  "producer_id": "/root/compose_html2shell_draft",
+  "mode": "independent_automated",
+  "human_review": false,
+  "reviewed_at": "2026-10-28T07:06:03.568327+00:00",
+  "editorial_verified": true,
+  "rights_reviewed": true,
+  "scope": "Independent review of final JPEG and final caption only; does not itself authorize queue promotion, scheduling or API publication.",
+  "jpeg": {
+    "path": "cards/html2shell-fact-check.jpg",
+    "sha256": "1bd6e9e0d57e7408bf52b1cb9dc1be11ce035e82fef80dacb3e3e831a3dc7d39",
+    "bytes": 264675,
+    "width": 1080,
+    "height": 1350,
+    "format": "baseline JPEG"
+  },
+  "caption": {
+    "path": "drafts/html2shell/final-caption.txt",
+    "sha256": "ea98296463b487e0cf9e307f82e88857fbaafc4982b5e0611f29a23d0dad1b92",
+    "characters": 1012
+  },
+  "source_checks": [
+    {
+      "url": "https://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2",
+      "publication_date": "2026-04-23",
+      "finding": "Independently read: CVE-2026-42069 identifies missing Kirby read-access controls for authenticated Panel users; patches 4.9.0 and 5.4.0. It is not the depicted HTML remote-code-execution issue."
+    },
+    {
+      "url": "https://getkirby.com/security",
+      "publication_date": null,
+      "finding": "Independent supplementary cross-check: CVE identity, read-access scope and patch versions match; no publication date invented."
+    },
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+      "publication_date": "2026-10-25",
+      "finding": "Independently read: satirical reused CVE graphic credited to @polydaic. October 24 post date remains explicitly secondary attribution. Current circulation documented by October 25 report."
+    }
+  ],
+  "provenance": {
+    "source_sha256": "b32935ba44bda9de2cdcb33d506f093c6030408baf0b2ae0ef09b8ea76441511",
+    "source_is_secondary_reproduction": true,
+    "original_x_access": "Not attempted; inherited 403 denial respected.",
+    "capture_timestamp_basis": "2026-10-28T06:30:11.281Z is supplied capture-manifest provenance, not a capture performed by this reviewer.",
+    "pixel_check": "Reconstructed crop (32,0,760,696) with recorded resizing. Final lossless composition crop interior matches exactly; final JPEG crop mean absolute RGB errors 0.829/0.688/0.883 are consistent with compression. Actual source and final JPEG inspected visually."
+  },
+  "editorial_findings": [
+    "Satirical wording appears in card and caption; no deceptive intent or unsupported popularity claim.",
+    "Narrow CVE correction retains caveat about real browser/web-app vulnerabilities.",
+    "Source masthead and embedded credit retained, full citation in caption, no draft labels, no clipping or unreadable main text.",
+    "No high-impact allegation about an identifiable person."
+  ],
+  "screenshot_use_review": {
+    "purpose": "Direct explanation and criticism of the displayed claim.",
+    "extent": "One claim graphic in a limited page screenshot; article body and sidebar omitted, masthead and attribution retained.",
+    "assessment": "No material concern identified for this scoped editorial-use gate. rights_reviewed means this assessment occurred, not rights ownership or legal clearance.",
+    "ownership_asserted": false,
+    "licence_established": false,
+    "legal_permission_guarantee": false,
+    "uncertainty": "Third-party rights remain with their holders; no permission or reuse licence has been established. This review is not a legal determination."
+  },
+  "semantic_duplicate_check": {
+    "queue": "Read local queue containing Hormuz location claim only.",
+    "remote_ledger": "Read public publishing-state state.json: sole sent ID bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf, media 18119429792063079.",
+    "finding": "HTML2Shell satire/CVE identity is a distinct claim; no semantic duplicate found."
+  },
+  "material_concerns": [],
+  "remaining_operational_gates": [
+    "Parent must bind this review to unchanged final JPEG/caption bytes.",
+    "Full candidate schema, current window, public immutable JPEG preflight and append-only promotion remain parent responsibilities."
+  ]
+}
