@@ -8,7 +8,7 @@ import re
 import sys
 import urllib.parse
 from github_journal import GitHubAPI, GitHubJournal, REPOSITORY
-from publisher import Publisher, Instagram, Stop, UTC, require, timestamp, validate, numeric
+from publisher import Publisher, Instagram, Stop, UTC, require, timestamp, validate, numeric, select_due
 
 
 def gate(config,env,now):
@@ -24,6 +24,8 @@ def gate(config,env,now):
     require(env.get('PUBLISHING_ENABLED')=='true','deployment_disabled')
     if env['GITHUB_EVENT_NAME']=='schedule':
         require(config.get('live_test_completed') is True,'live_test_required')
+        require(config.get('producer_fresh_run_verified') is True,'producer_readiness_required')
+        require(config.get('scheduled_publication_enabled') is True,'schedule_not_authorized')
     require(bool(re.fullmatch('[a-f0-9]{40}',str(config.get('state_genesis','')))),'missing_state_genesis')
     return end
 
@@ -45,16 +47,7 @@ def published_receipt(api,journal,cid):
 
 
 def run(config,jobs,live=False,env=None,clock=lambda:dt.datetime.now(UTC),github_factory=GitHubAPI,instagram_factory=Instagram):
-    require(isinstance(jobs,list) and len(jobs)<=100,'invalid_queue')
-    now=clock();seen=set()
-    # Expired/not-yet-due entries remain public audit records, but never execute.
-    due=[]
-    for job in jobs:
-        require(isinstance(job,dict),'invalid_queue')
-        cid=job.get('claim_id');require(isinstance(cid,str) and cid not in seen,'duplicate_claim');seen.add(cid)
-        if timestamp(job.get('expires_at'))<=now or timestamp(job.get('run_before'))<=now:continue
-        if timestamp(job.get('run_after'))>now:continue
-        validate(job,now);due.append(job)
+    due=select_due(jobs,clock())
     if not live:return 'dry_run_no_network'
     env=os.environ if env is None else env
     end=gate(config,env,clock())

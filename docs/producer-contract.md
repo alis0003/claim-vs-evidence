@@ -100,3 +100,17 @@ Inspect its pixels after conversion; confirm readability and that claim/evidence
 labels cannot be confused. A structural dry run does no network, authentication or
 truth verification. The eventual live preflight verifies anonymous image bytes and
 source readability, identity and quota; any uncertainty stops publication.
+
+
+## Append-only history and readiness confirmation
+
+Keep sent/expired jobs unchanged in queue.json. Offline CLI validates identity and
+window structure across the full history, rejects duplicate IDs anywhere, and fully
+validates only currently due jobs. Do not change old run windows to make CI pass.
+Future jobs receive full evidence validation when due; a clean offline run never
+asserts that skipped future evidence is publication-ready. The durable sent ledger
+is never removed/reset by queue validation.
+
+Producer fresh-run capability is still unconfirmed. Only the parent may update
+producer_fresh_run_verified, producer_readiness_record and scheduled_publication_enabled.
+Scheduled publication remains disabled until the independent fresh-run proof is checked.

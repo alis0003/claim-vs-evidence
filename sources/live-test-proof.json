@@ -1,0 +1,76 @@
+{
+  "status": "verified_sent",
+  "workflow_run_id": 40642635608,
+  "workflow_url": "https://github.com/alis0003/claim-vs-evidence/actions/runs/40642635608",
+  "workflow_commit": "1779a49e0d6ef5ee1b7df1d71a96b3eb04e242d9",
+  "claim_id": "bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf",
+  "queue_fingerprint": "ba50c681649969bbd47d2b9d551c9856d471eba18324a648e2bcc1af33f0bcd1",
+  "media_id": "18119429792063079",
+  "container_id": "17896385898456374",
+  "permalink": "https://www.instagram.com/p/DfBw8BMFS16/",
+  "state_commit": "acff380621e74d17c11d3a92e21d84b04abed36f",
+  "state_owner": null,
+  "checkpoints": [
+    {
+      "sha": "27af8ff0afb238caff818b79f395afc82d9b9cf7",
+      "owner_held": true,
+      "phase": "empty",
+      "container_id": null,
+      "media_id": null
+    },
+    {
+      "sha": "a605b1ce1759569a664a49b57e1a5a2131ae6a73",
+      "owner_held": true,
+      "phase": "creating",
+      "container_id": null,
+      "media_id": null
+    },
+    {
+      "sha": "0c0abebc17514459eb1966f3a098c60aff210c08",
+      "owner_held": true,
+      "phase": "created",
+      "container_id": "17896385898456374",
+      "media_id": null
+    },
+    {
+      "sha": "8e5ca26ff76e59fe058616ee718039d8533df6aa",
+      "owner_held": true,
+      "phase": "publishing",
+      "container_id": "17896385898456374",
+      "media_id": null
+    },
+    {
+      "sha": "5621e6c265de6d36d959907267076ce02dea2335",
+      "owner_held": true,
+      "phase": "sent",
+      "container_id": "17896385898456374",
+      "media_id": "18119429792063079"
+    },
+    {
+      "sha": "acff380621e74d17c11d3a92e21d84b04abed36f",
+      "owner_held": false,
+      "phase": "sent",
+      "container_id": "17896385898456374",
+      "media_id": "18119429792063079"
+    }
+  ],
+  "duplicate_proof": "already_sent; zero API calls; zero state writes (runner and independent executor replay)",
+  "github_token_permissions": {
+    "contents": "write",
+    "metadata": "read"
+  },
+  "instagram_token_scope": "Only publishing step; no secret read by executor",
+  "state_rules": {
+    "enforcement": "active",
+    "branch": "publishing-state",
+    "rules": [
+      "deletion",
+      "non_fast_forward"
+    ],
+    "bypass_actors": []
+  },
+  "source_files_changed_by_publisher": [
+    "state.json"
+  ],
+  "scheduled_publication_enabled": false
+}

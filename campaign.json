@@ -3,12 +3,15 @@
   "username": "claimvsevidence",
   "parent_confirmed_secret_ready": true,
   "initial_queue_reviewed": true,
-  "live_test_completed": false,
+  "live_test_completed": true,
   "state_genesis": "26d1b1261d6b904a38ce8bd9df973d6b5d07c65d",
   "active": true,
   "activation_at": "2026-10-28T06:07:35.862082+00:00",
   "end_at": "2026-11-27T06:07:35.862082+00:00",
   "producer_timezone": "Asia/Kolkata",
   "producer_daypart": "morning",
-  "quality_first": true
+  "quality_first": true,
+  "producer_fresh_run_verified": false,
+  "scheduled_publication_enabled": false,
+  "producer_readiness_record": null
 }

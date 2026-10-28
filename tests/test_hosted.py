@@ -131,6 +131,15 @@ class PilotTests(unittest.TestCase):
     def test_schedule_requires_successful_test(self):
         self.env['GITHUB_EVENT_NAME']='schedule'
         with self.assertRaisesRegex(p.Stop,'live_test_required'):pilot.gate(self.config,self.env,NOW)
+    def test_schedule_requires_independent_producer_readiness(self):
+        self.env['GITHUB_EVENT_NAME']='schedule';self.config['live_test_completed']=True
+        with self.assertRaisesRegex(p.Stop,'producer_readiness_required'):pilot.gate(self.config,self.env,NOW)
+        self.config['producer_fresh_run_verified']=True
+        with self.assertRaisesRegex(p.Stop,'schedule_not_authorized'):pilot.gate(self.config,self.env,NOW)
+        self.config['scheduled_publication_enabled']=True
+        pilot.gate(self.config,self.env,NOW)
+        with self.assertRaisesRegex(p.Stop,'pilot_outside_window'):
+            pilot.gate(self.config,self.env,NOW+dt.timedelta(days=29))
     def test_pull_request_rejected(self):
         self.env['GITHUB_EVENT_NAME']='pull_request'
         with self.assertRaisesRegex(p.Stop,'untrusted_event'):pilot.gate(self.config,self.env,NOW)

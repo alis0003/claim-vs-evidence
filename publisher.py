@@ -156,6 +156,27 @@ def validate(job, now):
     return job['claim_id']
 
 
+def select_due(jobs,now):
+    """Validate identity/windows across append-only history; fully validate due jobs.
+    Never discard historical IDs or consult/reset the sent ledger.
+    """
+    require(isinstance(jobs,list) and len(jobs)<=100,'invalid_queue')
+    seen=set();due=[]
+    for job in jobs:
+        require(isinstance(job,dict),'invalid_job')
+        text_field(job,'claim')
+        cid=job.get('claim_id')
+        require(cid==claim_id(job['claim']),'invalid_claim_id')
+        require(cid not in seen,'duplicate_claim');seen.add(cid)
+        created=timestamp(job.get('created_at'));expires=timestamp(job.get('expires_at'))
+        start=timestamp(job.get('run_after'));end=timestamp(job.get('run_before'))
+        require(created<=start<end<=expires<=created+dt.timedelta(days=30)
+                and end-start<=dt.timedelta(hours=24),'invalid_queue_window')
+        if not start<=now<end:continue
+        validate(job,now);due.append(job)
+    return due
+
+
 class PinnedHTTPS(http.client.HTTPSConnection):
     """DNS checked once; socket pinned to that public IP; TLS verifies original host."""
     def connect(self):
@@ -441,13 +462,8 @@ def main():
     args=parser.parse_args()
     try:
         jobs=json.loads(args.queue.read_text())
-        require(isinstance(jobs,list) and len(jobs)<=100, 'invalid_queue')
-        seen=set()
-        for job in jobs:
-            cid=validate(job,dt.datetime.now(UTC))
-            require(cid not in seen,'duplicate_claim')
-            seen.add(cid)
-        print(f'DRY RUN: {len(jobs)} jobs structurally valid; no network or publishing. This command never publishes.')
+        due=select_due(jobs,dt.datetime.now(UTC))
+        print(f'DRY RUN: {len(due)} due jobs fully validated; {len(jobs)-len(due)} historical/future jobs retained with identity/window checks. No network or publishing.')
         return 0
     except Exception:
         # Do not print queue text, tracebacks, transport errors, token or headers.

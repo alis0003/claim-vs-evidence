@@ -1,9 +1,10 @@
 # Claim vs Evidence — English Instagram fact checks
 
 Target: `@claimvsevidence`. Authorized repository: `alis0003/claim-vs-evidence`.
-The campaign is authorized for **one manual live test** using the separately reviewed
-Full Fact Hormuz/Bangladesh card. No card has yet been published. Offline CI and the
-manual-confirmation workflow are enabled; there is no publishing schedule. No purchases, paid APIs, larger runners or password bots.
+The first authorized Full Fact Hormuz/Bangladesh post succeeded:
+https://www.instagram.com/p/DfBw8BMFS16/ . Durable sent state and independent duplicate
+verification are recorded in sources/live-test-proof.json. There is no active
+publishing schedule; fresh producer capability still requires parent confirmation. No purchases, paid APIs, larger runners or password bots.
 
 ## Check locally
 
@@ -127,3 +128,17 @@ These are parent findings, not independent executor verification. Earlier execut
 Meta retrieval was denied and was not retried. Actual API compatibility needs an
 authorized live test. GitHub ref/auth documentation was checked read-only during
 implementation; hosted API behavior is currently tested with local mocked REST.
+
+## Schedule preparation and append-only queue history
+
+`live_test_completed=true`; `producer_fresh_run_verified=false` and
+`scheduled_publication_enabled=false`. The inert scheduled workflow is outside
+.github/workflows at deployment/scheduled-publish.yml.disabled. See
+`docs/schedule-readiness.md` for the required producer proof and activation steps.
+Cutoff remains 2026-11-27T06:07:35.862082+00:00, exclusive.
+
+Offline queue checks are due-aware: every historical/future entry retains canonical
+claim-ID, duplicate and run-window checks, but only currently due jobs undergo live
+freshness/editorial/media schema validation. Expired sent entries are not deleted or
+revalidated against today's window. Pilot uses the same selector; publication still
+runs full current checks before API effects and durable dedupe remains permanent.
