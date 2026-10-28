@@ -1,8 +1,7 @@
+# Manual only: prior source HTTP failure must be diagnosed before another fetch.
 name: Public source readiness
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
 permissions: {}
 concurrency:
   group: claimvsevidence-public-preflight

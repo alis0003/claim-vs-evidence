@@ -23,7 +23,7 @@ manual mode can reach one publishing attempt while the flag remains false.
    reconciliation, never rerun a POST blindly. Complete the independent duplicate guard check below. Scheduling may then be
    enabled in a separate reviewed workflow change; the manual-test template has no schedule.
 
-## Exact approved protection scope — application pending confirmation
+## Exact approved protection scope — verified 28 October 2026
 
 Repository: alis0003/claim-vs-evidence only. Branch ruleset named
 `Protect publishing state`; enforcement Active; include exactly
@@ -41,7 +41,9 @@ The publishing job requests only repository Contents write using its temporary
 GITHUB_TOKEN; offline CI retains no permissions and no secret inputs.
 
 The user explicitly approved only deletion and force-push blocks. A separate browser
-worker owns applying those two restrictions; this executor makes no settings changes.
+worker applied those two restrictions; this executor verified ruleset 26012232
+read-only on 28 October 2026: Active, exact publishing-state target, deletion and
+non_fast_forward only, bypass_actors empty. This executor made no settings changes.
 Do not add linear-history requirements or bypass actors. Confirm the applied settings
 with the parent and read-only evidence before activation. Public repository branch rulesets are available
 on GitHub Free; do not purchase a plan. Verify the actual resulting rules read-only.
