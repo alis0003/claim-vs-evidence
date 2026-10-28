@@ -1,0 +1,103 @@
+{
+  "result": "PASS_SCOPED_FINAL_EDITORIAL_AND_ORIGINAL_ILLUSTRATION_REVIEW",
+  "reviewer_id": "/root/review_final_html2shell",
+  "review_task": "iphone-recovery-final-bytes",
+  "producer_id": "/root",
+  "mode": "independent_automated",
+  "human_review": false,
+  "reviewed_at": "2026-10-28T10:25:15.074037+00:00",
+  "editorial_verified": true,
+  "rights_reviewed": true,
+  "scope": "Exact final JPEG and caption review; not proof of anonymous hosted preflight, queue promotion, schedule activation or publication.",
+  "jpeg": {
+    "path": "cards/iphone-recovery-fact-check.jpg",
+    "sha256": "91d88749e3b167428b347a1e1eefa37d26be972eca36f642b030d64ee767938c",
+    "bytes": 306593,
+    "width": 1080,
+    "height": 1350,
+    "mode": "RGB",
+    "progressive": false
+  },
+  "original_illustration": {
+    "path": "cards/iphone-recovery-original-ai.png",
+    "sha256": "7006774ba54bbb87adb2dfa4a23fc44fb6321d114132825b23ff0344ee3b2d9e",
+    "bytes": 2690113,
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "progressive": false
+  },
+  "caption": {
+    "path": "drafts/iphone-recovery/caption-final.txt",
+    "sha256": "7298222e8d2bb1ff530de0d999970fcc0a7b607e191bc599bf3b5f840adefe69",
+    "bytes": 1295,
+    "characters": 1289
+  },
+  "source_review_record": "drafts/iphone-recovery/source-review.json",
+  "source_checks": [
+    {
+      "url": "https://fullfact.org/world/video-people-collecting-iPhones-Strait-Hormuz-ai-generated/",
+      "published_date": "2026-10-27",
+      "finding": "Specific clip AI conclusion, SynthID and changing-box observations are explicitly attributed to Full Fact; no independent detector test claimed."
+    },
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-shows-people-fishing-iphones-out-of-water-after-missile-attack-on-ship-in-strait-of-hormuz-it-is-ai.html",
+      "published_date": "2026-10-20",
+      "finding": "October 17 circulation is secondary reporting about an X post, not the date or origin of a Facebook version."
+    },
+    {
+      "url": "https://www.mpa.gov.sg/media-centre/details/two-singapore-registered-vessels-struck-in-strait-of-hormuz",
+      "published_date": "2026-10-14",
+      "finding": "Real GFS PRIDE sinking and safe crew evacuation preserved. No responsibility or cargo-content assertion added."
+    }
+  ],
+  "source_access_note": "All three sources independently read during preceding source review in this run. No original Facebook post or denied image accessed; no alternate denied-source route attempted.",
+  "factual_scope": [
+    "Caption now uses referenced Facebook post rather than claiming original uploader status.",
+    "No claim that no iPhones were aboard; ship cargo remains unestablished.",
+    "No denial of genuine sinking or other authentic cargo-recovery footage.",
+    "No accusation of responsibility for the sinking."
+  ],
+  "visual_review": {
+    "actual_final_and_original_pixels_inspected": true,
+    "findings": [
+      "AI illustration — not actual footage label is prominent and immediately above the artwork.",
+      "Art shows one plain unbranded closed cardboard box and abstract waves; no people, phones, ship, location markers or recovery reconstruction.",
+      "Caption explicitly identifies symbolic art, not a video frame or event evidence.",
+      "Readable main text, source dates and narrow cargo caveat; no clipped or overlapping text.",
+      "Final JPEG uses the same original illustration supplied in generation provenance."
+    ]
+  },
+  "generation_provenance": {
+    "record": "sources/iphone-recovery-generation.json",
+    "asset_sha256_verified": true,
+    "generated_at": null,
+    "generation_completed_by": "2026-10-28T10:14:58Z",
+    "time_basis": "Parent supplied generating-worker completion observation; exact generation event time remains unknown.",
+    "tool_and_input_basis": "Supplied provenance identifies built-in ChatGPT image generation, original generic prompt, no third-party input assets and user approval. This reviewer did not execute the generation call.",
+    "not_event_evidence": true,
+    "derived_from_denied_material": false
+  },
+  "rights_review": {
+    "assessment": "PASS for the scoped original-illustration production-use gate on supplied provenance and actual inspected bytes. No source screenshot or external artwork reused in the card.",
+    "ownership_asserted": false,
+    "exclusive_copyright_asserted": false,
+    "external_licence_asserted": false,
+    "legal_permission_guarantee": false
+  },
+  "semantic_duplicate_review": {
+    "remote_queue_and_ledger_rechecked": true,
+    "existing_sent_claim_ids": [
+      "bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf",
+      "55558b2a3a51b49258a7c1799e14a9a7e573ff16b52a817c7571104917d81038"
+    ],
+    "finding": "No exact or semantic duplicate. Authenticity of the people/boxes recovery clip differs from aerial-video geolocation despite the shared Hormuz label, and differs from polar-bear rescue AI story."
+  },
+  "material_concerns": [],
+  "remaining_operational_requirements": [
+    "Use these unchanged final JPEG and exact UTF-8 caption hashes.",
+    "Preserve AI-illustration provenance; do not label generated art as an original screenshot.",
+    "Anonymous supported hosted preflight remains pending; executor DNS failure is not success.",
+    "Parent must validate full candidate/current window and verify append-only promotion before any scheduling readiness claim."
+  ]
+}

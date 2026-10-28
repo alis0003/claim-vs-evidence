@@ -1,5 +1,5 @@
 {
-  "status": "held_pending_asset_final_review_and_supported_preflight",
+  "status": "held_only_pending_supported_anonymous_preflight",
   "ready_for_publish": false,
   "run_checked_at": "2026-10-28T10:16:55.471113+00:00",
   "contract_commit": "cb049e59fb4e8bcf42ad29c27bf1ec98d37012f3",
@@ -53,19 +53,22 @@
       1024
     ],
     "reported_mode": "RGB",
-    "local_bytes_obtained": false,
+    "local_bytes_obtained": true,
     "materialization": "supported Library helper failed: download failed; no retry",
     "generation_observed_window_utc": [
       "2026-10-28T10:14:20Z",
       "2026-10-28T10:14:58Z"
     ],
     "exact_generation_timestamp": null,
-    "prompt": "pending actual worker metadata; not invented"
+    "prompt": "pending actual worker metadata; not invented",
+    "approved_transfer": "GitHub original-generated-asset blob; size/hash verified; no denied third-party asset used",
+    "sha256": "7006774ba54bbb87adb2dfa4a23fc44fb6321d114132825b23ff0344ee3b2d9e"
   },
   "remaining": [
-    "Receive and materialize approved original artwork using supported route.",
-    "Final composition and distinct independent exact-byte review.",
-    "Full candidate validation and supported anonymous preflight.",
-    "Append-only promotion only after all checks pass."
-  ]
+    "Run supported normal hosted anonymous preflight without bypassing any source denial.",
+    "Append-only promotion and CI only after all checks pass."
+  ],
+  "candidate_path": "drafts/iphone-recovery/candidate.json",
+  "final_review": "sources/iphone-recovery-final-review.json",
+  "final_asset_commit": "49739b30648099b69faba8fd46ef0ff5ec928e9f"
 }
