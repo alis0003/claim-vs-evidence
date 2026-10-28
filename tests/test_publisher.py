@@ -92,6 +92,19 @@ class Tests(unittest.TestCase):
         self.fails('publication_uncertain_reconcile',lambda:self.pub.run(self.job,True))
         self.fails('unsafe_resume',lambda:self.pub.resume_created(self.job))
         self.assertEqual(len(self.api.posts()),2)
+    def test_readiness_polling_is_get_only_and_bounded(self):
+        original=self.api.call;statuses=iter(['IN_PROGRESS','FINISHED']);waits=[]
+        def status(method,path,**fields):
+            if method=='GET' and path=='456':
+                self.api.calls.append((method,path,fields));return {'status_code':next(statuses)}
+            return original(method,path,**fields)
+        self.api.call=status;self.pub.readiness_checks=5;self.pub.sleeper=waits.append
+        self.assertEqual(self.pub.run(self.job,True),'sent')
+        self.assertEqual(waits,[60]);self.assertEqual(len(self.api.posts()),2)
+    def test_readiness_polling_never_repeats_creation(self):
+        self.api.status='IN_PROGRESS';self.pub.readiness_checks=5;waits=[];self.pub.sleeper=waits.append
+        self.fails('container_not_ready_reconcile',lambda:self.pub.run(self.job,True))
+        self.assertEqual(waits,[60]*4);self.assertEqual(len(self.api.posts()),1)
     def test_network_timeout_before_creation(self):
         self.api.fail=('GET','me')
         with self.assertRaises(TimeoutError): self.pub.run(self.job,True)

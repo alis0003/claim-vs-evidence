@@ -6,8 +6,9 @@ import os
 from pathlib import Path
 import re
 import sys
+import urllib.parse
 from github_journal import GitHubAPI, GitHubJournal, REPOSITORY
-from publisher import Publisher, Instagram, Stop, UTC, require, timestamp, validate
+from publisher import Publisher, Instagram, Stop, UTC, require, timestamp, validate, numeric
 
 
 def gate(config,env,now):
@@ -25,6 +26,22 @@ def gate(config,env,now):
         require(config.get('live_test_completed') is True,'live_test_required')
     require(bool(re.fullmatch('[a-f0-9]{40}',str(config.get('state_genesis','')))),'missing_state_genesis')
     return end
+
+
+def published_receipt(api,journal,cid):
+    row=journal.row(cid)
+    require(row is not None and row[1]=='sent','publication_not_durably_sent')
+    media=numeric(row[4])
+    # A failed GET does not undo sent state and must never trigger re-publication.
+    result=api.call('GET',media,fields='id,permalink')
+    require(result.get('id')==media,'published_media_mismatch')
+    link=result.get('permalink')
+    require(isinstance(link,str),'published_permalink_unverified')
+    url=urllib.parse.urlsplit(link)
+    require(url.scheme=='https' and url.netloc in {'www.instagram.com','instagram.com'}
+            and not url.query and not url.fragment
+            and bool(re.fullmatch(r'/(p|reel)/[A-Za-z0-9_-]+/?',url.path)), 'published_permalink_unverified')
+    return {'outcome':'sent','claim_id':cid,'container_id':row[3],'media_id':media,'permalink':link}
 
 
 def run(config,jobs,live=False,env=None,clock=lambda:dt.datetime.now(UTC),github_factory=GitHubAPI,instagram_factory=Instagram):
@@ -50,10 +67,15 @@ def run(config,jobs,live=False,env=None,clock=lambda:dt.datetime.now(UTC),github
         # Called by Publisher before and after durable intent checkpoints.
         require(timestamp(config['activation_at'])<=current<end,'pilot_outside_window')
         return current
-    publisher=Publisher(journal,api,clock=bounded_clock)
+    publisher=Publisher(journal,api,clock=bounded_clock,readiness_checks=5)
     # One new card per run; never pad an empty queue. Skip already-sent records.
     for job in due:
         result=publisher.run(job,live=True)
+        if result=='sent':
+            try:
+                print(json.dumps(published_receipt(api,journal,job['claim_id']),sort_keys=True))
+            except Exception:
+                raise Stop('sent_but_permalink_unverified_no_republish') from None
         if result!='already_sent':return result
     return 'already_sent'
 
@@ -68,7 +90,8 @@ def main():
         result=run(json.loads(args.config.read_text()),json.loads(args.queue.read_text()),args.live)
         print(result)
         return 0
-    except Exception:
-        print('STOP: gate, validation, API or durable-state check failed; inspect state before retry.',file=sys.stderr)
+    except Exception as error:
+        reason=str(error) if isinstance(error,Stop) and re.fullmatch('[a-z_]{1,80}',str(error)) else 'unexpected_failure'
+        print('STOP: '+reason+'; inspect durable state before any retry.',file=sys.stderr)
         return 1
 if __name__=='__main__':sys.exit(main())

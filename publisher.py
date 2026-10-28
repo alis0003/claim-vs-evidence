@@ -16,6 +16,7 @@ import sqlite3
 import ssl
 import struct
 import sys
+import time
 import urllib.parse
 
 API_ROOT = 'https://graph.instagram.com/v26.0'
@@ -287,8 +288,10 @@ def numeric(value):
 
 
 class Publisher:
-    def __init__(self, journal, api, fetch=request, clock=lambda:dt.datetime.now(UTC)):
+    def __init__(self, journal, api, fetch=request, clock=lambda:dt.datetime.now(UTC), readiness_checks=1, sleeper=time.sleep):
         self.journal, self.api, self.fetch, self.clock = journal,api,fetch,clock
+        require(type(readiness_checks) is int and 1<=readiness_checks<=5,'invalid_readiness_checks')
+        self.readiness_checks,self.sleeper=readiness_checks,sleeper
 
     def identity(self):
         me = self.api.call('GET','me',fields='user_id,username')
@@ -336,7 +339,12 @@ class Publisher:
             return self._publish(job,cid,fp,account,container)
 
     def _publish(self,job,cid,fp,account,container):
-        status=self.api.call('GET',container,fields='status_code').get('status_code')
+        for attempt in range(self.readiness_checks):
+            validate(job,self.clock())
+            status=self.api.call('GET',container,fields='status_code').get('status_code')
+            if status=='FINISHED':break
+            require(status=='IN_PROGRESS','container_not_ready_reconcile')
+            if attempt+1<self.readiness_checks:self.sleeper(60)
         require(status=='FINISHED', 'container_not_ready_reconcile')
         validate(job,self.clock())
         # Fresh remote quota after processing; local reservation already counted.

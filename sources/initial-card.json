@@ -21,5 +21,7 @@
   "crop_saved_at_utc": "2026-10-27T09:29:48.557714Z",
   "capture_event_timestamp": null,
   "archive_capture_label": "October 22 2026 2:00pm (timezone not shown)",
-  "timestamp_note": "Filesystem save times are not instrumented capture times. October 18 claim date is AFP-reported, not visible in archived screenshot. No ownership or license is asserted."
+  "timestamp_note": "Filesystem save times are not instrumented capture times. October 18 claim date is AFP-reported, not visible in archived screenshot. No ownership or license is asserted.",
+  "source_rechecked_at": "2026-10-28T05:48:28.053712+00:00",
+  "source_recheck_result": "AFP page remains readable via browsing and supports the same narrow clip provenance. Public transport preflight must also pass on GitHub runner before activation."
 }

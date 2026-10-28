@@ -107,10 +107,18 @@ class PilotTests(unittest.TestCase):
         self.env.update(INSTAGRAM_ACCESS_TOKEN='mock-instagram',GITHUB_TOKEN='mock-github')
         fake_publisher=unittest.mock.Mock()
         fake_publisher.run.return_value='sent'
-        with patch.object(pilot,'GitHubJournal') as journal, patch.object(pilot,'Publisher',return_value=fake_publisher):
+        with patch.object(pilot,'GitHubJournal') as journal, patch.object(pilot,'Publisher',return_value=fake_publisher), patch.object(pilot,'published_receipt',return_value={'outcome':'sent'}), patch('builtins.print'):
             self.assertEqual(pilot.run(self.config,[job()],True,self.env,lambda:NOW,lambda t:object(),lambda t:object()),'sent')
         fake_publisher.run.assert_called_once()
         self.assertFalse(self.config['live_test_completed'])
+    def test_media_receipt_requires_exact_id_and_instagram_permalink(self):
+        journal=unittest.mock.Mock();journal.row.return_value=('fp','sent',NOW.isoformat(),'456','789')
+        api=unittest.mock.Mock();api.call.return_value={'id':'789','permalink':'https://www.instagram.com/p/AbC123/'}
+        self.assertEqual(pilot.published_receipt(api,journal,'claim')['media_id'],'789')
+        api.call.assert_called_once_with('GET','789',fields='id,permalink')
+        for response in [{'id':'000','permalink':'https://www.instagram.com/p/AbC123/'},{'id':'789','permalink':'https://evil.invalid/p/AbC123/'},{'id':'789','permalink':'https://www.instagram.com/p/AbC123/?token=mock'}]:
+            api.call.return_value=response
+            with self.assertRaises(p.Stop):pilot.published_receipt(api,journal,'claim')
     def test_end_is_exclusive(self):
         with self.assertRaisesRegex(p.Stop,'pilot_outside_window'):pilot.gate(self.config,self.env,NOW+dt.timedelta(days=29))
     def test_short_or_long_duration_rejected(self):

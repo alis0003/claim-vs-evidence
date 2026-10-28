@@ -2,7 +2,7 @@
   {
     "claim": "This vehicle fire-trail clip shows deliberate forest burning in Indonesia.",
     "claim_id": "fbaaded259b8f6756f6de3f56b8c0bef2376d41043b18b8e4b9e60dacacc13cf",
-    "caption": "FALSE CONTEXT: This vehicle fire-trail clip shows prescribed burning in Alabama, USA, not deliberate forest burning in Indonesia. AFP traced it to CFM Fire Managers and reported that the original video was posted on 15 February 2026; that date is attributed to AFP, not independently verified here. This conclusion concerns this clip only and does not establish what caused Indonesia’s fires.\nSource: https://factcheck.afp.com/doc.afp.com.D3XP2T4\nClaim archive: https://perma.cc/8X4Q-5YPQ?type=image\nChecked: 27 October 2026. AI-assisted research and design; evidence and card reviewed before publication.",
+    "caption": "FALSE CONTEXT: This vehicle fire-trail clip shows prescribed burning in Alabama, USA, not deliberate forest burning in Indonesia. AFP traced it to CFM Fire Managers and reported that the original video was posted on 15 February 2026; that date is attributed to AFP, not independently verified here. This conclusion concerns this clip only and does not establish what caused Indonesia’s fires.\nSource: https://factcheck.afp.com/doc.afp.com.D3XP2T4\nClaim archive: https://perma.cc/8X4Q-5YPQ?type=image\nCard reviewed: 27 October 2026; source rechecked: 28 October 2026. AI-assisted research and design; evidence and card reviewed before publication.",
     "reviewer": "parent-automated-evidence-editorial-review/capture-worker",
     "evidence_summary": "AFP identifies this footage as prescribed burning in Alabama. Scope limited to the clip/location claim.",
     "ready_for_publish": true,
@@ -15,8 +15,8 @@
     "reviewed_at": "2026-10-27T13:44:52.718348+00:00",
     "created_at": "2026-10-27T13:38:12.954422+00:00",
     "expires_at": "2026-11-26T13:38:12.954422+00:00",
-    "run_after": "2026-10-27T13:38:12.954422+00:00",
-    "run_before": "2026-10-28T13:38:12.954422+00:00",
+    "run_after": "2026-10-28T05:48:28.053712+00:00",
+    "run_before": "2026-10-28T11:48:28.053712+00:00",
     "sources": [
       {
         "url": "https://factcheck.afp.com/doc.afp.com.D3XP2T4",
@@ -24,7 +24,7 @@
         "publisher": "AFP Fact Check",
         "supports": "Clip provenance and false Indonesian location context; original upload date attributed to AFP.",
         "published_at": "2026-10-23T00:00:00+00:00",
-        "checked_at": "2026-10-27T13:38:12.954422+00:00",
+        "checked_at": "2026-10-28T05:48:28.053712+00:00",
         "supports_claim_analysis": true
       }
     ],
