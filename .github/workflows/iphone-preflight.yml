@@ -1,0 +1,33 @@
+# Manual, anonymous candidate validation only; no publishing or secret access.
+name: iPhone candidate anonymous preflight
+on:
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: claimvsevidence-public-preflight
+  cancel-in-progress: false
+jobs:
+  public-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read public source at exact workflow commit without credentials
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$SOURCE_REPO" = 'alis0003/claim-vs-evidence'
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 "https://github.com/${SOURCE_REPO}.git" "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Validate existing candidate and fetch public sources and images once
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 validate_candidate.py drafts/iphone-recovery/candidate.json --anonymous-preflight
+          echo 'Anonymous preflight passed. No queue promotion or publication performed.'
