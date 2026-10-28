@@ -1,0 +1,58 @@
+# Enabled after verified first live test and independently reviewed producer promotion.
+# Proof: sources/producer-readiness-proof.json; exclusive cutoff enforced before credentials.
+name: Scheduled Instagram pilot
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+permissions: {}
+concurrency:
+  group: claimvsevidence-publishing
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'alis0003/claim-vs-evidence' && github.ref == 'refs/heads/main' && vars.PUBLISHING_ENABLED == 'true' && github.event_name == 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - name: Read exact public commit without credentials
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 https://github.com/alis0003/claim-vs-evidence.git "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Offline tests
+        run: python3 -m unittest discover -s tests -q
+      - name: Check campaign window without credentials
+        id: window
+        shell: bash
+        run: |
+          python3 - <<'PYTHON'
+          import datetime, json, os
+          from publisher import timestamp, UTC
+          config = json.load(open('campaign.json'))
+          now = datetime.datetime.now(UTC)
+          allowed = (config.get('active') is True
+                     and config.get('live_test_completed') is True
+                     and config.get('producer_fresh_run_verified') is True
+                     and config.get('scheduled_publication_enabled') is True
+                     and timestamp(config['activation_at']) <= now < timestamp(config['end_at'])
+                     and timestamp(config['end_at']) - timestamp(config['activation_at']) == datetime.timedelta(days=30))
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('allowed=' + str(allowed).lower() + '\n')
+          print('Campaign gate: ' + ('eligible' if allowed else 'skip; no publishing credentials loaded'))
+          PYTHON
+      - name: Publish at most one due reviewed card within the pilot
+        if: steps.window.outputs.allowed == 'true' 
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
+        run: python3 pilot.py --live

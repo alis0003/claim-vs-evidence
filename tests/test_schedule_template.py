@@ -10,7 +10,9 @@ import unittest
 
 class ScheduleTemplateTests(unittest.TestCase):
     def execute_gate(self,ready=True,expired=False):
-        template=(Path(__file__).resolve().parents[1]/'deployment/scheduled-publish.yml.disabled').read_text()
+        root=Path(__file__).resolve().parents[1]
+        active=root/'.github/workflows/scheduled-publish.yml'
+        template=(active if active.exists() else root/'deployment/scheduled-publish.yml.disabled').read_text()
         code=textwrap.dedent(template.split("python3 - <<'PYTHON'\n")[1].split('          PYTHON')[0])
         now=dt.datetime.now(dt.timezone.utc)
         start=now-dt.timedelta(days=31 if expired else 1)

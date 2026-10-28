@@ -11,7 +11,7 @@
   "producer_timezone": "Asia/Kolkata",
   "producer_daypart": "morning",
   "quality_first": true,
-  "producer_fresh_run_verified": false,
-  "scheduled_publication_enabled": false,
-  "producer_readiness_record": null
+  "producer_fresh_run_verified": true,
+  "scheduled_publication_enabled": true,
+  "producer_readiness_record": "sources/producer-readiness-proof.json"
 }

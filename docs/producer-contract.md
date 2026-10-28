@@ -111,9 +111,9 @@ Future jobs receive full evidence validation when due; a clean offline run never
 asserts that skipped future evidence is publication-ready. The durable sent ledger
 is never removed/reset by queue validation.
 
-Licensed-format producer fresh-run capability is still unconfirmed. Only the parent may update
+Producer capability proof is recorded in sources/producer-readiness-proof.json. Only the parent may update
 producer_fresh_run_verified, producer_readiness_record and scheduled_publication_enabled.
-Scheduled publication remains disabled until the independent fresh-run proof is checked.
+Scheduled publication is enabled after verified independent review, preflight and append-only promotion; do not change its gates.
 
 ## Source roles and date precision
 
@@ -187,9 +187,8 @@ queue-history CLI can parse legacy records, but the live publisher blocks a new
 POST unless visual rights validation passes. `validate_ready` is the required new
 candidate schema. Do not treat old offline history validation as promotion proof.
 
-Scheduling remains disabled until an independent fresh producer demonstrates this
-format with a genuine eligible candidate and verified promotion, or an explicitly
-reviewed alternative readiness proof. Empty routine runs are safe and expected.
+Original-AI format readiness is verified in sources/producer-readiness-proof.json.
+Every future candidate still requires independent review and complete validation. Empty routine runs are safe and expected.
 No guaranteed daily volume; the November27 exclusive cutoff is unchanged.
 
 ## Original AI illustration — user-approved third format
@@ -236,6 +235,6 @@ attribute original-post/disclosure observations to Lead Stories. No invented
 counts or direct-inspection claim. The denied HTML2Shell candidate remains held.
 
 Daily producer runs should use native ChatGPT research/generation only, with no
-paid services or external AI APIs. They may produce zero ready cards. Scheduling
-is not enabled until the final asset, independent review, candidate preflight and
-safe promotion proof are confirmed. Do not promise 100% uptime or 50–100 posts/day.
+paid services or external AI APIs. They may produce zero ready cards. Scheduling is enabled after the polar-bear final asset, independent review,
+candidate preflight and safe promotion proof; every new candidate must satisfy
+those same gates. Do not promise 100% uptime or 50–100 posts/day.

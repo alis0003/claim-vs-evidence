@@ -1,144 +1,113 @@
 # Claim vs Evidence — English Instagram fact checks
 
-Target: `@claimvsevidence`. Authorized repository: `alis0003/claim-vs-evidence`.
-The first authorized Full Fact Hormuz/Bangladesh post succeeded:
-https://www.instagram.com/p/DfBw8BMFS16/ . Durable sent state and independent duplicate
-verification are recorded in sources/live-test-proof.json. There is no active
-publishing schedule; fresh producer capability still requires parent confirmation. No purchases, paid APIs, larger runners or password bots.
+Authorized account: **@claimvsevidence**. Public repository:
+**alis0003/claim-vs-evidence**. This repository contains the deployed publisher,
+reviewed public assets, evidence records and append-only queue.
 
-## Check locally
+The first authorized Hormuz/Bangladesh card was published at
+https://www.instagram.com/p/DfBw8BMFS16/ . Its durable sent record and independent
+zero-API duplicate check are documented in sources/live-test-proof.json.
+The new polar-bear card, using an original clearly labelled AI illustration,
+passed independent review, hosted anonymous preflight and append-only promotion.
+Its queue entry is ready; this documentation does not assert it has been published.
+See sources/producer-readiness-proof.json for exact commits and CI runs.
 
-Python 3.10+ and Git; publishing code uses the standard library. Local journal tests
-use Unix locking. No credentials or network are needed for these commands:
+## Scheduled publisher
+
+.github/workflows/scheduled-publish.yml uses cron `17 */3 * * *`: minute17 every
+three hours UTC. It publishes at most one due reviewed card per run. Empty ready
+queues produce no posts. GitHub scheduling may be delayed or skipped; no 100%
+availability or daily volume is promised.
+
+campaign.json is canonical. Activation is 2026-10-28T06:07:35.862082+00:00 and the
+exclusive end is 2026-11-27T06:07:35.862082+00:00, exactly30days later.
+The scheduled workflow checks readiness and this window before injecting posting
+credentials; Python checks the window again around API/checkpoint latency. After
+expiry publication stops. GitHub cron has no UNTIL; disable/remove the trigger
+after expiry to stop empty runner invocations. Do not extend the pilot implicitly.
+
+live_test_completed, producer_fresh_run_verified and scheduled_publication_enabled
+are true after the documented proof. The manual workflow remains guarded by its
+explicit confirmation and PUBLISHING_ENABLED variable. No manual rerun is needed
+to prove deduplication.
+
+## Native research producer
+
+The parent owns the separate native daily research task and must apply
+[its current instructions](docs/native-producer-task.md). Repository deployment
+cannot update that task. Research runs in flexible mornings Asia/Kolkata and may
+produce zero ready candidates. Never assume every claim is false or invent claims,
+sources, dates or reach to meet a target.
+
+Read docs/producer-contract.md before every producer run. Only drafts/**, cards/**,
+sources/** and append-only queue additions are permitted producer writes. A distinct
+automated reviewer checks evidence, semantic duplicates, provenance and exact final
+JPEG/caption bytes. No human review is implied. Unsupported or high-impact
+allegations about identifiable people are held.
+
+Three visual types are supported: rights-established claim screenshots, properly
+labelled rights-cleared photos, and user-approved original AI illustrations labelled
+**AI illustration — not actual footage**. Illustrations never establish the facts
+or recreate an alleged real event as footage. Denied images and the blocked
+HTML2Shell candidate are not reused. Full schemas and intentional non-ready samples
+are queue.sample.json, candidate-photo.sample.json and candidate-ai.sample.json.
+
+## Validation
+
+Publishing and tests use Python standard library plus Git; producer rendering uses
+Pillow. Output is baseline sRGB JPEG, normally1080x1350 and below8MB. Use:
 
 ```sh
 python3 -m unittest discover -s tests -q
 python3 publisher.py queue.json
 python3 pilot.py --config campaign.json --queue queue.json
+python3 validate_candidate.py candidate.json
 ```
 
-`queue.sample.json` is an intentionally rejected template. Never mistake it for a
-verified fact check. Native research producers must read `docs/producer-contract.md`.
-They work quality-first in flexible mornings Asia/Kolkata: zero ready posts is valid.
-The software does not discover claims or verify truth; it enforces evidence metadata,
-explicit editorial attestations, narrow verdicts, dates, provenance and media rules.
-Never assume every viral claim is false or pad a queue to meet a volume target.
+These commands do not publish. Add `--anonymous-preflight` only to
+validate_candidate.py to check public source/provenance/media availability without
+Instagram credentials. HTTP success is not proof of truth or reuse rights.
 
-## Editorial and media gate
+Claims/circulation remain recent, checks/reviews expire after7days, jobs expire
+within30days and run windows last at most24hours. Authentic older primary documents
+are allowed only with timely independent fact-check evidence; dates are preserved.
+Date-only and unknown capture/generation times are explicitly distinguished from
+precise timestamps. See the executable schema and producer contract.
 
-Ready jobs require ready_for_publish/editorial_verified/evidence_supported=true and
-high_impact_identifiable_person=false. Unsupported claims and high-impact allegations
-about identifiable people are held. Verdicts: true, false, misleading, out_of_context,
-unverified. `unverified` still requires evidence supporting that limited conclusion.
-Canonical claim IDs hash normalized wording; semantic duplicates require independent
-automated evidence/editorial review with distinct named producer/reviewer provenance.
+Queue-history checks retain all IDs and sent entries. Expired/future jobs receive
+identity/window checks; due jobs receive current evidence validation. Legacy sent
+records remain readable for deduplication, but cannot authorize new publication
+without the current visual-provenance gates. Use validate_candidate.py for new jobs.
 
-Claim/source/capture dates must be <=30 days old; review/check dates <=7 days old.
-If exact capture time is unrecorded, use the genuine recent filesystem saved_at_utc
-with explicit timestamp basis/note and captured_at=null; never pretend save is capture.
-Jobs expire within 30 days and have a <=24-hour run window. Never falsify old source
-dates to bypass checks. Exact JSON fields and commands are in the producer contract.
+## Durable state, permissions and limits
 
-Baseline JPEG only: 320–1440 px width, aspect 0.8–1.91, <=8 MB; approved layout is
-1080x1350 sRGB. `render_card.py` uses Pillow in the producer environment only. Inspect
-approved input and output pixels. Header validation is not a full JPEG decoder.
-The live preflight requires anonymous HTTPS media fetch, exact hash/dimensions and
-readable sources; private DNS/IPs, redirects and credential URLs fail. Media queries are forbidden;
-source/provenance queries allow bounded nonsecret document selectors such as
-perma.cc ?type=image, preserving their meaning.
-HTTP readability is not evidence verification. Original screenshot provenance and
-rights require actual review, not a checkbox inferred from a URL.
+Publishing-state stores remote checkpoints for ownership, creation intent,
+container ID, publish intent and terminal media ID. Checkpoints use optimistic
+heads and non-force updates; ephemeral SQLite is never the hosted durability layer.
+Active branch rules block deletion and force pushes with no bypass actors.
+No reset, blind POST retry or automatic recovery follows an uncertain outcome.
+Explicit reconciliation is required; see DURABILITY.md.
 
-## Durable state and limits
+The official Instagram Login API verifies current username/ID and quota. Limits
+are conservative:10 per rolling day, minimum60minute spacing and one new card/run.
+Manual and scheduled workflows share concurrency controls and durable ownership.
+Sent Hormuz is preserved and will not be posted again.
 
-`git_journal.py` proves the protocol against local bare Git repositories.
-`github_journal.py` implements the fixed authorized repository's REST Git transport.
-It checkpoints account-wide ownership, creation intent, container ID, publish intent
-and terminal media ID remotely, using expected heads and non-force ref updates.
-No local ephemeral SQLite fallback is allowed for hosted publishing.
+INSTAGRAM_ACCESS_TOKEN is stored only in GitHub Actions Secrets and enters only
+the publishing step. The automatic GITHUB_TOKEN has job-scoped Contents write for
+state checkpoints. Workflow defaults grant no permissions; checkout is public and
+unauthenticated. No tokens in files, chat, logs, artifacts or Git URLs.
 
-Failed or ambiguous checkpoints stop execution. Failed/timeout API POSTs remain
-quarantined, never automatically retried. Reconciliation is explicit and only a
-confirmed PUBLISHED status can close an uncertain publication. A known created
-container with no publish attempt may resume after fresh gates; no recreation.
-Read `DURABILITY.md` before configuring the protected state branch or recovery.
+Only free standard ubuntu-24.04 public runners are used. No paid services, external
+AI APIs, larger runners, caches, uploaded artifacts or third-party Actions are used.
+Existing unrelated repositories, sites and servers are outside this project's scope.
 
-Identity comes from Instagram Login `/me` and must match claimvsevidence. The numeric
-ID is not hardcoded. Live quota is fetched before create and publish. Conservative
-limits: <=10 posts per rolling day, at least 60 minutes between attempts, one new
-card per run. Any unresolved attempt blocks other new work for the account.
+## API provenance
 
-## Deployment gates and secrets
-
-`campaign.json` is canonical; check its current manual-test activation window. `activation_at` and exclusive `end_at`
-must be exactly 30 elapsed days apart. Runtime checks the window again around
-checkpoint latency. Secret readiness, reviewed initial queue and successful live
-test are separate flags. Scheduled execution requires the successful live-test flag.
-
-Required secret: **INSTAGRAM_ACCESS_TOKEN**. The parent browser worker owns official
-Meta authorization and direct secure insertion into GitHub Actions Secrets. Never
-put tokens in files, chat, command lines, logs, artifacts or Git URLs. The separate
-short-lived **GITHUB_TOKEN** is supplied by Actions with Contents write permission
-only in the eventual trusted publisher job. HTTP errors never echo token/header/body.
-
-`.github/workflows/review.yml` runs offline tests and validation on standard
-ubuntu-24.04, with no secret inputs, third-party Actions, cache or uploaded artifacts.
-The reviewed manual workflow is at `.github/workflows/publish.yml`; it requires
-explicit confirmation, the PUBLISHING_ENABLED variable and all campaign gates.
-Parent confirmed secret readiness and exact state protections. A reference template
-remains in deployment/publish.yml.disabled. The manual-test template requires explicit confirmation and a credential-free
-duplicate guard check. Scheduling is a separate reviewed change after that test
-succeeds. Public scheduling can be late
-or skipped; the hard time window prevents publishing after pilot expiry.
-
-## Current deployment status
-
-Parent browser worker created and verified the public repository; initial commit
-`3ce031a390641e896a915641c8fd35c926580311`. The authorized connector independently
-confirmed the repository and write access. Code deployment uses expected-head checks;
-this source snapshot prepares offline CI only. No existing repository is modified.
-The invalid CLI credential is not reused; parent owns Instagram Secret insertion.
-
-Initial PNG Library ID: libfile_283d3f23d1208191ac741ba5354bad1e. Library download
-failed initially and on one supported retry with generic `download failed` (no
-HTTP status). Parent then explicitly authorized a public GitHub asset route. That
-route succeeded; PNG hash matched, PNG/JPEG pixels were inspected, and the committed
-1080x1350 sRGB JPEG was anonymously fetched with matching SHA-256 (212685 bytes).
-See `sources/initial-card.json` and `drafts/initial-queue.json`. The AFP case is not selected because its runner source request
-was denied. The operational queue now contains only the independent Full Fact case;
-its source passed normal runner access and its original claimframe was verified.
-
-Durable state branch is initialized at pinned genesis
-`26d1b1261d6b904a38ce8bd9df973d6b5d07c65d`. Only deletion and force-push blocks are approved for the state branch; a separate
-browser worker owns applying them. Confirm those protections and parent readiness
-before live use; linear history is not requested. Code commit d2b7dc0126621a6d2e0d60f75b6fdd7f09610267
-triggered offline CI; its outcome must be checked in Actions, not inferred from
-local tests. Campaign dates and the selected Full Fact queue are recorded for the authorized
-manual test; follow docs/manual-dispatch.md and do not dispatch more than once.
-
-## API documentation provenance
-
-Parent-supplied official Meta findings: Instagram Login, graph.instagram.com/v26.0,
-instagram_business_basic and instagram_business_content_publish, public JPEG
-image_url, create container then media_publish. Parent reports dashboard tokens
-last 60 days, allowing a 30-day pilot without app-secret/refresh handling if valid.
-Sources: https://developers.facebook.com/docs/instagram-platform/content-publishing/
+Parent-verified official documentation specifies graph.instagram.com/v26.0,
+instagram_business_basic and instagram_business_content_publish, publicly fetchable
+JPEG image_url, media container creation then media_publish. The first authorized
+live test verified actual API compatibility and durable publication. Official docs:
+https://developers.facebook.com/docs/instagram-platform/content-publishing/
 and https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/get-started/.
-These are parent findings, not independent executor verification. Earlier executor
-Meta retrieval was denied and was not retried. Actual API compatibility needs an
-authorized live test. GitHub ref/auth documentation was checked read-only during
-implementation; hosted API behavior is currently tested with local mocked REST.
-
-## Schedule preparation and append-only queue history
-
-`live_test_completed=true`; `producer_fresh_run_verified=false` and
-`scheduled_publication_enabled=false`. The inert scheduled workflow is outside
-.github/workflows at deployment/scheduled-publish.yml.disabled. See
-`docs/schedule-readiness.md` for the required producer proof and activation steps.
-Cutoff remains 2026-11-27T06:07:35.862082+00:00, exclusive.
-
-Offline queue checks are due-aware: every historical/future entry retains canonical
-claim-ID, duplicate and run-window checks, but only currently due jobs undergo live
-freshness/editorial/media schema validation. Expired sent entries are not deleted or
-revalidated against today's window. Pilot uses the same selector; publication still
-runs full current checks before API effects and durable dedupe remains permanent.
+Earlier denied executor documentation retrieval was not bypassed.
