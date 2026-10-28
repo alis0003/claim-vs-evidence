@@ -91,7 +91,7 @@ def main():
         print(result)
         return 0
     except Exception as error:
-        reason=str(error) if isinstance(error,Stop) and re.fullmatch('[a-z_]{1,80}',str(error)) else 'unexpected_failure'
+        reason=str(error) if isinstance(error,Stop) and re.fullmatch('[a-z0-9_]{1,80}',str(error)) else 'unexpected_failure'
         print('STOP: '+reason+'; inspect durable state before any retry.',file=sys.stderr)
         return 1
 if __name__=='__main__':sys.exit(main())

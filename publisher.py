@@ -173,12 +173,33 @@ def request(url, method='GET', data=None, token=None, limit=8_000_000, source=Fa
             headers['Content-Type'] = 'application/x-www-form-urlencoded'
         conn.request(method, urllib.parse.urlunsplit(('', '', p.path or '/', p.query, '')), body, headers)
         r = conn.getresponse()
-        require(r.status == 200, 'http_failure')
+        if r.status != 200:
+            # Numeric HTTP status only. Never log response bodies or headers.
+            if r.status in (401,403):reason='http_denied_'
+            elif r.status==407:reason='http_proxy_auth_'
+            elif r.status==429:reason='http_rate_limited_'
+            elif 300<=r.status<400:reason='http_redirect_'
+            else:reason='http_status_'
+            raise Stop(reason+str(r.status))
         payload = r.read(limit+1)
         require(len(payload) <= limit and payload, 'invalid_response_size')
         return r.getheader('Content-Type', '').split(';')[0].lower(), payload
     except Stop:
         raise
+    except socket.gaierror:
+        raise Stop('dns_failure') from None
+    except TimeoutError:
+        raise Stop('transport_timeout') from None
+    except ssl.SSLError:
+        raise Stop('tls_failure') from None
+    except PermissionError:
+        raise Stop('network_permission_denied') from None
+    except ConnectionRefusedError:
+        raise Stop('connection_refused') from None
+    except ConnectionResetError:
+        raise Stop('connection_reset') from None
+    except OSError:
+        raise Stop('network_transport_failure') from None
     except Exception:
         raise Stop('transport_failure') from None
     finally:

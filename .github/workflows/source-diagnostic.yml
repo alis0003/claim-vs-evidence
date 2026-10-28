@@ -1,0 +1,46 @@
+# Exactly one parent-authorized diagnostic on addition of this workflow.
+# Remove this workflow after collecting the result; never repeat a denial.
+name: One authorized source diagnostic
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/source-diagnostic.yml']
+permissions: {}
+concurrency:
+  group: claimvsevidence-source-diagnostic
+  cancel-in-progress: false
+jobs:
+  source-diagnostic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # No Actions dependencies or unverified action SHAs. Built-in git reads the
+      # public repository at the exact workflow commit; no auth or credentials.
+      - name: Read public source at exact commit
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 "https://github.com/${SOURCE_REPO}.git" "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: One normal anonymous AFP request (no token, no redirects or retries)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PYTHON'
+          from publisher import request, Stop
+          url = 'https://factcheck.afp.com/doc.afp.com.D3XP2T4'
+          try:
+              mime, body = request(url, limit=2000000, source=True)
+          except Stop as error:
+              print('SOURCE_DIAGNOSTIC=' + str(error))
+              raise SystemExit(1) from None
+          print('SOURCE_DIAGNOSTIC=http_200; mime=' + mime + '; bytes=' + str(len(body)))
+          PYTHON

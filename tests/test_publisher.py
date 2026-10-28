@@ -111,7 +111,19 @@ class Tests(unittest.TestCase):
         self.assertIsNone(self.j.row(self.job['claim_id']));self.assertFalse(self.api.posts())
     def test_transport_redaction(self):
         with patch.object(p.PinnedHTTPS,'request',side_effect=TimeoutError('secret-token Authorization: Bearer secret-token')):
-            self.fails('transport_failure',lambda:p.Instagram('secret-token').call('GET','me'))
+            self.fails('transport_timeout',lambda:p.Instagram('secret-token').call('GET','me'))
+    def test_safe_http_status_diagnostics_no_response_leak(self):
+        from unittest.mock import Mock
+        for status,code in [(301,'http_redirect_301'),(403,'http_denied_403'),(407,'http_proxy_auth_407'),(429,'http_rate_limited_429'),(500,'http_status_500')]:
+            response=Mock(status=status);response.read.side_effect=AssertionError('must not read denial body')
+            with patch.object(p.PinnedHTTPS,'request'),patch.object(p.PinnedHTTPS,'getresponse',return_value=response):
+                self.fails(code,lambda:p.Instagram('secret-token').call('GET','me'))
+                response.read.assert_not_called()
+    def test_transport_classification_does_not_echo_exception(self):
+        failures=[(p.socket.gaierror('secret'), 'dns_failure'),(p.ssl.SSLError('secret'),'tls_failure'),(PermissionError('secret'),'network_permission_denied'),(ConnectionRefusedError('secret'),'connection_refused'),(ConnectionResetError('secret'),'connection_reset')]
+        for error,code in failures:
+            with patch.object(p.PinnedHTTPS,'request',side_effect=error):
+                self.fails(code,lambda:p.Instagram('secret-token').call('GET','me'))
     def test_changed_job(self):
         self.pub.run(self.job,True);self.job['caption']='Changed';self.fails('changed_job',lambda:self.pub.run(self.job,True))
     def test_rolling_limit_and_spacing(self):
