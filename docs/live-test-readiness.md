@@ -33,3 +33,18 @@ The live runner now has bounded GET-only container-readiness polling and verifie
 id/permalink after durable sent state. A post-send permalink lookup failure reports
 sent_but_permalink_unverified_no_republish. Never repeat the publishing POST to fix
 receipt lookup. Independent duplicate guard remains credential-free.
+
+## Exact diagnostic result
+
+One additional normal source request was explicitly authorized by the parent.
+GitHub diagnostic run 40640596154, job 122657573781, returned at
+2026-10-28T05:53:34Z: SOURCE_DIAGNOSTIC=http_denied_403. The request used the normal
+public HTTPS URL without cookies, credentials, redirects, retry or impersonation.
+This proves HTTP 403, not redirect, DNS failure or timeout; the server's underlying
+reason for refusal is not exposed. No request to the denied source was made after
+this result. The one-shot workflow has been removed.
+
+The live gate remains closed. See source-verification-design.md for an explicitly
+unimplemented alternative based on a fresh independent official browser observation
+and immutable evidence record. It must not claim that runner source access succeeded.
+Campaign remains inactive and no Instagram API operations or publishing occurred.
