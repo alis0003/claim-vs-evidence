@@ -1,0 +1,71 @@
+{
+  "status": "held_pending_asset_final_review_and_supported_preflight",
+  "ready_for_publish": false,
+  "run_checked_at": "2026-10-28T10:16:55.471113+00:00",
+  "contract_commit": "cb049e59fb4e8bcf42ad29c27bf1ec98d37012f3",
+  "claim": "This video shows real people collecting floating iPhone boxes after a ship sank in the Strait of Hormuz.",
+  "provisional_verdict": "false",
+  "claim_date": null,
+  "claim_date_note": "Referenced Facebook post unavailable; origin/uploader status not established. Lead Stories reports October17 circulation in a different post; do not assign that date to the referenced Facebook post.",
+  "circulation_observed_date": "2026-10-20",
+  "circulation_date_basis": "Lead Stories dated fact-check documents prior circulation; not exact original-post timestamp.",
+  "sources": [
+    {
+      "url": "https://fullfact.org/world/video-people-collecting-iPhones-Strait-Hormuz-ai-generated/",
+      "publisher": "Full Fact",
+      "published_date": "2026-10-27",
+      "checked_at": "2026-10-28T10:16:55.471113+00:00",
+      "supports": "This specific clip is AI-generated, based on reported watermark and continuity errors; no independent detector use asserted."
+    },
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-shows-people-fishing-iphones-out-of-water-after-missile-attack-on-ship-in-strait-of-hormuz-it-is-ai.html",
+      "publisher": "Lead Stories",
+      "published_date": "2026-10-20",
+      "checked_at": "2026-10-28T10:16:55.471113+00:00",
+      "supports": "Documents same clip and reported October17 circulation; not used to establish cargo contents."
+    },
+    {
+      "url": "https://www.mpa.gov.sg/media-centre/details/two-singapore-registered-vessels-struck-in-strait-of-hormuz",
+      "publisher": "Maritime and Port Authority of Singapore",
+      "published_date": "2026-10-14",
+      "checked_at": "2026-10-28T10:16:55.471113+00:00",
+      "supports": "Primary confirmation of real GFS PRIDE sinking and crew evacuation; does not verify iPhone cargo or attribute responsibility."
+    }
+  ],
+  "scope_limits": [
+    "No claim that no iPhones were aboard.",
+    "No denial of real sinking or other real recovery footage.",
+    "No claim identifying a responsible party.",
+    "No referenced Facebook access or detector run asserted."
+  ],
+  "duplicate_check": "Distinct independent reviewer confirmed no semantic duplicate against both sent claims; see source-review.json. Final-byte review still pending.",
+  "anonymous_preflight": {
+    "source": "Full Fact",
+    "result": "dns_failure",
+    "source_http_response_observed": false,
+    "retried": false,
+    "alternate_route_used": false
+  },
+  "asset": {
+    "library_file_id": "libfile_c37eb254b0bc8191822710f56a9046cf",
+    "reported_dimensions": [
+      1536,
+      1024
+    ],
+    "reported_mode": "RGB",
+    "local_bytes_obtained": false,
+    "materialization": "supported Library helper failed: download failed; no retry",
+    "generation_observed_window_utc": [
+      "2026-10-28T10:14:20Z",
+      "2026-10-28T10:14:58Z"
+    ],
+    "exact_generation_timestamp": null,
+    "prompt": "pending actual worker metadata; not invented"
+  },
+  "remaining": [
+    "Receive and materialize approved original artwork using supported route.",
+    "Final composition and distinct independent exact-byte review.",
+    "Full candidate validation and supported anonymous preflight.",
+    "Append-only promotion only after all checks pass."
+  ]
+}

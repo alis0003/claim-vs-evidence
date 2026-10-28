@@ -1,0 +1,45 @@
+{
+  "status": "SOURCE_REVIEW_PASS_WITH_WORDING_RECOMMENDATION_FINAL_BYTES_PENDING",
+  "reviewer_id": "/root/review_final_html2shell",
+  "review_task": "iphone-recovery-scope-and-duplicates",
+  "reviewed_at": "2026-10-28T10:17:57.399887+00:00",
+  "mode": "independent_automated",
+  "final_byte_approved": false,
+  "caption_draft_sha256": "29968a0c4589a8d8747e774a67c1ed40e2cc406be7a3f52830de043e58437bb5",
+  "sources": [
+    {
+      "url": "https://fullfact.org/world/video-people-collecting-iPhones-Strait-Hormuz-ai-generated/",
+      "published_date": "2026-10-27",
+      "finding": "Reports this clip AI-generated, SynthID watermark and changing boxes/shoes. Caption correctly attributes observations and does not claim independent detector use. Full Fact explicitly cannot verify cargo contents and distinguishes authentic spilled-cargo footage."
+    },
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-fake-video-shows-people-fishing-iphones-out-of-water-after-missile-attack-on-ship-in-strait-of-hormuz-it-is-ai.html",
+      "published_date": "2026-10-20",
+      "finding": "Reports an October 17 X post with this clip. This supports circulation by October 20, not the unavailable Facebook post date or origin. Its cargo assertion should not be generalized into no-iPhones-aboard."
+    },
+    {
+      "url": "https://www.mpa.gov.sg/media-centre/details/two-singapore-registered-vessels-struck-in-strait-of-hormuz",
+      "published_date": "2026-10-14",
+      "finding": "Primary statement confirms GFS PRIDE sank and all 21 crew safely evacuated. Does not establish cargo contents or identify responsible party."
+    }
+  ],
+  "scope_assessment": "Narrow video-authenticity finding is supported. Preserve real sinking and cargo/recovery uncertainty; no accusation or blanket claim. All three sources independently read; no original social post accessed.",
+  "wording_recommendation": {
+    "current": "unavailable original Facebook post",
+    "suggested": "referenced Facebook post",
+    "reason": "The sources identify shared Facebook versions, not a proven original uploader. Avoid implying independently established originality."
+  },
+  "duplicate_review": {
+    "remote_queue_and_ledger_read": true,
+    "existing_sent_claim_ids": [
+      "bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf",
+      "55558b2a3a51b49258a7c1799e14a9a7e573ff16b52a817c7571104917d81038"
+    ],
+    "assessment": "No exact or semantic duplicate. Shared Hormuz location does not make authenticity of box-recovery clip the same claim as aerial-video Bangladesh geolocation. Polar-bear AI-rescue story is separate."
+  },
+  "pending": [
+    "Final illustration must be clearly labelled AI illustration, not actual footage or event evidence.",
+    "Inspect actual final JPEG and exact final caption and bind hashes before approval.",
+    "No queue/schedule/publication approval in this source-only review."
+  ]
+}
