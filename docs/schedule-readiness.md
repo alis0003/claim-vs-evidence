@@ -6,6 +6,14 @@ producer_fresh_run_verified and scheduled_publication_enabled remain false.
 There is no active schedule trigger. The inert template is
 `deployment/scheduled-publish.yml.disabled`.
 
+Fresh trial assessment: commit 47136b62f3e8f21d294322c4e46a18ad1411c94c
+and successful CI 40645640518 prove draft-only research/storage. They do not yet
+prove a fully validated ready candidate and append-only queue promotion. The draft
+explicitly holds publication rights review unresolved; its older primary source
+also cannot satisfy the current source schema. See `docs/producer-promotion.md`
+for exact remaining acceptance checks and safe producer instructions. No schedule
+or campaign readiness flag was enabled by this assessment.
+
 Required producer proof before parent authorizes enabling:
 
 1. An independent fresh producer run reads the current producer contract and campaign
