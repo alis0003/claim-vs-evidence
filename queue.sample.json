@@ -52,6 +52,33 @@
       "producer_id": "native-research-producer",
       "reviewer_id": "REPLACE",
       "review_notes": "PENDING independent evidence, provenance and semantic-duplicate review; do not mark ready."
+    },
+    "visual_provenance": {
+      "kind": "claim_screenshot",
+      "source_url": "https://example.invalid/original",
+      "license_url": "https://example.invalid/exact-license",
+      "rights_evidence_url": "https://example.invalid/asset-rights-record",
+      "creator": "REPLACE",
+      "attribution": "REPLACE_WITH_EXACT_CREDIT_ALSO_IN_CAPTION",
+      "license_exact": "REPLACE_WITH_SUPPORTED_LICENSE_ID",
+      "rights_basis": "REPLACE_WITH_VERIFIED_ASSET_SPECIFIC_RIGHTS_EVIDENCE",
+      "transformations": "REPLACE_WITH_ACTUAL_CROP_RESIZE_OR_OTHER_CHANGES",
+      "context": "REPLACE_WITH_TRUE_CONTEXT",
+      "reuse_rights_verified": false,
+      "social_publication_permitted": false,
+      "adaptation_permitted": false,
+      "rights_checked_at": "REPLACE_WITH_ACTUAL_CHECK_TIMESTAMP",
+      "asset_sha256": "REPLACE_WITH_ORIGINAL_ASSET_HASH",
+      "display_label": "Claim screenshot",
+      "visual_review": {
+        "label_visible": false,
+        "context_verified": false,
+        "reviewer_id": "REPLACE",
+        "jpeg_sha256": "REPLACE_WITH_FINAL_JPEG_HASH",
+        "caption_sha256": "REPLACE_WITH_EXACT_CAPTION_UTF8_HASH",
+        "reviewed_at": "REPLACE_WITH_ACTUAL_REVIEW_TIMESTAMP",
+        "notes": "PENDING independent final pixel, caption and rights review"
+      }
     }
   }
 ]

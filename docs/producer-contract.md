@@ -66,7 +66,7 @@ as the executable schema. Top level is a JSON array, maximum 100 jobs. Each job:
 - `sources`: 1–10 objects with url, title, publisher, supports, published_at,
   checked_at, supports_claim_analysis=true. Default role recent_reporting: publication <=30 days old, checked <=7.
   Do not substitute a date-checked value for an old publication date.
-- `screenshot_provenance`: original_url, publisher, context, captured_at, sha256,
+- For claim_screenshot only, `screenshot_provenance`: original_url, publisher, context, captured_at, sha256,
   original=true, rights_reviewed=true. Hash the actual capture; never invent it.
   If exact capture time was not recorded, captured_at may be null with genuine
   saved_at_utc, timestamp_basis=filesystem_save_exact_capture_unrecorded and a
@@ -111,7 +111,7 @@ Future jobs receive full evidence validation when due; a clean offline run never
 asserts that skipped future evidence is publication-ready. The durable sent ledger
 is never removed/reset by queue validation.
 
-Producer fresh-run capability is still unconfirmed. Only the parent may update
+Licensed-format producer fresh-run capability is still unconfirmed. Only the parent may update
 producer_fresh_run_verified, producer_readiness_record and scheduled_publication_enabled.
 Scheduled publication remains disabled until the independent fresh-run proof is checked.
 
@@ -135,3 +135,59 @@ recency. Publication must precede the source check; future or contradictory date
 fail. Unknown publication date is not accepted as meaningful timed evidence.
 Supplementary undated URLs may be cited as context but cannot replace the required
 dated evidence or be assigned a guessed date.
+
+## Licensed visual formats — required for every new publication
+
+This format approval does NOT authorize retrying the denied HTML2Shell screenshot.
+Do not promote that candidate, recycle it as a workaround, or invent a false claim
+for the available CRS-35 jellyfish photo. Find a distinct evidence-verified story.
+A true verdict is valid when supported; never assume every claim is false.
+
+Each new job needs `visual_provenance` (see queue.sample.json and the single-object
+candidate-photo.sample.json). `kind=claim_screenshot` requires genuine screenshot
+provenance AND established reuse rights. `kind=evidence_photo` requires the claim
+as text and a separately rights-cleared photo; omit screenshot_provenance entirely.
+Visible and caption label must be exactly `Claim screenshot`, `Illustrative photo`
+or `Evidence photo` as appropriate. Never call an illustration a screenshot or
+present an unrelated photo as evidence. Evidence photo requires a nonempty
+`evidentiary_connection` and `evidence_source_url` matching reviewed sources.
+An illustrative photo supports presentation only, never the factual verdict.
+
+Required fields: source_url, license_url, rights_evidence_url (public HTTPS),
+creator, attribution, license_exact, rights_basis, transformations, context,
+asset_sha256 and rights_checked_at (actual check within7days). Record exact
+asset-specific terms and their source, not just a general site licence. Supported
+identifiers: CC0-1.0, CC-BY-4.0, CC-BY-SA-4.0, public-domain, explicit-permission.
+These are schema categories, not a determination that an arbitrary asset qualifies.
+Public-domain needs evidence for this asset; explicit-permission needs a public,
+non-sensitive permission record covering this use. Never publish private emails.
+Do not claim a licence or permission when unknown; hold the candidate instead.
+Set reuse_rights_verified, social_publication_permitted and adaptation_permitted
+true only after independent evidence establishes each. Attribution must appear
+verbatim in the caption. CC-BY-SA-4.0 additionally requires output_license with the
+same value and that identifier in the caption; reviewer must assess compliance.
+
+`visual_review` binds reviewer_id to the distinct editorial reviewer, jpeg_sha256
+to final output, and caption_sha256 to SHA256 of exact UTF-8 caption bytes (including
+newlines). It needs actual reviewed_at within7days, notes, label_visible=true and
+context_verified=true from actual pixel review. Any visual/caption change requires
+new review/hashes. Screenshot asset hash and source URL must match capture record.
+Photo acquired_at is actual acquisition within30days; photo_captured_at is actual
+exposure timestamp if known, otherwise null with honest capture_date_note. Never
+infer exposure time from download time. Older authentic photos are allowed when
+context is correctly labelled; claim and source freshness are unchanged.
+
+Run `python3 validate_candidate.py candidate.json` on EVERY new candidate, then
+`python3 validate_candidate.py candidate.json --anonymous-preflight` in a supported
+runner. This explicitly enforces current rights gates. Anonymous preflight checks
+source, licence/rights metadata and JPEG availability; it cannot establish truth or
+rights by HTTP success. Stop on denial; no spoofing or alternate-route retries.
+Legacy queue records stay unchanged for history/deduplication. `validate` and the
+queue-history CLI can parse legacy records, but the live publisher blocks a new
+POST unless visual rights validation passes. `validate_ready` is the required new
+candidate schema. Do not treat old offline history validation as promotion proof.
+
+Scheduling remains disabled until an independent fresh producer demonstrates this
+format with a genuine eligible candidate and verified promotion, or an explicitly
+reviewed alternative readiness proof. Empty routine runs are safe and expected.
+No guaranteed daily volume; the November27 exclusive cutoff is unchanged.

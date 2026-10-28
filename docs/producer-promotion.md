@@ -64,9 +64,9 @@ requests; stop on denial rather than trying an alternate route to the same sourc
 ```sh
 python3 - <<'PY'
 import datetime as dt, json
-from publisher import validate
+from publisher import validate_ready
 candidate = json.load(open('candidate.json'))
-validate(candidate, dt.datetime.now(dt.timezone.utc))
+validate_ready(candidate, dt.datetime.now(dt.timezone.utc))
 print('candidate schema valid now')
 PY
 ```
@@ -74,9 +74,9 @@ PY
 ```sh
 python3 - <<'PY'
 import datetime as dt, json
-from publisher import validate, preflight
+from publisher import validate_ready, preflight
 candidate = json.load(open('candidate.json'))
-validate(candidate, dt.datetime.now(dt.timezone.utc))
+validate_ready(candidate, dt.datetime.now(dt.timezone.utc))
 preflight(candidate)
 print('anonymous source/media preflight passed')
 PY
@@ -93,3 +93,8 @@ producer_readiness_record pointing to the proof. The existing template then move
 to .github/workflows/scheduled-publish.yml. Proposed cron is `17 */3 * * *` UTC;
 exclusive cutoff remains 2026-11-27T06:07:35.862082+00:00. Do not claim it is active
 until the workflow and flags are committed and checked. No daily volume guarantee.
+
+HTML2Shell queue promotion was rejected by automatic approval review for unresolved
+reuse permission. No queue commit executed. Its earlier candidate/preflight proof
+does not authorize promotion under the new licensed-format contract. Do not retry
+without materially new rights evidence or use the new format as an indirect bypass.

@@ -14,7 +14,7 @@ NOW=dt.datetime(2026,10,27,12,tzinfo=p.UTC)
 def iso(delta=0): return (NOW+dt.timedelta(hours=delta)).isoformat()
 def jpeg():
     return b'\xff\xd8\xff\xc0'+struct.pack('>H B H H B',17,8,1080,1080,3)+b'\x01\x11\x00\x02\x11\x00\x03\x11\x00\xff\xda\x00\x08\x01\x01\x00\x00\x3f\x00\x01\xff\xd9'
-def job():
+def legacy_job():
     return dict(claim='A testable claim for mocked tests',claim_id=p.claim_id('A testable claim for mocked tests'),
       review_provenance=dict(mode='independent_automated',producer_id='test-producer',reviewer_id='test-editor',review_notes='Separate review of evidence, scope and semantic duplicates'),
       caption='A reviewed explanation. Sources: https://www.nasa.gov/fact',reviewer='test-editor',evidence_summary='Verified against original evidence',
@@ -23,6 +23,18 @@ def job():
       sources=[dict(url='https://www.nasa.gov/fact',title='Original report',publisher='Source',supports='Context of claim',published_at=iso(-24),checked_at=iso(-1),supports_claim_analysis=True)],
       screenshot_provenance=dict(original=True,rights_reviewed=True,publisher='Original publisher',context='Original post and capture context',original_url='https://www.nasa.gov/original',captured_at=iso(-24),sha256='a'*64),
       image=dict(url='https://raw.githubusercontent.com/owner/repo/main/card.jpg',mime='image/jpeg',width=1080,height=1080,sha256=hashlib.sha256(jpeg()).hexdigest()))
+def job():
+    j=legacy_job()
+    j['caption'] += ' Claim screenshot. Credit: Test creator. CC-BY-4.0.'
+    j['visual_provenance']=dict(kind='claim_screenshot',source_url=j['screenshot_provenance']['original_url'],
+        license_url='https://creativecommons.org/licenses/by/4.0/',rights_evidence_url='https://www.nasa.gov/rights',
+        creator='Test creator',attribution='Credit: Test creator. CC-BY-4.0.',license_exact='CC-BY-4.0',
+        rights_basis='Mocked explicit licence statement on original source',transformations='Crop and resize',context='Mock original claim',
+        reuse_rights_verified=True,social_publication_permitted=True,adaptation_permitted=True,rights_checked_at=iso(-1),
+        asset_sha256=j['screenshot_provenance']['sha256'],display_label='Claim screenshot',
+        visual_review=dict(label_visible=True,context_verified=True,reviewer_id=j['reviewer'],jpeg_sha256=j['image']['sha256'],
+                          caption_sha256=hashlib.sha256(j['caption'].encode()).hexdigest(),reviewed_at=iso(-1),notes='Mock independent pixel review'))
+    return j
 def fetch(url,**kwargs):
     return ('image/jpeg',jpeg()) if url.endswith('.jpg') else ('text/html',b'Original factual report with readable source content. '*5)
 class API:
@@ -125,7 +137,7 @@ class Tests(unittest.TestCase):
             with patch.object(p.PinnedHTTPS,'request',side_effect=error):
                 self.fails(code,lambda:p.Instagram('secret-token').call('GET','me'))
     def test_changed_job(self):
-        self.pub.run(self.job,True);self.job['caption']='Changed';self.fails('changed_job',lambda:self.pub.run(self.job,True))
+        self.pub.run(self.job,True);self.job['caption']+=' Changed';self.job['visual_provenance']['visual_review']['caption_sha256']=hashlib.sha256(self.job['caption'].encode()).hexdigest();self.fails('changed_job',lambda:self.pub.run(self.job,True))
     def test_rolling_limit_and_spacing(self):
         for i in range(10): self.j.save(str(i),'fp','sent',NOW-dt.timedelta(hours=2+i))
         self.fails('rolling_limit',lambda:self.pub.run(self.job,True))
@@ -158,7 +170,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(p.public_url(url,allow_source_query=True).query,'type=image')
         with self.assertRaises(p.Stop):p.public_url(url)
         self.job['sources'][0]['url']=url
-        self.job['screenshot_provenance']['original_url']=url
+        self.job['screenshot_provenance']['original_url']=url;self.job['visual_provenance']['source_url']=url
         p.validate(self.job,NOW)
         calls=[]
         def recording(url,**kwargs):
@@ -193,7 +205,7 @@ class Tests(unittest.TestCase):
             self.fails('unsafe_dns',lambda:p.request('https://www.nasa.gov/fact'))
     def test_image_and_source(self):
         p.preflight(self.job,fetch)
-        self.fails('unreadable_source',lambda:p.preflight(self.job,lambda *a,**k:('text/html',b'')))
+        self.fails('unreadable_source',lambda:p.preflight(self.job,lambda url,**k:('text/html',b'') if url==self.job['sources'][0]['url'] else fetch(url,**k)))
         self.job['image']['width']=1000;self.fails('media_mismatch',lambda:p.preflight(self.job,fetch))
     def test_unsupported_media(self):
         for raw in [b'PNG',b'\xff\xd8\xff\xd9']:

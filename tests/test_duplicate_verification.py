@@ -18,7 +18,8 @@ class DuplicateVerificationTests(unittest.TestCase):
             state=copy.deepcopy(self.state);state['jobs'][self.job['claim_id']][1]=phase
             with self.assertRaisesRegex(p.Stop,'publication_not_confirmed'):verify(self.job,state,NOW)
     def test_changed_job_cannot_pass(self):
-        self.job['caption']='Changed after publish'
+        self.job['caption']+=' Changed after publish'
+        self.job['visual_provenance']['visual_review']['caption_sha256']=hashlib.sha256(self.job['caption'].encode()).hexdigest()
         with self.assertRaisesRegex(p.Stop,'changed_job'):verify(self.job,self.state,NOW)
     def test_held_owner_cannot_pass(self):
         self.state['owner']='a'*32

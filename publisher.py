@@ -142,6 +142,66 @@ def validate_sources(sources, now):
     require(not documentary or recent_fact_check, 'documentary_requires_recent_fact_check')
 
 
+def validate_visual(job, now):
+    """Publication gate for both licensed screenshots and licensed photographs.
+    Metadata is an auditable attestation, not automatic proof of ownership.
+    """
+    v = job.get('visual_provenance')
+    require(isinstance(v, dict), 'licensed_visual_required')
+    kind = v.get('kind')
+    require(kind in {'claim_screenshot', 'evidence_photo'}, 'invalid_visual_kind')
+    for key in ('source_url', 'license_url', 'rights_evidence_url'):
+        public_url(v.get(key), allow_source_query=True)
+    for key in ('creator', 'attribution', 'license_exact', 'rights_basis', 'transformations', 'context'):
+        text_field(v, key)
+    require(v.get('reuse_rights_verified') is True
+            and v.get('social_publication_permitted') is True
+            and v.get('adaptation_permitted') is True, 'unverified_visual_rights')
+    require(v.get('license_exact') in {'CC0-1.0', 'CC-BY-4.0', 'CC-BY-SA-4.0',
+                                     'public-domain', 'explicit-permission'}, 'unsupported_visual_license')
+    recent(v.get('rights_checked_at'), now, 7)
+    require(bool(re.fullmatch('[a-f0-9]{64}', str(v.get('asset_sha256', '')))), 'missing_visual_hash')
+    require(v['attribution'] in job['caption'], 'missing_visual_attribution')
+    label = v.get('display_label')
+    allowed = {'claim_screenshot': {'Claim screenshot'},
+               'evidence_photo': {'Illustrative photo', 'Evidence photo'}}
+    require(label in allowed[kind] and label in job['caption'], 'misleading_visual_label')
+    review = v.get('visual_review')
+    require(isinstance(review, dict) and review.get('label_visible') is True
+            and review.get('context_verified') is True, 'missing_visual_review')
+    require(review.get('reviewer_id') == job['reviewer']
+            and review.get('jpeg_sha256') == job['image']['sha256']
+            and review.get('caption_sha256') == hashlib.sha256(job['caption'].encode()).hexdigest(),
+            'unbound_visual_review')
+    recent(review.get('reviewed_at'), now, 7)
+    text_field(review, 'notes')
+    if kind == 'claim_screenshot':
+        capture = job.get('screenshot_provenance', {})
+        require(v.get('asset_sha256') == capture.get('sha256')
+                and v.get('source_url') == capture.get('original_url'), 'unbound_screenshot')
+    else:
+        require(job.get('screenshot_provenance') is None, 'photo_mislabeled_as_screenshot')
+        require(v.get('claim_presented_as_text') is True, 'missing_text_claim')
+        recent(v.get('acquired_at'), now, 30)
+        if v.get('photo_captured_at') is None:
+            text_field(v, 'capture_date_note')
+        else:
+            require(timestamp(v['photo_captured_at']) <= now, 'future_photo_capture')
+        if label == 'Evidence photo':
+            text_field(v, 'evidentiary_connection')
+            require(v.get('evidence_source_url') in [s['url'] for s in job['sources']],
+                    'unbound_photo_evidence')
+    if v['license_exact'] == 'CC-BY-SA-4.0':
+        require(v.get('output_license') == 'CC-BY-SA-4.0'
+                and 'CC-BY-SA-4.0' in job['caption'], 'missing_sharealike_terms')
+
+
+def validate_ready(job, now):
+    cid = validate(job, now)
+    validate_visual(job, now)
+    return cid
+
+
 def validate(job, now):
     require(isinstance(job, dict), 'invalid_job')
     for key in ('claim', 'caption', 'reviewer', 'evidence_summary'):
@@ -181,20 +241,21 @@ def validate(job, now):
     require(created <= start <= now < end <= expires and end-start <= dt.timedelta(hours=24),
             'expired_run_window')
     validate_sources(job.get('sources'), now)
-    p = job.get('screenshot_provenance')
-    require(isinstance(p, dict) and p.get('original') is True and p.get('rights_reviewed') is True,
-            'missing_provenance')
-    for key in ('publisher', 'context'):
-        text_field(p, key)
-    public_url(p.get('original_url'), allow_source_query=True)
-    if p.get('captured_at') is None:
-        # Filesystem save time is NOT a capture event. Preserve that distinction.
-        text_field(p,'timestamp_note')
-        require(p.get('timestamp_basis')=='filesystem_save_exact_capture_unrecorded', 'missing_provenance_time_basis')
-        recent(p.get('saved_at_utc'),now,30)
-    else:
-        recent(p.get('captured_at'), now, 30)
-    require(bool(re.fullmatch('[a-f0-9]{64}', str(p.get('sha256', '')))), 'missing_provenance')
+    if job.get('visual_provenance', {}).get('kind') != 'evidence_photo':
+        p = job.get('screenshot_provenance')
+        require(isinstance(p, dict) and p.get('original') is True and p.get('rights_reviewed') is True,
+                'missing_provenance')
+        for key in ('publisher', 'context'):
+            text_field(p, key)
+        public_url(p.get('original_url'), allow_source_query=True)
+        if p.get('captured_at') is None:
+            # Filesystem save time is NOT a capture event. Preserve that distinction.
+            text_field(p,'timestamp_note')
+            require(p.get('timestamp_basis')=='filesystem_save_exact_capture_unrecorded', 'missing_provenance_time_basis')
+            recent(p.get('saved_at_utc'),now,30)
+        else:
+            recent(p.get('captured_at'), now, 30)
+        require(bool(re.fullmatch('[a-f0-9]{64}', str(p.get('sha256', '')))), 'missing_provenance')
     image = job.get('image')
     require(isinstance(image, dict) and image.get('mime') == 'image/jpeg', 'unsupported_media')
     public_url(image.get('url'))
@@ -202,6 +263,8 @@ def validate(job, now):
     require(type(w) is int and type(h) is int and 320 <= w <= 1440 and h > 0 and .8 <= w/h <= 1.91,
             'unsupported_dimensions')
     require(bool(re.fullmatch('[a-f0-9]{64}', str(image.get('sha256', '')))), 'unsupported_media')
+    if 'visual_provenance' in job:
+        validate_visual(job, now)
     return job['claim_id']
 
 
@@ -340,7 +403,13 @@ def jpeg_dimensions(data):
         raise Stop('unsupported_media') from None
 
 
-def preflight(job, fetch=request):
+def preflight(job, fetch=request, now=None):
+    # This check is also used before resuming a known created container.
+    validate_visual(job, now if now is not None else dt.datetime.now(UTC))
+    visual = job['visual_provenance']
+    for url in dict.fromkeys(visual[key] for key in ('source_url', 'license_url', 'rights_evidence_url')):
+        mime, raw = fetch(url, limit=2_000_000, source=True)
+        require(mime in {'text/html', 'text/plain', 'application/pdf'} and len(raw.strip()) >= 40, 'unreadable_rights_metadata')
     for s in job['sources']:
         mime, raw = fetch(s['url'], limit=2_000_000, source=True)
         require(mime in {'text/html','text/plain','application/pdf'} and len(raw.strip()) >= 40, 'unreadable_source')
@@ -427,12 +496,14 @@ class Publisher:
             if previous:
                 require(previous[0]==fp, 'changed_job')
                 return 'already_sent' if previous[1]=='sent' else 'reconciliation_required'
+            # Legacy records may be read/deduplicated, never newly published.
+            validate_visual(job, self.clock())
             require(self.api is not None, 'missing_token')
             account=self.identity()
             # Uncertain work blocks all new publication, not just this claim.
             require(not self.journal.unresolved(), 'reconciliation_required')
             self.quota(account,self.clock())
-            preflight(job,self.fetch)
+            preflight(job,self.fetch,self.clock())
             validate(job,self.clock())
             # Durable intent BEFORE every POST: even a crash cannot authorize replay.
             self.journal.save(cid,fp,'creating',self.clock())
@@ -483,7 +554,7 @@ class Publisher:
             require(not self.journal.unresolved(cid), 'reconciliation_required')
             require(self.clock()-timestamp(row[2]) < dt.timedelta(hours=23), 'container_too_old')
             self.quota(account,self.clock(),exclude=cid)
-            preflight(job,self.fetch)
+            preflight(job,self.fetch,self.clock())
             return self._publish(job,cid,fp,account,numeric(row[3]))
 
     def reconcile(self,cid):
