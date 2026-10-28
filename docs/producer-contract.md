@@ -8,7 +8,7 @@ No third-party AI API, paid service, password bot or private Instagram endpoint.
 
 ## Campaign authority
 
-`campaign.json` is the single canonical configuration. `active` is currently false.
+`campaign.json` is the single canonical configuration. `active` reflects the authorized manual-test pilot; check its current value.
 `activation_at` must be a timezone-aware ISO timestamp and `end_at` must be EXACTLY
 30 elapsed days later; end_at is exclusive. Do not activate or move these dates.
 Do not modify secret-readiness, initial-review or live-test flags. Schedule triggers
@@ -55,7 +55,12 @@ as the executable schema. Top level is a JSON array, maximum 100 jobs. Each job:
   the actual independent evidence/editorial assessment in sources; never invent
   reviewer identity or label automated review as human approval.
 - Explicit editorial/ready/evidence booleans and high-impact flag as above.
-- UTC-aware `claim_date`, `reviewed_at`, `created_at`, `expires_at`, `run_after`,
+- If actual claim-post date is unknown, leave claim_date=null; use
+  claim_date_basis=dated_fact_check_documents_circulation, a YYYY-MM-DD
+  circulation_observed_date, matching circulation_evidence_url and explicit
+  claim_date_note. The date must match the reviewed fact-check publication date,
+  within30days. This documents circulation by that date, not the post timestamp.
+- UTC-aware known `claim_date`, `reviewed_at`, `created_at`, `expires_at`, `run_after`,
   `run_before`. Claim date <=30 days old, review <=7 days old, none future.
   Expiry <=30 days after creation. Run window <=24 hours, inside expiry and campaign.
 - `sources`: 1–10 objects with url, title, publisher, supports, published_at,

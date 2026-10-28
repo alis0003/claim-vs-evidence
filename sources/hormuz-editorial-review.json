@@ -1,0 +1,16 @@
+{
+  "review_type": "independent_automated_evidence_editorial_review",
+  "reviewer_id": "parent-automated-evidence-editorial-review/capture-worker",
+  "producer_id": "native-research-producer",
+  "reviewed_at": "2026-10-28T06:07:35.862082+00:00",
+  "claim_id": "bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf",
+  "source_url": "https://fullfact.org/world/viral-clip-ships-hormuz-false/",
+  "source_access": "Normal GitHub-runner source HTTP200 verified in run40640975649; source independently read through browsing.",
+  "pixel_review": "Parent verified exact original screenshot decoded pixels; executor inspected downloaded PNG and baseline sRGB JPEG. Narrow WRONG LOCATION scope retained.",
+  "rights_review_scope": "One attributed still used directly to critique the claim; overlays retained, source links included. No ownership, licence or legal-permission guarantee.",
+  "post_date": "Unknown; circulation documented by Full Fact dated22October. Earlier-found3October version is not assigned to Erada post.",
+  "caption_sha256": "2c8acc15c02b7d9a9c7c8cd39fcdf9d0c1b267b12df7e981a1468e19cbf3d909",
+  "jpeg_sha256": "66dd0f5a85c7795ee7de96bce8311c65245fab09ab3a67a9e326df17bf65c36e",
+  "crop_sha256": "8e5394b21d9b1d0596e90ebfb92a5b959c9b613705102505d0aaa3706620f9b8",
+  "authorized_first_manual_test": true
+}

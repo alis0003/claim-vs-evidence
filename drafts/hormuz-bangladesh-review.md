@@ -1,28 +1,20 @@
-# Hormuz/Bangladesh — separate case; held for original asset/provenance
+# Hormuz/Bangladesh — reviewed and selected for authorized manual test
 
-Full Fact source page published 22 October 2026 was independently read through
-browsing on 28 October. One normal GitHub-runner request succeeded HTTP 200; run
-40640975649. No source access workaround was used. The AFP case remains unchanged
-and blocked; this case has its own evidence record.
+Full Fact source dated22October was read through browsing and normal GitHub-runner
+HTTP200 on28October. This is a separate case; AFP remains unqueued and blocked.
 
-Caption draft:
+Parent verified genuine PNG/crop hashes and approved narrow facts/rights scope.
+Executor downloaded the explicitly authorized public asset, matched PNG SHA256,
+inspected original and converted JPEG, and verified anonymous public JPEG bytes.
+JPEG:1080x1350 sRGB baseline,221557bytes, SHA256
+66dd0f5a85c7795ee7de96bce8311c65245fab09ab3a67a9e326df17bf65c36e.
 
-FALSE CONTEXT: This aerial clip shows the coast near Chittagong airport, Bangladesh,
-and the Karnaphuli River—not ships stopped in the Strait of Hormuz. Full Fact's
-22 October 2026 check matched the shoreline and river to Bangladesh. This verdict
-is about this video's location; it does not show that all shipping disruption is
-false. Source: https://fullfact.org/world/viral-clip-ships-hormuz-false/
-Claim: https://www.facebook.com/reel/1828760951600371
-Source checked: 28 October 2026. AI-assisted research/design, with independent
-automated evidence/editorial review required before publication.
+Actual Erada claim-post date remains null. Dated Full Fact publication documents
+circulation by22October;3October is not assigned to this post. Capture event time
+remains null; genuine filesystem save time is explicitly labelled. One attributed
+still critiques the claim with overlays retained; no licence/permission guarantee.
 
-Required parent handoff: original approved PNG blob or supported materialization;
-full-asset SHA256/dimensions; original screenshot/crop hash and source link; genuine
-capture time or saved_at_utc with explicit timestamp basis; claim-date provenance;
-independent pixel/evidence review and contextual rights assessment. Do not invent
-missing metadata or replace genuine screenshot pixels. Executor must inspect actual
-bytes before converting to 1080x1350 sRGB JPEG and creating a ready queue.
-
-No ready queue item, activation, Instagram API call or publication exists for this
-case. The connector cannot dispatch the eventual manual workflow; parent browser
-will need to dispatch exactly once after all readiness gates pass.
+Independent review record: sources/hormuz-editorial-review.json.
+Ready job: drafts/hormuz-bangladesh-queue.json, copied unchanged to queue.json.
+First manual test authorized; no schedule. Parent dispatches exactly once after CI,
+then verifies permalink/media ID, durable sent state and duplicate guard proof.

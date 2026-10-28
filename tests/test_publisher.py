@@ -136,6 +136,23 @@ class Tests(unittest.TestCase):
     def test_unsafe_urls(self):
         for url in ['http://www.nasa.gov/x','https://127.0.0.1/a','https://169.254.169.254/a','https://[::1]/a','https://example.com/x','https://me:password@www.nasa.gov/a','https://www.nasa.gov/a?token=secret','https://x.local/a']:
             with self.subTest(url=url),self.assertRaises(p.Stop): p.public_url(url)
+    def test_unknown_post_date_uses_dated_circulation_evidence(self):
+        self.job.update(claim_date=None,claim_date_basis='dated_fact_check_documents_circulation',
+            circulation_observed_date=(NOW-dt.timedelta(days=1)).date().isoformat(),
+            circulation_evidence_url=self.job['sources'][0]['url'],
+            claim_date_note='Fact check documents circulation by publication date; actual post date unknown.')
+        p.validate(self.job,NOW)
+        self.assertIsNone(self.job['claim_date'])
+        self.job['circulation_evidence_url']='https://www.nasa.gov/unrelated'
+        with self.assertRaisesRegex(p.Stop,'unbound_circulation_evidence'):p.validate(self.job,NOW)
+    def test_unknown_post_date_without_basis_rejected(self):
+        self.job['claim_date']=None
+        with self.assertRaisesRegex(p.Stop,'missing_claim_date_basis'):p.validate(self.job,NOW)
+    def test_stale_circulation_evidence_rejected(self):
+        self.job.update(claim_date=None,claim_date_basis='dated_fact_check_documents_circulation',
+            circulation_observed_date=(NOW-dt.timedelta(days=31)).date().isoformat(),
+            circulation_evidence_url=self.job['sources'][0]['url'],claim_date_note='Post date unknown')
+        with self.assertRaisesRegex(p.Stop,'stale_or_future_evidence'):p.validate(self.job,NOW)
     def test_source_query_preserved_and_media_query_denied(self):
         url='https://perma.cc/8X4Q-5YPQ?type=image'
         self.assertEqual(p.public_url(url,allow_source_query=True).query,'type=image')

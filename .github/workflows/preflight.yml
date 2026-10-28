@@ -1,4 +1,4 @@
-# Manual only: prior source HTTP failure must be diagnosed before another fetch.
+# Manual readiness for the selected Full Fact case only. AFP remains blocked.
 name: Public source readiness
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
           python3 - <<'PYTHON'
           import datetime, json
           from publisher import validate, preflight, UTC, Stop
-          job = json.load(open('drafts/initial-queue.json'))[0]
+          job = json.load(open('drafts/hormuz-bangladesh-queue.json'))[0]
           try:
               validate(job, datetime.datetime.now(UTC))
               preflight(job)

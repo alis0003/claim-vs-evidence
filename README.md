@@ -1,8 +1,9 @@
 # Claim vs Evidence — English Instagram fact checks
 
 Target: `@claimvsevidence`. Authorized repository: `alis0003/claim-vs-evidence`.
-The campaign is **inactive**, the queue is empty, and no card has been published.
-Only offline CI is enabled. No purchases, paid APIs, larger runners or password bots.
+The campaign is authorized for **one manual live test** using the separately reviewed
+Full Fact Hormuz/Bangladesh card. No card has yet been published. Offline CI and the
+manual-confirmation workflow are enabled; there is no publishing schedule. No purchases, paid APIs, larger runners or password bots.
 
 ## Check locally
 
@@ -68,7 +69,7 @@ card per run. Any unresolved attempt blocks other new work for the account.
 
 ## Deployment gates and secrets
 
-`campaign.json` is canonical and inactive. `activation_at` and exclusive `end_at`
+`campaign.json` is canonical; check its current manual-test activation window. `activation_at` and exclusive `end_at`
 must be exactly 30 elapsed days apart. Runtime checks the window again around
 checkpoint latency. Secret readiness, reviewed initial queue and successful live
 test are separate flags. Scheduled execution requires the successful live-test flag.
@@ -81,9 +82,10 @@ only in the eventual trusted publisher job. HTTP errors never echo token/header/
 
 `.github/workflows/review.yml` runs offline tests and validation on standard
 ubuntu-24.04, with no secret inputs, third-party Actions, cache or uploaded artifacts.
-The live workflow template is inert at `deployment/publish.yml.disabled`. It cannot
-run merely by adding a secret. Activate only after parent readiness confirmation,
-state-branch provisioning/protection, and explicit review. The manual-test template requires explicit confirmation and a credential-free
+The reviewed manual workflow is at `.github/workflows/publish.yml`; it requires
+explicit confirmation, the PUBLISHING_ENABLED variable and all campaign gates.
+Parent confirmed secret readiness and exact state protections. A reference template
+remains in deployment/publish.yml.disabled. The manual-test template requires explicit confirmation and a credential-free
 duplicate guard check. Scheduling is a separate reviewed change after that test
 succeeds. Public scheduling can be late
 or skipped; the hard time window prevents publishing after pilot expiry.
@@ -101,17 +103,17 @@ failed initially and on one supported retry with generic `download failed` (no
 HTTP status). Parent then explicitly authorized a public GitHub asset route. That
 route succeeded; PNG hash matched, PNG/JPEG pixels were inspected, and the committed
 1080x1350 sRGB JPEG was anonymously fetched with matching SHA-256 (212685 bytes).
-See `sources/initial-card.json` and `drafts/initial-queue.json`. Initial queue remains
-ready after independent automated evidence/editorial and contextual rights review;
-its genuine screenshot hash/save-time provenance is recorded. queue.json stays empty
-until the explicit parent live-test step and token readiness.
+See `sources/initial-card.json` and `drafts/initial-queue.json`. The AFP case is not selected because its runner source request
+was denied. The operational queue now contains only the independent Full Fact case;
+its source passed normal runner access and its original claimframe was verified.
 
 Durable state branch is initialized at pinned genesis
 `26d1b1261d6b904a38ce8bd9df973d6b5d07c65d`. Only deletion and force-push blocks are approved for the state branch; a separate
 browser worker owns applying them. Confirm those protections and parent readiness
 before live use; linear history is not requested. Code commit d2b7dc0126621a6d2e0d60f75b6fdd7f09610267
 triggered offline CI; its outcome must be checked in Actions, not inferred from
-local tests. Campaign remains inactive with no activation/end dates.
+local tests. Campaign dates and the selected Full Fact queue are recorded for the authorized
+manual test; follow docs/manual-dispatch.md and do not dispatch more than once.
 
 ## API documentation provenance
 

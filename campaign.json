@@ -5,9 +5,9 @@
   "initial_queue_reviewed": true,
   "live_test_completed": false,
   "state_genesis": "26d1b1261d6b904a38ce8bd9df973d6b5d07c65d",
-  "active": false,
-  "activation_at": null,
-  "end_at": null,
+  "active": true,
+  "activation_at": "2026-10-28T06:07:35.862082+00:00",
+  "end_at": "2026-11-27T06:07:35.862082+00:00",
   "producer_timezone": "Asia/Kolkata",
   "producer_daypart": "morning",
   "quality_first": true

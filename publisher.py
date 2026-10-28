@@ -99,7 +99,22 @@ def validate(job, now):
             'unverified_editorial')
     require(job.get('high_impact_identifiable_person') is False, 'high_impact_allegation')
     require(job.get('verdict') in VERDICTS and job.get('language') == 'en', 'invalid_verdict_or_language')
-    recent(job.get('claim_date'), now, 30)
+    if job.get('claim_date') is None:
+        # Unknown post dates must not be replaced with a different video's date.
+        require(job.get('claim_date_basis')=='dated_fact_check_documents_circulation', 'missing_claim_date_basis')
+        text_field(job,'claim_date_note')
+        observed=job.get('circulation_observed_date')
+        require(isinstance(observed,str) and bool(re.fullmatch(r'\d{4}-\d{2}-\d{2}',observed)), 'invalid_circulation_date')
+        try:observed_day=dt.date.fromisoformat(observed)
+        except ValueError:raise Stop('invalid_circulation_date') from None
+        require(0<=(now.date()-observed_day).days<=30,'stale_or_future_evidence')
+        sources=job.get('sources')
+        require(isinstance(sources,list),'missing_evidence')
+        matches=[s for s in sources if isinstance(s,dict) and s.get('url')==job.get('circulation_evidence_url')]
+        require(len(matches)==1 and timestamp(matches[0].get('published_at')).date()==observed_day
+                and matches[0].get('supports_claim_analysis') is True,'unbound_circulation_evidence')
+    else:
+        recent(job.get('claim_date'), now, 30)
     recent(job.get('reviewed_at'), now, 7)
     created = timestamp(job.get('created_at'))
     expires = timestamp(job.get('expires_at'))
@@ -432,7 +447,7 @@ def main():
             cid=validate(job,dt.datetime.now(UTC))
             require(cid not in seen,'duplicate_claim')
             seen.add(cid)
-        print(f'DRY RUN: {len(jobs)} jobs structurally valid; no network or publishing. Live deployment disabled.')
+        print(f'DRY RUN: {len(jobs)} jobs structurally valid; no network or publishing. This command never publishes.')
         return 0
     except Exception:
         # Do not print queue text, tracebacks, transport errors, token or headers.

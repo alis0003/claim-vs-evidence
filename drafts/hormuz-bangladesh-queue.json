@@ -1,0 +1,61 @@
+[
+  {
+    "claim": "This aerial clip shows ships stuck in the Strait of Hormuz.",
+    "claim_id": "bdd2ab6881f5a4d5325a024b850148d27b536d4062eb934f6a2897f24dc2addf",
+    "caption": "WRONG LOCATION: This aerial clip shows the coast near Chittagong airport, Bangladesh, and the Karnaphuli River—not ships stopped in the Strait of Hormuz. Full Fact’s 22 October 2026 check matched the shoreline and river to Bangladesh. This verdict concerns this video’s location; it does not establish the wider shipping situation in Hormuz.\nSource: https://fullfact.org/world/viral-clip-ships-hormuz-false/\nOriginal claim: https://www.facebook.com/reel/1828760951600371\nCard reviewed: 27 October 2026; source rechecked: 28 October 2026. AI-assisted research and design, with independent automated evidence/editorial review.",
+    "reviewer": "parent-automated-evidence-editorial-review/capture-worker",
+    "evidence_summary": "Full Fact geolocates the coastline and curved river to Chittagong/Bangladesh. Conclusion limited to video location.",
+    "review_provenance": {
+      "mode": "independent_automated",
+      "producer_id": "native-research-producer",
+      "reviewer_id": "parent-automated-evidence-editorial-review/capture-worker",
+      "review_notes": "Parent approved scoped factual claim and independently verified screenshot provenance/rights. Executor read Full Fact and inspected original PNG/final JPEG. See sources/hormuz-editorial-review.json."
+    },
+    "ready_for_publish": true,
+    "editorial_verified": true,
+    "evidence_supported": true,
+    "high_impact_identifiable_person": false,
+    "verdict": "out_of_context",
+    "language": "en",
+    "claim_date": null,
+    "claim_date_basis": "dated_fact_check_documents_circulation",
+    "circulation_observed_date": "2026-10-22",
+    "circulation_evidence_url": "https://fullfact.org/world/viral-clip-ships-hormuz-false/",
+    "claim_date_note": "Full Fact publication establishes circulation by 22 October. Actual Erada post date is unknown. October 3 refers to an earlier-found Instagram version and is not assigned to this claim post.",
+    "reviewed_at": "2026-10-28T06:07:35.862082+00:00",
+    "created_at": "2026-10-28T06:07:35.862082+00:00",
+    "expires_at": "2026-11-27T06:07:35.862082+00:00",
+    "run_after": "2026-10-28T06:07:35.862082+00:00",
+    "run_before": "2026-10-28T12:07:35.862082+00:00",
+    "sources": [
+      {
+        "url": "https://fullfact.org/world/viral-clip-ships-hormuz-false/",
+        "title": "Viral clip shows Bangladesh coast not ships stuck in Strait of Hormuz",
+        "publisher": "Full Fact",
+        "supports": "Video location identification and claim circulation by article publication date.",
+        "published_at": "2026-10-22T00:00:00Z",
+        "checked_at": "2026-10-28T06:07:35.862082+00:00",
+        "supports_claim_analysis": true
+      }
+    ],
+    "screenshot_provenance": {
+      "original_url": "https://www.facebook.com/reel/1828760951600371",
+      "publisher": "Erada - ئیرادە",
+      "context": "Parent capture worker verified genuine 376x666 claim frame, 27902 bytes, retaining overlays. Original refers to source pixels, not truth of the claim.",
+      "captured_at": null,
+      "saved_at_utc": "2026-10-27T09:39:17.100538Z",
+      "timestamp_basis": "filesystem_save_exact_capture_unrecorded",
+      "timestamp_note": "Capture date 27 October; exact capture-event time unrecorded. Crop filesystem save time only; full screenshot saved at 2026-10-27T09:39:13.741651Z. Do not infer capture or claim-post time.",
+      "sha256": "8e5394b21d9b1d0596e90ebfb92a5b959c9b613705102505d0aaa3706620f9b8",
+      "original": true,
+      "rights_reviewed": true
+    },
+    "image": {
+      "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/d8f76e3d0d94ea71583957460eb7afcdbe167979/cards/claim-vs-evidence-04-hormuz-evidence.jpg",
+      "mime": "image/jpeg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "66dd0f5a85c7795ee7de96bce8311c65245fab09ab3a67a9e326df17bf65c36e"
+    }
+  }
+]
