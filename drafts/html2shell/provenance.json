@@ -1,0 +1,118 @@
+{
+  "status": "DRAFT ONLY — NOT CLEARED FOR SOCIAL PUBLICATION",
+  "purpose": "User-authorized public repository storage of a fresh draft capability test; not an Instagram publication.",
+  "language": "en",
+  "dimensions": [
+    1080,
+    1350
+  ],
+  "ready_for_publish": false,
+  "publication_authorized": false,
+  "claim": "CVE-2026-42069 describes HTML2Shell, a critical HTML remote-code-execution vulnerability.",
+  "verdict": "false",
+  "context": "A satirical graphic misuses a real CVE identifier. No deceptive intent or reach figure is asserted.",
+  "evidence_summary": "The official Kirby advisory identifies missing read-access controls for authenticated Panel users, potentially exposing site, user and role information. It does not describe remote code execution in HTML. Fixed in Kirby 4.9.0 and 5.4.0. This does not rule out actual browser or web-app vulnerabilities.",
+  "checked_date": "2026-10-28",
+  "sources": [
+    {
+      "role": "primary",
+      "publisher": "Kirby / GitHub Security Advisory",
+      "url": "https://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2",
+      "title": "Read access to site, user and role information is not gated by permissions",
+      "published_date": "2026-04-23",
+      "supports": "CVE identity, affected authenticated Panel users, read-access impact and patch versions."
+    },
+    {
+      "role": "primary",
+      "publisher": "Kirby",
+      "url": "https://getkirby.com/security",
+      "title": "Security Policy",
+      "published_date": null,
+      "supports": "Cross-check maps CVE-2026-42069 to missing site, user and role read permissions and fixes 4.9.0 / 5.4.0."
+    },
+    {
+      "role": "secondary / screenshot context",
+      "publisher": "Lead Stories",
+      "author": "Maarten Schenk",
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+      "published_date": "2026-10-25",
+      "supports": "Satirical context, reproduced claim graphic, credit to @polydaic on X and attributed original-post date."
+    }
+  ],
+  "claim_dates": {
+    "original_post_timestamp": null,
+    "original_post_date_reported_by_Lead_Stories": "2026-10-24",
+    "circulation_documented_by_fact_check_date": "2026-10-25",
+    "basis": "Secondary attribution only; the original live X timestamp was not independently read."
+  },
+  "screenshot_provenance": {
+    "file": "html2shell-claim-context.jpg",
+    "sha256": "b32935ba44bda9de2cdcb33d506f093c6030408baf0b2ae0ef09b8ea76441511",
+    "captured_at": "2026-10-28T06:30:11.281Z",
+    "capture_basis": "Recorded supported cloud-browser getScreenshot timestamp supplied with capture manifest.",
+    "source_url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+    "original_post_url": "https://x.com/polydaic/status/2113977952610234831",
+    "original_post_access": "Returned 403; not retried or bypassed.",
+    "credit": "Lead Stories reproduction of graphic credited to @polydaic on X.",
+    "context": "Genuine capture of a fact-check page reproducing the claim, not a direct screenshot of the original X post.",
+    "crop": [
+      32,
+      0,
+      760,
+      696
+    ],
+    "card_placement": [
+      48,
+      292,
+      678,
+      894
+    ],
+    "transforms": "Crop removes right sidebar and lower article text; proportional resizing with integer rounding. Lead Stories masthead and embedded attribution retained. No generated replacement, recoloring, retouching, or text replacement within screenshot."
+  },
+  "review_provenance": {
+    "mode": "independent_automated",
+    "producer_id": "/root/compose_html2shell_draft",
+    "reviewer_id": "/root/review_html2shell_draft",
+    "human_review": false,
+    "review_notes": "Distinct automated reviewer independently inspected the Kirby advisory and Lead Stories, verified screenshot-crop interior pixels and dates/attribution, and checked semantic duplication against the queue and publishing ledger. No required factual correction was found. Reviewer recommended replacing viral with satirical; composer applied that revision to card and caption and re-inspected the final pixels.",
+    "review_scope_note": "Independent review covered the pre-wording-revision card; the sole editorial revision was then checked by the composer. This is not human review or rights clearance.",
+    "previous_reviewed_png_sha256": "a9e20e112b2da184ddb24954885a18a6bd07cd243e280719893239d57cdbbfc2",
+    "final_png_sha256": "f7b512a718416a82aeaad6db2186cb3b5d9d795f498c883c445d558b0ffad1d6",
+    "composer_visual_qa": "PASS: 1080×1350; visible source and credit; no overlapping or clipped text; narrow verdict and web-vulnerability caveat clear.",
+    "semantic_duplicate_check": "Distinct automated reviewer reports no semantic duplicate against existing queue and publishing ledger."
+  },
+  "rights": {
+    "third_party_material": true,
+    "permission_or_reuse_license_established": false,
+    "clearance_for_social_publication": false,
+    "caveat": "The screenshot contains third-party material belonging to its respective rights holders, reproduced in a fact-checking draft. Attribution does not establish a reuse license. No permission or license was independently established; any required rights clearance remains unresolved. This is not a legal determination or approval to publish."
+  },
+  "scope_controls": [
+    "Only drafts/html2shell/ additions authorized.",
+    "No queue, configuration, workflow, state-branch, credential or token changes.",
+    "No publishing workflow dispatch or Instagram API call.",
+    "No publication readiness claim; primary advisory is dated 23 April 2026 and is not represented as newly published."
+  ],
+  "files": [
+    {
+      "path": "caption.txt",
+      "bytes": 1398,
+      "sha256": "b4e5d5417905f0be65795a999e8d157892155ca5e198298d8488772ee88ab588"
+    },
+    {
+      "path": "compose_card.py",
+      "bytes": 4017,
+      "sha256": "10be6b1d1a6beddd5fc3f2c63a9d9001ac4585fc15deedf1010206f67610e539"
+    },
+    {
+      "path": "html2shell-claim-context.jpg",
+      "bytes": 110553,
+      "sha256": "b32935ba44bda9de2cdcb33d506f093c6030408baf0b2ae0ef09b8ea76441511"
+    },
+    {
+      "path": "html2shell-claim-vs-evidence-DRAFT.png",
+      "bytes": 537596,
+      "sha256": "f7b512a718416a82aeaad6db2186cb3b5d9d795f498c883c445d558b0ffad1d6"
+    }
+  ]
+}
