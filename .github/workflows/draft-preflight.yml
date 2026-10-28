@@ -1,0 +1,36 @@
+# Manual draft evidence/media check only; no publishing or secrets.
+name: HTML2Shell draft preflight
+on:
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: claimvsevidence-public-preflight
+  cancel-in-progress: false
+jobs:
+  public-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # No Actions dependencies or unverified action SHAs. Built-in git reads the
+      # public repository at the exact workflow commit; no auth or credentials.
+      - name: Read public source at exact commit
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 "https://github.com/${SOURCE_REPO}.git" "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Anonymous draft source and JPEG validation
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 check_html2shell_draft.py "$SOURCE_SHA"

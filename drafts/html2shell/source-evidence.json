@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "checked_at": "2026-10-28T06:56:30.784601+00:00",
+      "supports_claim_analysis": true,
+      "url": "https://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2",
+      "title": "Read access to site, user and role information is not gated by permissions",
+      "publisher": "Kirby / GitHub Security Advisory",
+      "supports": "CVE identity, affected authenticated Panel users, read-access impact and patch versions.",
+      "published_date": "2026-04-23",
+      "evidence_role": "primary_documentary",
+      "primary_source": true,
+      "publication_date_verified": true,
+      "publication_date_basis": "Official GitHub advisory displays Apr 23, 2026; independently read during this review.",
+      "documentary_relevance": "Original CVE identity and vulnerability scope; not evidence of recent circulation."
+    },
+    {
+      "checked_at": "2026-10-28T06:56:30.784601+00:00",
+      "supports_claim_analysis": true,
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+      "title": "Fact Check: JOKE CVE-2026-42069 HTML2Shell Issue NOT A Real Internet Security Vulnerability",
+      "publisher": "Lead Stories",
+      "supports": "Satirical context, reproduced claim graphic, credit to @polydaic on X and attributed original-post date.",
+      "published_date": "2026-10-25",
+      "evidence_role": "recent_fact_check",
+      "independent_fact_check": true
+    }
+  ],
+  "checked_at": "2026-10-28T06:56:30.784601+00:00",
+  "schema_validation": "passed",
+  "anonymous_source_checks": [
+    {
+      "url": "https://github.com/getkirby/kirby/security/advisories/GHSA-2h7v-4372-f6x2",
+      "result": "dns_failure"
+    },
+    {
+      "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-cve-2026-42069-html2shell-vulnerability.html",
+      "result": "dns_failure"
+    }
+  ],
+  "publication_status": "held_draft"
+}

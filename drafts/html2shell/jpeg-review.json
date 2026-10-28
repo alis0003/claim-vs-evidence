@@ -1,0 +1,41 @@
+{
+  "status": "held_draft_not_publication_ready",
+  "reviewed_at": "2026-10-28T06:58:11.300131+00:00",
+  "reviewer_id": "publishing-executor-independent-review",
+  "producer_id": "/root/compose_html2shell_draft",
+  "mode": "independent_automated",
+  "human_review": false,
+  "jpeg_sha256": "b43c26d40dbf4997da55286988501c198f7b9336435160f2dc4ede80acd4c8f6",
+  "caption_sha256": "b4e5d5417905f0be65795a999e8d157892155ca5e198298d8488772ee88ab588",
+  "jpeg": {
+    "width": 1080,
+    "height": 1350,
+    "bytes": 265957,
+    "encoding": "baseline sRGB JPEG"
+  },
+  "evidence_review": "Independently read official Kirby advisory and Lead Stories report. Technical scope, patch versions, satirical framing and attribution match. Original X post not accessed or retried; no deceptive intent inferred. Older primary date remains April 23, 2026; recent circulation documented October 25, 2026.",
+  "pixel_review": "Viewed actual final JPEG after conversion: source masthead and embedded attribution retained, no overlap/clipping, satire label and narrow technical correction readable. DRAFT NOT PUBLISHED remains visibly present.",
+  "screenshot_review": "Reviewed final composition against supplied genuine screenshot and parent capture provenance. Secondary Lead Stories reproduction is explicitly attributed; not represented as a direct original-X capture.",
+  "rights_review": {
+    "scope": "One reproduced claim graphic within an attributed screenshot, used for direct critical commentary. Article body not reproduced; masthead/credit retained.",
+    "limited_use_assessed": true,
+    "licence_established": false,
+    "ownership_asserted": false,
+    "legal_permission_guarantee": false,
+    "remaining_uncertainty": "Third-party rights remain with respective holders. This records the limited-use assessment only and does not override the producer draft publication hold or establish permission."
+  },
+  "semantic_duplicate_review": "Compared topic against existing Hormuz queue and sent ledger: unrelated claim; no duplicate identified.",
+  "readiness": {
+    "ready_for_publish": false,
+    "queue_promotion": false,
+    "scheduled_publication": false,
+    "source_schema": "passed after evidence-role revision",
+    "anonymous_executor_preflight": "dns_failure; not a source denial or success",
+    "runner_preflight": "pending"
+  },
+  "remaining_steps": [
+    "Secret-free standard runner anonymous preflight must succeed.",
+    "Any publication version requires removal of draft labels and a new final-bytes editorial review; current JPEG remains a draft.",
+    "Complete full candidate schema with truthful scoped screenshot review before queue promotion."
+  ]
+}

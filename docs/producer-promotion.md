@@ -12,12 +12,14 @@ append-only promotion. No additional Instagram publication is needed to establis
 this producer capability. A missing license alone is not a legal determination;
 however this draft explicitly records unresolved social-publication rights review.
 Do not change that attestation without an actual scoped review. Its primary Kirby
-advisory is dated April 23, outside the current 30-day source schema. Do not replace
-that date with the check date, omit material primary evidence to game validation,
-or silently relax the schema. A separate reviewed source-role schema change would
-be needed to support older background advisories. The current PNG also needs final
-JPEG conversion and review. The recorded independent review precedes the final
-wording revision; bind the final reviewer assessment to final bytes and caption.
+advisory is dated April 23. The source-role revision now permits this authentic
+older documentary source alongside a recently published independent fact check;
+see docs/producer-contract.md. No date is changed. The revised draft source record
+passes that schema, while executor anonymous requests encountered DNS failure.
+A manual secret-free runner workflow, draft-preflight.yml, can test current source
+and immutable draft JPEG availability without publishing. The baseline draft JPEG and a new independent review bound to its exact hash and
+caption are recorded in drafts/html2shell/jpeg-review.json. It still visibly says
+DRAFT NOT PUBLISHED and is not a publication-ready candidate.
 
 ## Instructions for each fresh native producer run
 

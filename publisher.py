@@ -85,6 +85,63 @@ def text_field(obj, key, max_length=2000):
             'missing_evidence')
 
 
+def source_publication_day(source):
+    """Preserve date-only precision; never invent a publication clock time."""
+    if source.get('published_date') is not None:
+        require(source.get('published_at') is None, 'ambiguous_source_date')
+        value = source['published_date']
+        require(isinstance(value, str) and bool(re.fullmatch(r'\d{4}-\d{2}-\d{2}', value)),
+                'invalid_source_date')
+        try:
+            return dt.date.fromisoformat(value)
+        except ValueError:
+            raise Stop('invalid_source_date') from None
+    return timestamp(source.get('published_at')).date()
+
+
+def validate_sources(sources, now):
+    require(isinstance(sources, list) and 1 <= len(sources) <= 10, 'missing_evidence')
+    documentary = False
+    recent_fact_check = False
+    recent_count = 0
+    urls = set()
+    for source in sources:
+        require(isinstance(source, dict), 'missing_evidence')
+        for key in ('title', 'publisher', 'supports'):
+            text_field(source, key)
+        public_url(source.get('url'), allow_source_query=True)
+        require(source['url'] not in urls, 'duplicate_source')
+        urls.add(source['url'])
+        recent(source.get('checked_at'), now, 7)
+        day = source_publication_day(source)
+        checked = timestamp(source['checked_at'])
+        require(day <= checked.date(), 'source_checked_before_publication')
+        if source.get('published_at') is not None:
+            require(timestamp(source['published_at']) <= checked, 'source_checked_before_publication')
+        require(source.get('supports_claim_analysis') is True, 'missing_evidence')
+        role = source.get('evidence_role', 'recent_reporting')
+        require(role in {'recent_reporting', 'recent_fact_check', 'primary_documentary'},
+                'invalid_source_role')
+        if role == 'primary_documentary':
+            documentary = True
+            require(source.get('primary_source') is True and source.get('publication_date_verified') is True,
+                    'unverified_documentary_source')
+            for key in ('documentary_relevance', 'publication_date_basis'):
+                text_field(source, key)
+        else:
+            # Existing timestamp records retain their exact 30-day bound.
+            if source.get('published_at') is not None:
+                recent(source['published_at'], now, 30)
+            else:
+                require(0 <= (now.date()-day).days <= 30, 'stale_or_future_evidence')
+            recent_count += 1
+            if role == 'recent_fact_check':
+                require(source.get('independent_fact_check') is True, 'missing_independent_fact_check')
+                recent_fact_check = True
+    require(recent_count > 0, 'missing_recent_evidence')
+    require(not documentary or recent_fact_check, 'documentary_requires_recent_fact_check')
+
+
 def validate(job, now):
     require(isinstance(job, dict), 'invalid_job')
     for key in ('claim', 'caption', 'reviewer', 'evidence_summary'):
@@ -111,7 +168,8 @@ def validate(job, now):
         sources=job.get('sources')
         require(isinstance(sources,list),'missing_evidence')
         matches=[s for s in sources if isinstance(s,dict) and s.get('url')==job.get('circulation_evidence_url')]
-        require(len(matches)==1 and timestamp(matches[0].get('published_at')).date()==observed_day
+        require(len(matches)==1 and source_publication_day(matches[0])==observed_day
+                and matches[0].get('evidence_role', 'recent_reporting') != 'primary_documentary'
                 and matches[0].get('supports_claim_analysis') is True,'unbound_circulation_evidence')
     else:
         recent(job.get('claim_date'), now, 30)
@@ -122,16 +180,7 @@ def validate(job, now):
     start, end = timestamp(job.get('run_after')), timestamp(job.get('run_before'))
     require(created <= start <= now < end <= expires and end-start <= dt.timedelta(hours=24),
             'expired_run_window')
-    sources = job.get('sources')
-    require(isinstance(sources, list) and 1 <= len(sources) <= 10, 'missing_evidence')
-    for s in sources:
-        require(isinstance(s, dict), 'missing_evidence')
-        for key in ('title', 'publisher', 'supports'):
-            text_field(s, key)
-        public_url(s.get('url'), allow_source_query=True)
-        recent(s.get('published_at'), now, 30)
-        recent(s.get('checked_at'), now, 7)
-        require(s.get('supports_claim_analysis') is True, 'missing_evidence')
+    validate_sources(job.get('sources'), now)
     p = job.get('screenshot_provenance')
     require(isinstance(p, dict) and p.get('original') is True and p.get('rights_reviewed') is True,
             'missing_provenance')

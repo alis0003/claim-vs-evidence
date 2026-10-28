@@ -64,7 +64,7 @@ as the executable schema. Top level is a JSON array, maximum 100 jobs. Each job:
   `run_before`. Claim date <=30 days old, review <=7 days old, none future.
   Expiry <=30 days after creation. Run window <=24 hours, inside expiry and campaign.
 - `sources`: 1–10 objects with url, title, publisher, supports, published_at,
-  checked_at, supports_claim_analysis=true. Publication <=30 days old, checked <=7.
+  checked_at, supports_claim_analysis=true. Default role recent_reporting: publication <=30 days old, checked <=7.
   Do not substitute a date-checked value for an old publication date.
 - `screenshot_provenance`: original_url, publisher, context, captured_at, sha256,
   original=true, rights_reviewed=true. Hash the actual capture; never invent it.
@@ -114,3 +114,24 @@ is never removed/reset by queue validation.
 Producer fresh-run capability is still unconfirmed. Only the parent may update
 producer_fresh_run_verified, producer_readiness_record and scheduled_publication_enabled.
 Scheduled publication remains disabled until the independent fresh-run proof is checked.
+
+## Source roles and date precision
+
+Existing sources retain recent_reporting semantics. A source may instead declare
+`evidence_role=primary_documentary` when it is authentic primary documentary
+evidence, with `primary_source=true`, `publication_date_verified=true`, nonempty
+`publication_date_basis` and `documentary_relevance`. Preserve its original date;
+older publication is allowed only with at least one distinct
+`evidence_role=recent_fact_check`, `independent_fact_check=true` source published
+within30days. Every source must be checked within7days and support the narrow claim.
+These attestations require actual independent review; schema validation cannot
+detect a fabricated factual date. Primary documents cannot supply circulation dates.
+Claim/circulation freshness, review freshness and run windows remain unchanged.
+
+For date-only source metadata use `published_date=YYYY-MM-DD` and omit/null
+`published_at`; never invent midnight or a timezone. At most one may be present.
+Date-only recency uses calendar days; existing timestamps retain elapsed-time
+recency. Publication must precede the source check; future or contradictory dates
+fail. Unknown publication date is not accepted as meaningful timed evidence.
+Supplementary undated URLs may be cited as context but cannot replace the required
+dated evidence or be assigned a guessed date.
