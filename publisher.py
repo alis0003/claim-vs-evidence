@@ -142,6 +142,43 @@ def validate_sources(sources, now):
     require(not documentary or recent_fact_check, 'documentary_requires_recent_fact_check')
 
 
+def validate_ai_illustration(job, visual, now):
+    require(job.get('screenshot_provenance') is None, 'ai_mislabeled_as_screenshot')
+    label = visual.get('display_label')
+    require(label in {'AI illustration, not actual footage', 'AI illustration — not actual footage'}
+            and label in job['caption'], 'missing_ai_disclosure')
+    for key in ('generator', 'generation_reference', 'consent_basis', 'context', 'transformations'):
+        text_field(visual, key)
+    text_field(visual, 'generation_prompt', 8000)
+    public_url(visual.get('generation_record_url'))
+    public_url(visual.get('generated_asset_url'))
+    require(bool(re.fullmatch('[a-f0-9]{64}', str(visual.get('asset_sha256', '')))), 'missing_visual_hash')
+    if visual.get('generated_at') is None:
+        require(visual.get('generation_time_basis') == 'completion_observed', 'missing_generation_time_basis')
+        text_field(visual, 'generation_time_note')
+        recent(visual.get('generation_completed_by'), now, 30)
+    else:
+        recent(visual['generated_at'], now, 30)
+    require(visual.get('user_approved') is True and visual.get('claim_presented_as_text') is True,
+            'unapproved_ai_illustration')
+    require(visual.get('third_party_inputs_used') is False and visual.get('input_assets') == []
+            and visual.get('derived_from_denied_material') is False, 'unapproved_generation_inputs')
+    require(visual.get('not_event_evidence') is True
+            and visual.get('facts_independently_sourced') is True
+            and visual.get('actual_event_reconstruction') is False, 'ai_presented_as_evidence')
+    require(not any(visual.get(key) for key in ('license_exact', 'photo_captured_at', 'evidence_source_url')),
+            'misleading_ai_provenance')
+    review = visual.get('visual_review')
+    require(isinstance(review, dict) and review.get('label_visible') is True
+            and review.get('context_verified') is True, 'missing_visual_review')
+    require(review.get('reviewer_id') == job['reviewer']
+            and review.get('jpeg_sha256') == job['image']['sha256']
+            and review.get('caption_sha256') == hashlib.sha256(job['caption'].encode()).hexdigest(),
+            'unbound_visual_review')
+    recent(review.get('reviewed_at'), now, 7)
+    text_field(review, 'notes')
+
+
 def validate_visual(job, now):
     """Publication gate for both licensed screenshots and licensed photographs.
     Metadata is an auditable attestation, not automatic proof of ownership.
@@ -149,6 +186,9 @@ def validate_visual(job, now):
     v = job.get('visual_provenance')
     require(isinstance(v, dict), 'licensed_visual_required')
     kind = v.get('kind')
+    if kind == 'ai_illustration':
+        validate_ai_illustration(job, v, now)
+        return
     require(kind in {'claim_screenshot', 'evidence_photo'}, 'invalid_visual_kind')
     for key in ('source_url', 'license_url', 'rights_evidence_url'):
         public_url(v.get(key), allow_source_query=True)
@@ -241,7 +281,7 @@ def validate(job, now):
     require(created <= start <= now < end <= expires and end-start <= dt.timedelta(hours=24),
             'expired_run_window')
     validate_sources(job.get('sources'), now)
-    if job.get('visual_provenance', {}).get('kind') != 'evidence_photo':
+    if job.get('visual_provenance', {}).get('kind') not in {'evidence_photo', 'ai_illustration'}:
         p = job.get('screenshot_provenance')
         require(isinstance(p, dict) and p.get('original') is True and p.get('rights_reviewed') is True,
                 'missing_provenance')
@@ -407,9 +447,16 @@ def preflight(job, fetch=request, now=None):
     # This check is also used before resuming a known created container.
     validate_visual(job, now if now is not None else dt.datetime.now(UTC))
     visual = job['visual_provenance']
-    for url in dict.fromkeys(visual[key] for key in ('source_url', 'license_url', 'rights_evidence_url')):
-        mime, raw = fetch(url, limit=2_000_000, source=True)
-        require(mime in {'text/html', 'text/plain', 'application/pdf'} and len(raw.strip()) >= 40, 'unreadable_rights_metadata')
+    if visual['kind'] == 'ai_illustration':
+        mime, raw = fetch(visual['generation_record_url'], limit=2_000_000, source=True)
+        require(mime in {'application/json', 'text/plain'} and len(raw.strip()) >= 40, 'unreadable_generation_metadata')
+        mime, original = fetch(visual['generated_asset_url'])
+        require(mime in {'image/png', 'image/jpeg'}
+                and hashlib.sha256(original).hexdigest() == visual['asset_sha256'], 'generated_asset_mismatch')
+    else:
+        for url in dict.fromkeys(visual[key] for key in ('source_url', 'license_url', 'rights_evidence_url')):
+            mime, raw = fetch(url, limit=2_000_000, source=True)
+            require(mime in {'text/html', 'text/plain', 'application/pdf'} and len(raw.strip()) >= 40, 'unreadable_rights_metadata')
     for s in job['sources']:
         mime, raw = fetch(s['url'], limit=2_000_000, source=True)
         require(mime in {'text/html','text/plain','application/pdf'} and len(raw.strip()) >= 40, 'unreadable_source')

@@ -1,0 +1,77 @@
+{
+  "claim": "REPLACE WITH REVIEWED CLAIM",
+  "claim_id": "RECOMPUTE_SHA256_OF_NORMALIZED_CLAIM",
+  "caption": "REPLACE WITH REVIEWED ENGLISH CAPTION AND SOURCES",
+  "reviewer": "REPLACE",
+  "evidence_summary": "REPLACE WITH EVIDENCE-BASED ANALYSIS",
+  "editorial_verified": false,
+  "evidence_supported": false,
+  "high_impact_identifiable_person": false,
+  "verdict": "true",
+  "language": "en",
+  "claim_date": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+  "reviewed_at": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+  "created_at": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+  "expires_at": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+  "run_after": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+  "run_before": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+  "sources": [
+    {
+      "url": "https://example.invalid/source",
+      "title": "REPLACE",
+      "publisher": "REPLACE",
+      "supports": "REPLACE",
+      "published_at": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+      "checked_at": "REPLACE_WITH_CURRENT_UTC_ISO_TIMESTAMP",
+      "supports_claim_analysis": false
+    }
+  ],
+  "image": {
+    "url": "https://example.invalid/card.jpg",
+    "mime": "image/jpeg",
+    "width": 1080,
+    "height": 1080,
+    "sha256": "REPLACE_WITH_JPEG_SHA256"
+  },
+  "ready_for_publish": false,
+  "review_provenance": {
+    "mode": "independent_automated",
+    "producer_id": "native-research-producer",
+    "reviewer_id": "REPLACE",
+    "review_notes": "PENDING independent evidence, provenance and semantic-duplicate review; do not mark ready."
+  },
+  "visual_provenance": {
+    "kind": "ai_illustration",
+    "display_label": "AI illustration \u2014 not actual footage",
+    "generator": "REPLACE_WITH_ACTUAL_GENERATOR",
+    "generation_reference": "REPLACE_WITH_RETURNED_OUTPUT_OR_LIBRARY_ID",
+    "generation_prompt": "REPLACE_WITH_ACTUAL_GENERATION_PROMPT",
+    "generation_record_url": "https://example.invalid/generation.json",
+    "generated_asset_url": "https://example.invalid/original.png",
+    "asset_sha256": "REPLACE_WITH_GENERATED_ORIGINAL_SHA256",
+    "generated_at": null,
+    "generation_completed_by": "REPLACE_WITH_ACTUAL_COMPLETION_OBSERVATION_TIME",
+    "generation_time_basis": "completion_observed",
+    "generation_time_note": "Exact generation timestamp unknown; record actual time output was observed complete.",
+    "consent_basis": "REPLACE_WITH_APPLICABLE_USER_APPROVAL",
+    "context": "Generic symbolic illustration, not evidence of the actual event.",
+    "transformations": "REPLACE_WITH_ACTUAL_COMPOSITION_OPERATIONS",
+    "user_approved": false,
+    "claim_presented_as_text": true,
+    "third_party_inputs_used": false,
+    "input_assets": [],
+    "derived_from_denied_material": false,
+    "not_event_evidence": true,
+    "facts_independently_sourced": false,
+    "actual_event_reconstruction": false,
+    "visual_review": {
+      "label_visible": false,
+      "context_verified": false,
+      "reviewer_id": "REPLACE",
+      "jpeg_sha256": "REPLACE_WITH_FINAL_JPEG_HASH",
+      "caption_sha256": "REPLACE_WITH_EXACT_CAPTION_UTF8_HASH",
+      "reviewed_at": "REPLACE_WITH_ACTUAL_REVIEW_TIMESTAMP",
+      "notes": "PENDING independent final pixel, caption and rights review"
+    }
+  }
+}
