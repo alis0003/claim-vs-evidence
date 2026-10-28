@@ -1,0 +1,22 @@
+{
+  "case_id": "hormuz-bangladesh",
+  "source_url": "https://fullfact.org/world/viral-clip-ships-hormuz-false/",
+  "source_title": "Viral clip shows Bangladesh coast not ships stuck in Strait of Hormuz",
+  "source_publisher": "Full Fact",
+  "source_published_date": "2026-10-22",
+  "checked_at": "2026-10-28T05:58:35.997018+00:00",
+  "finding": "The video shows coastline near Chittagong airport, Bangladesh, and the Karnaphuli River, not the Strait of Hormuz.",
+  "scope_limit": "No conclusion about all shipping disruption. Location finding attributed to Full Fact; no claim of independent satellite geolocation by this executor.",
+  "claim_url": "https://www.facebook.com/reel/1828760951600371",
+  "claim_url_read_status": "Executor web fetch throttled; not bypassed. Independent capture provenance still required.",
+  "card_library_id": "libfile_9fe2906b6d388191ba0126898b65846a",
+  "card_filename": "claim-vs-evidence-04-hormuz-evidence.png",
+  "card_transfer_status": "Bundled Library helper failed exit 1 download failed; no bytes installed. Parent verified-asset transfer needed.",
+  "runner_source_check": {
+    "run_id": 40640975649,
+    "status": "success",
+    "http_status": 200,
+    "url": "https://github.com/alis0003/claim-vs-evidence/actions/runs/40640975649"
+  },
+  "ready_for_publish": false
+}
