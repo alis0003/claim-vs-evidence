@@ -1,0 +1,4 @@
+{
+  "candidates": {},
+  "note": "No pending candidate currently meets all review gates. Add only an independently reviewed candidate path, exact file SHA256, approved_for_anonymous_preflight=true and public review_record path through reviewed repository changes. Never allowlist denied candidates or routes. This registry authorizes anonymous checking only, never publication."
+}

@@ -1,0 +1,41 @@
+# Manual, anonymous candidate validation only; no publishing or secret access.
+name: Reviewed candidate anonymous preflight
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_path:
+        description: Reviewed candidate JSON path in the repository allowlist
+        required: true
+        type: string
+permissions: {}
+concurrency:
+  group: claimvsevidence-public-preflight
+  cancel-in-progress: false
+jobs:
+  public-preflight:
+    if: github.repository == 'alis0003/claim-vs-evidence' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read public source at exact workflow commit without credentials
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$SOURCE_REPO" = 'alis0003/claim-vs-evidence'
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 "https://github.com/${SOURCE_REPO}.git" "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Validate allowlisted candidate and fetch public sources and images once
+        env:
+          CANDIDATE_PATH: ${{ inputs.candidate_path }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 candidate_preflight.py
+          echo 'Anonymous preflight passed. No queue promotion or publication performed.'
