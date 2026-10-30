@@ -1,0 +1,64 @@
+{
+  "checked_at": "2026-10-30T20:14:55.991381+00:00",
+  "preflight_commit": "217ef726893391780099890de810f5f38affdeed",
+  "promoted": [
+    {
+      "slug": "doomsday",
+      "claim_id": "00d4426dee59f5154295b9bc317820c1c1ba3309dbabaa13e101eae85fa55e36",
+      "candidate_sha256": "bfefa22fd25ceaa9ae9fc52444f9c74b3f0b552b1a4f538fb0d72fab84e81a4a",
+      "anonymous_preflight_run": 41119668903,
+      "anonymous_preflight_result": "success",
+      "run_after": "2026-10-30T19:49:37.080526+00:00",
+      "run_before": "2026-10-31T18:49:37.080526+00:00"
+    },
+    {
+      "slug": "alien",
+      "claim_id": "f98c8019ea94e245472bd99479c6a3ef2823e1a6c5f0adcca401a3c7a1342207",
+      "candidate_sha256": "2fab0a564dfe4b26e37c57b3e7cbac145d387a5912e87abc2db65ac528d186e2",
+      "anonymous_preflight_run": 41119846006,
+      "anonymous_preflight_result": "success",
+      "run_after": "2026-10-30T19:49:37.080526+00:00",
+      "run_before": "2026-10-31T18:49:37.080526+00:00"
+    },
+    {
+      "slug": "c17",
+      "claim_id": "c93114891e92d7e797affe2999434be5666eee3868e3d3dc152d4980ad9c7f63",
+      "candidate_sha256": "276d3f2a81841c99652ea27e09aaaae6a07be5575265bcdf1d1ea9aaac508610",
+      "anonymous_preflight_run": 41119962450,
+      "anonymous_preflight_result": "success",
+      "run_after": "2026-10-30T19:49:37.080526+00:00",
+      "run_before": "2026-10-31T18:49:37.080526+00:00"
+    },
+    {
+      "slug": "spain",
+      "claim_id": "35927d5a2f4663491fcfbcaffbeb3af988ce1e32299663c08124e45ca1b0faed",
+      "candidate_sha256": "8df0a416af3aa5eccab827d3b47fcaf310f1f1dc53f5e4d97bba5b1433cfb995",
+      "anonymous_preflight_run": 41120099068,
+      "anonymous_preflight_result": "success",
+      "run_after": "2026-10-30T19:49:37.080526+00:00",
+      "run_before": "2026-10-31T18:49:37.080526+00:00"
+    },
+    {
+      "slug": "ajman",
+      "claim_id": "957b8c3223cc4f6c3f4f2e36c33b9bbfdf792bfebedfdd35170a6a19fe22f229",
+      "candidate_sha256": "1794a667e93cdfc451c4bd07da73778f8f5595b29e4ef84e1ac989d1a76bb673",
+      "anonymous_preflight_run": 41120214435,
+      "anonymous_preflight_result": "success",
+      "run_after": "2026-10-30T19:49:37.080526+00:00",
+      "run_before": "2026-10-31T18:49:37.080526+00:00"
+    },
+    {
+      "slug": "mcc",
+      "claim_id": "a1190599a5b634d1b2a63a3f37142dfdfc040aff515ff4074214420ed9e8ea53",
+      "candidate_sha256": "5d2a0ba168b8158e429bc1e8d22ffb00bdafa5b16a2c47f8c55c92835f73dc6f",
+      "anonymous_preflight_run": 41120341937,
+      "anonymous_preflight_result": "success",
+      "run_after": "2026-10-30T19:49:37.080526+00:00",
+      "run_before": "2026-10-31T18:49:37.080526+00:00"
+    }
+  ],
+  "held_binance": {
+    "run_id": 41120853426,
+    "reason": "Anonymous preflight STOP http_status_202; no retry or queue promotion."
+  }
+}
