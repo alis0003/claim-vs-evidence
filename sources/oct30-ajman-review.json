@@ -1,0 +1,11 @@
+{
+  "producer_id": "/root/produce_more_factchecks/research_world_claims",
+  "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+  "reviewed_at": "2026-10-30T13:19:06Z",
+  "jpeg_sha256": "18ff1381d7d2993ce21b9762ad972070d22ea74dc17661171ac741082c2a9ce3",
+  "caption_sha256": "50975570d89b742ecbdd67da585dbccdc7d1ec646dcc80d5fd6cdbb8877c57b6",
+  "asset_sha256": "5160b2d9742c77662aa61395c0baabe7bdf6076f520a66de65f433de33a01118",
+  "review_notes": "Independently opened Full Fact9Oct2026. It identifies August2020 Ajman market fire and flipped repost, narrow wrong-place/date verdict only. No denial of other strikes. Actual original PNG and final JPEG inspected; readable claim/evidence and prominent exact disclosure. Original stylized paper-cut artwork, not documentary event evidence. Reviewed prompts/output references/observed completion times and processing. Exact final caption includes checked date and AI-assisted independent automated review disclosure, no trailing newline. Read current main queue.json blob cedfb7be04ce8de47428ab948b334ffd2e2fac24 and publishing-state/state.json blob 780e17e7db84a74032fc61298f0d7ac1eda05429 through GitHub connector. Three existing sent topics Hormuz/Bangladesh clip, AI polar-bear rescue, AI Ukraine mushroom cloud. Neither prediction topic semantically duplicates those or each other. Also compared all six new topics: distinct clips/events/advisory and distinct population-model versus Vanga-attribution rumors; no semantic duplicates. Inspected actual original PNGs and final JPEGs. Reviewed supplied actual prompts, output IDs and completion timestamps. Symbolic original AI art, no third-party inputs apparent or claimed, no event reconstructions; prominent exact AI illustration disclosure. Parent confirms user-authorized original AI workflow. Public immutable provenance links and anonymous byte preflight remain separate promotion requirements.",
+  "source_title": "Video of 2020 market fire in UAE reshared as strike on Israel",
+  "approval_scope": "Existing independent editorial/visual review only; public provenance and anonymous preflight remain separate gates."
+}

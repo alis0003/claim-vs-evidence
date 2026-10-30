@@ -1,0 +1,11 @@
+{
+  "producer_id": "/root/produce_more_factchecks",
+  "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+  "reviewed_at": "2026-10-30T13:19:06Z",
+  "jpeg_sha256": "47252dcf1a55f8a4ce5f27816f9d9473de9124aa85290f629c11245ec17c99c0",
+  "caption_sha256": "e7323d4e5646d7c4dd277c6f5a4b540fcb8ce8f4160edc17c84c81a5e211c7d4",
+  "asset_sha256": "769cf047f6fe999862b05aed524c24461080d072c87caf2a44c0efa07ce1fc9e",
+  "review_notes": "Independently read ScienceDaily/The Conversation dated16Oct2026. Supports old population model no longer matching growth, not confirmed future catastrophe. Reviewed revised actual PNG/JPEG and unchanged exact caption including newline. V2 removes misleading chart and uses symbolic calendar/question mark only. Misleading verdict scoped to treating model as confirmed doomsday. Recent reporting, not an independently branded fact-check. Source publication documents contemporary discussion; no original social-post timestamp claimed. Actual v2 prompt read; output reference and completion observation supplied by producer; no denied or third-party inputs. Read current main queue.json blob cedfb7be04ce8de47428ab948b334ffd2e2fac24 and publishing-state/state.json blob 780e17e7db84a74032fc61298f0d7ac1eda05429 through GitHub connector. Three existing sent topics Hormuz/Bangladesh clip, AI polar-bear rescue, AI Ukraine mushroom cloud. Neither prediction topic semantically duplicates those or each other. Also compared all six new topics: distinct clips/events/advisory and distinct population-model versus Vanga-attribution rumors; no semantic duplicates. Inspected actual original PNGs and final JPEGs. Reviewed supplied actual prompts, output IDs and completion timestamps. Symbolic original AI art, no third-party inputs apparent or claimed, no event reconstructions; prominent exact AI illustration disclosure. Parent confirms user-authorized original AI workflow. Public immutable provenance links and anonymous byte preflight remain separate promotion requirements.",
+  "source_title": "Scientists predicted doomsday for November 13, 2026. Should we be worried?",
+  "approval_scope": "Existing independent editorial/visual review only; public provenance and anonymous preflight remain separate gates."
+}

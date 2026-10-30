@@ -1,0 +1,19 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-19837314-1a53-4f49-ba65-9d7dc908ca4e",
+  "generation_prompt": "Use case: infographic-diagram. Create polished portrait 4:5 editorial fact-check card for @claimvsevidence, intended final size 1080x1350. Navy background, cream bold typography, turquoise evidence section, restrained orange verdict accent. Original clearly symbolic paper-cut illustration of a map-location pin and filmstrip over a calendar page reading \"2020\", plus a tiny abstract orange flame icon. Not real footage, no actual fire or attack reconstruction, no people. Strong mobile legibility and generous spacing.\nExact copy:\n\"CLAIM vs EVIDENCE\"\n\"CLAIM\"\n\"This video shows a recent strike on an oil facility in Israel.\"\n\"VERDICT: WRONG PLACE AND DATE\"\n\"EVIDENCE\"\n\"It shows an August 2020 market fire in Ajman, UAE.\"\n\"The repost flips the footage horizontally.\"\n\"Source: Full Fact • 9 Oct 2026\"\n\"AI illustration — not actual footage\"\n\"@claimvsevidence\"\nMake AI disclosure prominent near art. No extra copy, no cropped text.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T13:15:48.170Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+  "asset_sha256": "5160b2d9742c77662aa61395c0baabe7bdf6076f520a66de65f433de33a01118",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+  "context": "Do not deny other attacks on Israeli facilities; verdict applies only to specific clip. Original symbolic illustration, not footage or event reconstruction.",
+  "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+  "final_jpeg_sha256": "18ff1381d7d2993ce21b9762ad972070d22ea74dc17661171ac741082c2a9ce3"
+}

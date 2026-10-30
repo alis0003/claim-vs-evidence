@@ -1,0 +1,11 @@
+{
+  "producer_id": "/root/produce_more_factchecks/research_november13_claims",
+  "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+  "reviewed_at": "2026-10-30T13:16:19Z",
+  "jpeg_sha256": "4176a9c4a505832bef05e8fc3ec371e3a210808e99eeb7685910d975a4292156",
+  "caption_sha256": "35e5a148c67934f4f08c369352bc5018acbdf6c6a8f2ef4d202841e59c6108ae",
+  "asset_sha256": "a6019840a3585a32a199211397c58101970f61c2b02aaa725459d6ba1c256f2e",
+  "review_notes": "Final pixels and exact caption support limited unverified attribution, explicitly attributed to IBTimes; no future impossibility claim. Readable and uncropped. Independently opened and read ScienceDaily October16 and IBTimes UK October14 articles. Recent reporting only; no independent_fact_check attestation. IBTimes explicitly documents circulating attribution. ScienceDaily explains 1960 model and slower growth; no current catastrophe confirmed. Read current main queue.json blob cedfb7be04ce8de47428ab948b334ffd2e2fac24 and publishing-state/state.json blob 780e17e7db84a74032fc61298f0d7ac1eda05429 through GitHub connector. Three existing sent topics Hormuz/Bangladesh clip, AI polar-bear rescue, AI Ukraine mushroom cloud. Neither prediction topic semantically duplicates those or each other. Inspected actual original PNGs and final JPEGs. Reviewed supplied actual prompts, output IDs and completion timestamps. Symbolic original AI art, no third-party inputs apparent or claimed, no event reconstructions; prominent exact AI illustration disclosure. Parent confirms user-authorized original AI workflow. Public immutable provenance links and anonymous byte preflight remain separate promotion requirements.",
+  "source_title": "Baba Vanga Claimed Aliens From Vamfim Wear 'Translucent Robes' and Live Invisibly on Earth",
+  "approval_scope": "Existing independent editorial/visual review only; public provenance and anonymous preflight remain separate gates."
+}

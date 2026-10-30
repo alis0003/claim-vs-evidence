@@ -1,0 +1,19 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-d6ba75dc-8684-4f92-be53-df7feb79dd42",
+  "generation_prompt": "Use case: infographic-diagram. Original English fact-check social card, portrait 4:5 ratio. Premium editorial graphic design, dark navy paper background, warm ivory bold typography, lavender accent, generous margins, crisp easy-to-read text. Upper left small header \"FACT CHECK\". Large headline \"ALIENS IN NOVEMBER 2026?\" Then prominent verdict pill \"UNVERIFIED ATTRIBUTION\". Center original symbolic paper-cut illustration: a whimsical small lavender flying saucer drawn on a blank sheet with an oversized question mark and magnifying glass, clearly stylized, not an actual UFO photograph. No real people, no Baba Vanga likeness, no invasion scene, no reconstructed event. Below illustration clear text \"No authenticated original record establishes the specific prediction attributed to Baba Vanga.\" Smaller bottom text \"Source: IBTimes UK · 14 Oct 2026\". Prominent high-contrast footer containing exact text \"AI illustration — not actual footage\". All text fully inside canvas, no additional text, no logos. Do not mention November 13, because this is a separate claim.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T13:14:09.953Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+  "asset_sha256": "a6019840a3585a32a199211397c58101970f61c2b02aaa725459d6ba1c256f2e",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+  "context": "Symbolic drawing of saucer on paper, not a real sighting or prediction evidence.",
+  "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+  "final_jpeg_sha256": "4176a9c4a505832bef05e8fc3ec371e3a210808e99eeb7685910d975a4292156"
+}

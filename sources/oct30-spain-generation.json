@@ -1,0 +1,19 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-5d023d23-4631-4cde-a0a5-93f741b8bdfa",
+  "generation_prompt": "Use case: infographic-diagram. Create polished portrait 4:5 fact-check card for @claimvsevidence, intended final size 1080x1350. Navy background, cream bold typography, turquoise evidence section, restrained orange verdict accent. Original symbolic paper-cut illustration of a generic toy train atop a calendar page reading \"2020\", with a filmstrip beside it. Clearly conceptual, not a real event or crash reconstruction. No people or destruction. Strong mobile legibility and generous spacing.\nExact copy:\n\"CLAIM vs EVIDENCE\"\n\"CLAIM\"\n\"This clip shows the moments before the October 2026 train crash in Urda, Spain.\"\n\"VERDICT: OLD FOOTAGE\"\n\"EVIDENCE\"\n\"The same video was posted on 2 February 2020.\"\n\"It described a different train journey.\"\n\"Source: Lead Stories • 29 Oct 2026\"\n\"AI illustration — not actual footage\"\n\"@claimvsevidence\"\nMake AI disclosure prominent near art. No extra copy, no cropped text.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T13:14:21.922Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+  "asset_sha256": "fe86f8ea839a1829326978100250fb430b63954e1f7c987d85aeb42699775447",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+  "context": "Only video provenance checked; casualty totals, responsibility, prior warnings and historical rankings excluded. Original symbolic illustration, not footage or event reconstruction.",
+  "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+  "final_jpeg_sha256": "8ef7722a8300b12ae2418fa4d18cfcf0228d2675cd6a0a1f94005927ba05b147"
+}

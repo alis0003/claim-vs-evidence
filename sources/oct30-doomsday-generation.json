@@ -1,0 +1,19 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-b52a37b7-5026-4c67-8202-45126775bbf7",
+  "generation_prompt": "Use case: infographic-diagram. Create an original English fact-check social card, portrait 4:5 ratio. Premium editorial graphic design, warm ivory paper, black bold typography, orange accent, generous margins, crisp easy-to-read text. Header 'CLAIM VS EVIDENCE'. Large headline 'NOVEMBER 13, 2026:' then 'NOT A CONFIRMED DOOMSDAY'. Prominent verdict pill 'MISLEADING'. Center original symbolic painted illustration of a desk calendar showing 13 NOV beside a magnifying glass and a large question mark. No curves, graphs, charts, statistics, people, planetary destruction or event reconstruction. Below illustration clear text 'A 1960 population model is being mistaken for a prediction that the world will end.' Bottom text 'Source: ScienceDaily / The Conversation · 16 Oct 2026'. Prominent high-contrast footer exact text 'AI illustration — not actual footage'. Final footer '@claimvsevidence'. All text inside canvas. No external inputs or logos.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T13:17:17Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+  "asset_sha256": "769cf047f6fe999862b05aed524c24461080d072c87caf2a44c0efa07ce1fc9e",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+  "context": "Original symbolic calendar and question mark, not a demographic chart or evidence of a future event.",
+  "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+  "final_jpeg_sha256": "47252dcf1a55f8a4ce5f27816f9d9473de9124aa85290f629c11245ec17c99c0"
+}

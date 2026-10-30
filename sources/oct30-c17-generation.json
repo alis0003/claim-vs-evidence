@@ -1,0 +1,19 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-56ba64cc-5d1c-4af1-b6ae-7ef449829bcb",
+  "generation_prompt": "Use case: infographic-diagram. Create a polished portrait 4:5 editorial fact-check card for @claimvsevidence, 1080x1350 composition. Dark navy background, cream bold typography, turquoise evidence section, restrained orange verdict accent. Original clearly symbolic paper-cut illustration: a small generic transport-airplane silhouette made of folded paper emerging from a stylized computer screen, with digital pixels dissolving. NOT a realistic landing, no field or crash recreation, no real aircraft markings. Lots of clean space and strong legibility.\nInclude exactly this copy, no other words:\n\"CLAIM vs EVIDENCE\"\n\"CLAIM\"\n\"A C-17 made an emergency landing in a farm field.\"\n\"VERDICT: AI-GENERATED VIDEO\"\n\"EVIDENCE\"\n\"An earlier upload explicitly disclosed AI creation.\"\n\"The clip resurfaced on 28 October 2026.\"\n\"Source: Lead Stories • 29 Oct 2026\"\n\"AI illustration — not actual footage\"\n\"@claimvsevidence\"\nThe AI illustration disclosure must be prominently readable near the symbolic art, not tiny footer text. The claim is clearly presented as a claim, never asserted as fact. Professional spacing, no cropped text.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T13:13:09.357Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+  "asset_sha256": "39fc7a5f6e306961e057e97f85b5cae938a99fe986fefd8669ac2fb2e3a05b1c",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+  "context": "Does not assert aircraft cannot land on rough fields. AI detector output only supplementary. Original symbolic illustration, not footage or event reconstruction.",
+  "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+  "final_jpeg_sha256": "1469c91deca712bf5854171f43f409781c5025d3950c0d582ea251edda9c088a"
+}

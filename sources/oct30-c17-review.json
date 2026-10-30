@@ -1,0 +1,11 @@
+{
+  "producer_id": "/root/produce_more_factchecks/research_world_claims",
+  "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+  "reviewed_at": "2026-10-30T13:19:06Z",
+  "jpeg_sha256": "1469c91deca712bf5854171f43f409781c5025d3950c0d582ea251edda9c088a",
+  "caption_sha256": "e1120b6ed8451321f03d02972154f50c1cf165bc62e05ff7315f0016ba4dacc4",
+  "asset_sha256": "39fc7a5f6e306961e057e97f85b5cae938a99fe986fefd8669ac2fb2e3a05b1c",
+  "review_notes": "Independently opened Lead Stories29Oct2026. Creator disclosure and early March upload are attributed secondary findings, no independent original-video inspection or detector certainty asserted. Verdict applies to specific clip, not aircraft landing capabilities. Actual original PNG and final JPEG inspected; readable claim/evidence and prominent exact disclosure. Original stylized paper-cut artwork, not documentary event evidence. Reviewed prompts/output references/observed completion times and processing. Exact final caption includes checked date and AI-assisted independent automated review disclosure, no trailing newline. Read current main queue.json blob cedfb7be04ce8de47428ab948b334ffd2e2fac24 and publishing-state/state.json blob 780e17e7db84a74032fc61298f0d7ac1eda05429 through GitHub connector. Three existing sent topics Hormuz/Bangladesh clip, AI polar-bear rescue, AI Ukraine mushroom cloud. Neither prediction topic semantically duplicates those or each other. Also compared all six new topics: distinct clips/events/advisory and distinct population-model versus Vanga-attribution rumors; no semantic duplicates. Inspected actual original PNGs and final JPEGs. Reviewed supplied actual prompts, output IDs and completion timestamps. Symbolic original AI art, no third-party inputs apparent or claimed, no event reconstructions; prominent exact AI illustration disclosure. Parent confirms user-authorized original AI workflow. Public immutable provenance links and anonymous byte preflight remain separate promotion requirements.",
+  "source_title": "Fact Check: Video Does NOT Show C-17 Globemaster's Real Emergency Landing",
+  "approval_scope": "Existing independent editorial/visual review only; public provenance and anonymous preflight remain separate gates."
+}

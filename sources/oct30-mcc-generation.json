@@ -1,0 +1,19 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-483280a5-b709-4b28-96dd-c6e3169ce59b",
+  "generation_prompt": "Use case: infographic-diagram. Create an original premium editorial fact-check social card, portrait 4:5, for @claimvsevidence. Cream paper background, dark navy typography, restrained rust and teal accents, large readable text, spacious margins. Original symbolic illustration of an abstract blank clipboard, magnifying glass, and red warning seal with an X. No people, actual documents, official seals, government logo, fake notice reproduction, exam answer sheets, or medical advice. All illustration clearly stylized. Exact text only:\n\"CLAIM VS EVIDENCE\"\n\"FAKE NOTICE\"\n\"CLAIM\"\n\"NEET UG 2026 percentile reduction?\"\n\"EVIDENCE\"\n\"MCC called the circulating notice fake in its 13 October advisory.\"\n\"No reduction decision had been taken as of that advisory.\"\n\"Specific notice check — not current cut-off guidance.\"\n\"Source: MCC • 13 Oct 2026\"\n\"Checked: 30 Oct 2026\"\n\"AI illustration — not actual footage\"\n\"@claimvsevidence\"\nProminent full-width contrasting disclosure band, crisp accurate spelling, obvious claim-versus-evidence separation, no additional text.\n",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T13:16:12Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+  "asset_sha256": "7f21e988ab1b41243047725fc05f97a3984d2a020a94f4a3670c5a36c4366ad9",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+  "context": "Symbolic blank clipboard, not original notice. Verdict only concerns notice addressed on 13 October, not current eligibility.",
+  "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+  "final_jpeg_sha256": "12b40197822334f3a7e5129fb538b76cde8f802ce1f62924501133bbdc71b955"
+}

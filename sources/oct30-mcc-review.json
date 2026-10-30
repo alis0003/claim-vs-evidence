@@ -1,0 +1,12 @@
+{
+  "producer_id": "/root/produce_more_factchecks/research_india_claims",
+  "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+  "reviewed_at": "2026-10-30T13:19:06Z",
+  "jpeg_sha256": "12b40197822334f3a7e5129fb538b76cde8f802ce1f62924501133bbdc71b955",
+  "caption_sha256": "f3a8c71ac4d3042b053ac3ab1bf7887a5597903dcaa3bc605ad709d06acbab42",
+  "asset_sha256": "7f21e988ab1b41243047725fc05f97a3984d2a020a94f4a3670c5a36c4366ad9",
+  "review_notes": "Independently read official MCC advisory PDF dated13Oct2026 and verified official MCC listing links to it. Page1 expressly identifies fake percentile reduction notice and no decision as of advisory. Annex details not claimed. Caption and final pixels carefully limit to this notice/date, not current eligibility or PG/MDS. Recent official corrective reporting documents circulation; no invented original timestamp. Original PNG and final JPEG inspected, clear symbolic clipboard/X, no official seal or notice recreation; prompt and actual output metadata read. Pending caption sentence replaced only after substantive review passed, on parent request, before exact final hash. Read current main queue.json blob cedfb7be04ce8de47428ab948b334ffd2e2fac24 and publishing-state/state.json blob 780e17e7db84a74032fc61298f0d7ac1eda05429 through GitHub connector. Three existing sent topics Hormuz/Bangladesh clip, AI polar-bear rescue, AI Ukraine mushroom cloud. Neither prediction topic semantically duplicates those or each other. Also compared all six new topics: distinct clips/events/advisory and distinct population-model versus Vanga-attribution rumors; no semantic duplicates. Inspected actual original PNGs and final JPEGs. Reviewed supplied actual prompts, output IDs and completion timestamps. Symbolic original AI art, no third-party inputs apparent or claimed, no event reconstructions; prominent exact AI illustration disclosure. Parent confirms user-authorized original AI workflow. Public immutable provenance links and anonymous byte preflight remain separate promotion requirements.",
+  "source_title": "Advisory regarding Fake Notice",
+  "source_title_note": "Official MCC listing title; PDF heading NOTICE / Kind Attention: Advisory for Candidates.",
+  "approval_scope": "Existing independent editorial/visual review only; public provenance and anonymous preflight remain separate gates."
+}
