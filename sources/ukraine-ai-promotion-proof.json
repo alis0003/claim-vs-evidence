@@ -1,0 +1,18 @@
+{
+  "run_url": "https://github.com/alis0003/claim-vs-evidence/actions/runs/41002096503",
+  "run_id": 41002096503,
+  "head_sha": "4c60f0b2c9138f681b06059cb04cd136775178fd",
+  "conclusion": "success",
+  "event": "workflow_dispatch",
+  "completed_at": "2026-10-30T04:17:55Z",
+  "candidate_sha256": "bfedee9c26a07add89c820a7cf146dc2ad8b001ba43fadebb029c906f0866861",
+  "claim_id": "89924293a68cf109de9c5f0e9cefc7ebc95c91465ac11cfe8211bebe49a7e4df",
+  "independent_review": "sources/ukraine-ai-preflight-review.json",
+  "offline_verification": {
+    "tests_passed": 147,
+    "proposed_queue_validated": true,
+    "pilot_dry_run": "dry_run_no_network",
+    "validated_at": "2026-10-30T04:19:11Z"
+  },
+  "promotion": "Append-only new job; previous two records retained unchanged. Source/network truth and provenance/editorial review are separate gates. No manual publication."
+}

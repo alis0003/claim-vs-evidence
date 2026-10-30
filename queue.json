@@ -140,5 +140,88 @@
         "notes": "Distinct agent inspected final JPEG and original generated pixels, verified prominent disclosure and generic non-event context, independently read fact-check and checked semantic duplicates. sources/polar-bear-final-review.json."
       }
     }
+  },
+  {
+    "claim": "This mushroom-cloud video shows a real event in Ukraine.",
+    "claim_id": "89924293a68cf109de9c5f0e9cefc7ebc95c91465ac11cfe8211bebe49a7e4df",
+    "caption": "FALSE: The mushroom-cloud clip shared as footage from Ukraine is AI-generated, according to Full Fact’s 29 October 2026 check. Full Fact traced it to a 2025 AFP fact-check; its account says the earlier YouTube upload was labelled as an AI video and has since been deleted. We did not independently inspect that deleted upload. This finding concerns the specific clip, not the wider situation in Ukraine.\n\nAI illustration — not actual footage. This original symbolic artwork is not a frame from the clip or evidence of an event.\n\nSource: Sian Bayley, Full Fact, 29 October 2026:\nhttps://fullfact.org/conflict/ai-video-ukrainian-fighter-jets-destroyed/\n\nChecked 30 October 2026. AI-assisted research, design and original illustration; independent automated review.\n",
+    "reviewer": "/root/prepare_factcheck_cards/review_held_card",
+    "evidence_summary": "Full Fact identifies the specific mushroom-cloud clip as AI-generated and attributes its earlier labelled origin to AFP. No independent inspection of the deleted original or broader military-loss verdict claimed.",
+    "review_provenance": {
+      "mode": "independent_automated",
+      "producer_id": "/root/prepare_factcheck_cards",
+      "reviewer_id": "/root/prepare_factcheck_cards/review_held_card",
+      "review_notes": "Unchanged final image and caption passed independent editorial/source/visual review. Public record: sources/ukraine-ai-editorial-review.json. Must pass anonymous preflight before any queue append."
+    },
+    "ready_for_publish": true,
+    "editorial_verified": true,
+    "evidence_supported": true,
+    "high_impact_identifiable_person": false,
+    "verdict": "false",
+    "language": "en",
+    "claim_date": null,
+    "claim_date_basis": "dated_fact_check_documents_circulation",
+    "circulation_observed_date": "2026-10-29",
+    "circulation_evidence_url": "https://fullfact.org/conflict/ai-video-ukrainian-fighter-jets-destroyed/",
+    "claim_date_note": "Full Fact publication establishes circulation by this date; actual claim-post timestamp unknown.",
+    "reviewed_at": "2026-10-30T03:27:27.800048Z",
+    "created_at": "2026-10-30T04:15:00.805030+00:00",
+    "expires_at": "2026-11-06T04:15:00.805030+00:00",
+    "run_after": "2026-10-30T04:15:00.805030+00:00",
+    "run_before": "2026-10-31T03:15:00.805030+00:00",
+    "sources": [
+      {
+        "url": "https://fullfact.org/conflict/ai-video-ukrainian-fighter-jets-destroyed/",
+        "title": "AI mushroom cloud video shared with false claims it shows Ukraine",
+        "publisher": "Full Fact",
+        "supports": "Narrow AI-video authenticity finding and dated documentation of circulation. Original-video findings attributed to Full Fact/AFP.",
+        "published_date": "2026-10-29",
+        "checked_at": "2026-10-30T03:48:21Z",
+        "supports_claim_analysis": true,
+        "evidence_role": "recent_fact_check",
+        "independent_fact_check": true
+      }
+    ],
+    "image": {
+      "width": 1080,
+      "height": 1350,
+      "mime": "image/jpeg",
+      "sha256": "592e262238e431041b4d8815d516893e046e051477059ace9cd48ea35a9c70fe",
+      "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/36a42beb49edc6cc55bd75325c929499ed59836b/cards/ukraine-ai-fact-check.jpg"
+    },
+    "visual_provenance": {
+      "generator": "Built-in ChatGPT imagegen",
+      "generation_reference": "exec-44ff299e-48ba-49f1-84c0-d36a9a9b85ac.png",
+      "generation_prompt": "Use case: infographic-diagram. Asset type: original English Instagram fact-check card for @claimvsevidence, portrait 4:5. Create a polished, restrained editorial card in navy, cream and teal with clear spacious typography. The central symbolic illustration is a flat gouache-style magnifying glass over a generic digital play icon with abstract pixels, NOT an explosion, battlefield, footage, actual event, map or news screenshot. No external assets. Render these exact text sections legibly: top brand 'CLAIM VS EVIDENCE'; eyebrow 'VIDEO FACT CHECK'; claim text 'CLAIM: This mushroom-cloud video shows a real event in Ukraine.'; verdict badge 'FALSE'; explanation 'Full Fact traced the clip to earlier AI-video reporting. It is not authentic Ukraine footage.'; source 'Source: Full Fact · 29 October 2026'; checked 'Checked: 30 October 2026'; prominent visual disclosure 'AI illustration — not actual footage'; footer '@claimvsevidence'. Make disclosure prominent and not tiny. Original symbolic art only; do not imitate/reconstruct a viral clip. No extra claims, numbers, photographs or logos.",
+      "generated_at": null,
+      "generation_completed_by": "2026-10-30T03:24:48Z",
+      "generation_time_basis": "completion_observed",
+      "generation_time_note": "Exact generation-event timestamp not relied on; time is observation of tool completion.",
+      "asset_sha256": "ffdb15d32e9f6d5ceeb6f2512463fe4e6cc4f4f16578e2b22990de4897683ec9",
+      "third_party_inputs_used": false,
+      "input_assets": [],
+      "derived_from_denied_material": false,
+      "not_event_evidence": true,
+      "actual_event_reconstruction": false,
+      "consent_basis": "User automation request explicitly permits original AI illustration clearly labelled as not actual footage.",
+      "kind": "ai_illustration",
+      "display_label": "AI illustration — not actual footage",
+      "generation_record_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/36a42beb49edc6cc55bd75325c929499ed59836b/sources/ukraine-ai-generation.json",
+      "generated_asset_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/36a42beb49edc6cc55bd75325c929499ed59836b/cards/ukraine-ai-original.png",
+      "context": "Original symbolic magnifying glass and play icon. No real event reconstruction; generated pixels are not evidence.",
+      "transformations": "Full generated card resized proportionally and converted using Pillow to 1080x1350 baseline sRGB JPEG; no third-party inputs.",
+      "user_approved": true,
+      "claim_presented_as_text": true,
+      "facts_independently_sourced": true,
+      "visual_review": {
+        "label_visible": true,
+        "context_verified": true,
+        "reviewer_id": "/root/prepare_factcheck_cards/review_held_card",
+        "jpeg_sha256": "592e262238e431041b4d8815d516893e046e051477059ace9cd48ea35a9c70fe",
+        "caption_sha256": "6bcf24f2a2102f67de849b346c4a17cf7baebb45803ac71a401de71ae4e67fff",
+        "reviewed_at": "2026-10-30T03:27:27.800048Z",
+        "notes": "Distinct automated reviewer inspected exact final pixels/caption and original PNG, source facts/date, provenance and semantic duplicates. Editorial review passes; public preflight remains a separate promotion gate."
+      }
+    }
   }
 ]
