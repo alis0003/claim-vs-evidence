@@ -1,0 +1,20 @@
+{
+  "generator": "Built-in ChatGPT imagegen",
+  "generation_reference": "exec-44ff299e-48ba-49f1-84c0-d36a9a9b85ac.png",
+  "generation_prompt": "Use case: infographic-diagram. Asset type: original English Instagram fact-check card for @claimvsevidence, portrait 4:5. Create a polished, restrained editorial card in navy, cream and teal with clear spacious typography. The central symbolic illustration is a flat gouache-style magnifying glass over a generic digital play icon with abstract pixels, NOT an explosion, battlefield, footage, actual event, map or news screenshot. No external assets. Render these exact text sections legibly: top brand 'CLAIM VS EVIDENCE'; eyebrow 'VIDEO FACT CHECK'; claim text 'CLAIM: This mushroom-cloud video shows a real event in Ukraine.'; verdict badge 'FALSE'; explanation 'Full Fact traced the clip to earlier AI-video reporting. It is not authentic Ukraine footage.'; source 'Source: Full Fact · 29 October 2026'; checked 'Checked: 30 October 2026'; prominent visual disclosure 'AI illustration — not actual footage'; footer '@claimvsevidence'. Make disclosure prominent and not tiny. Original symbolic art only; do not imitate/reconstruct a viral clip. No extra claims, numbers, photographs or logos.",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T03:24:48Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event timestamp not relied on; time is observation of tool completion.",
+  "asset_sha256": "ffdb15d32e9f6d5ceeb6f2512463fe4e6cc4f4f16578e2b22990de4897683ec9",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User automation request explicitly permits original AI illustration clearly labelled as not actual footage.",
+  "context": "Original symbolic magnifying glass and play icon. No explosion, battlefield, real footage or event reconstruction; pixels are not evidence.",
+  "transformations": "Full generated card resized proportionally and converted using Pillow to 1080x1350 baseline sRGB JPEG; no third-party inputs.",
+  "public_release_authorization": "User explicitly approved public repository staging of this card's images and review records and the existing anonymous checker on 30 October 2026.",
+  "final_jpeg_sha256": "592e262238e431041b4d8815d516893e046e051477059ace9cd48ea35a9c70fe"
+}
