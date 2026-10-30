@@ -1,0 +1,83 @@
+{
+  "claim": "Baba Vanga authentically predicted an alien spacecraft would arrive in November 2026.",
+  "claim_id": "f98c8019ea94e245472bd99479c6a3ef2823e1a6c5f0adcca401a3c7a1342207",
+  "caption": "Did Baba Vanga predict an alien spacecraft would arrive in November 2026? The specific prediction circulating online has no authenticated original record establishing that she made it, according to IBTimes UK’s 14 October report. Repeating an attribution does not verify it. This November claim is separate from the November 13 population-model story.\n\nSource: IBTimes UK, 14 October 2026.\nhttps://www.ibtimes.co.uk/baba-vanga-november-2026-spacecraft-prediction-1825683\n\nAI illustration — not actual footage.\n\nChecked 30 October 2026. AI-assisted research, design and original illustration; independent automated review.\n",
+  "reviewer": "/root/produce_more_factchecks/review_batch_cards",
+  "evidence_summary": "Symbolic drawing of saucer on paper, not a real sighting or prediction evidence.",
+  "review_provenance": {
+    "mode": "independent_automated",
+    "producer_id": "/root/produce_more_factchecks/research_november13_claims",
+    "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+    "review_notes": "Independent factual, date, pixel, provenance, rights and duplicate review passed. Public record: sources/oct30-alien-review.json. Anonymous preflight remains a separate promotion gate."
+  },
+  "ready_for_publish": true,
+  "editorial_verified": true,
+  "evidence_supported": true,
+  "high_impact_identifiable_person": false,
+  "verdict": "unverified",
+  "language": "en",
+  "claim_date": null,
+  "claim_date_basis": "dated_fact_check_documents_circulation",
+  "circulation_observed_date": "2026-10-14",
+  "circulation_evidence_url": "https://www.ibtimes.co.uk/baba-vanga-november-2026-spacecraft-prediction-1825683",
+  "claim_date_note": "The dated source documents this claim or contemporary corrective discussion by its publication date. Original claim-post timestamp unknown. Source role is stated accurately; explanatory reporting is not represented as an independently branded fact-check.",
+  "reviewed_at": "2026-10-30T13:16:19Z",
+  "created_at": "2026-10-30T19:49:37.080526+00:00",
+  "expires_at": "2026-11-06T19:49:37.080526+00:00",
+  "run_after": "2026-10-30T19:49:37.080526+00:00",
+  "run_before": "2026-10-31T18:49:37.080526+00:00",
+  "sources": [
+    {
+      "url": "https://www.ibtimes.co.uk/baba-vanga-november-2026-spacecraft-prediction-1825683",
+      "title": "Baba Vanga Claimed Aliens From Vamfim Wear 'Translucent Robes' and Live Invisibly on Earth",
+      "publisher": "IBTimes UK",
+      "supports": "Supports the narrow claim analysis in this card; original-source observations are attributed to the cited reporting where stated.",
+      "published_date": "2026-10-14",
+      "checked_at": "2026-10-30T13:16:19Z",
+      "supports_claim_analysis": true,
+      "evidence_role": "recent_reporting"
+    }
+  ],
+  "image": {
+    "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/cards/oct30-alien.jpg",
+    "mime": "image/jpeg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "4176a9c4a505832bef05e8fc3ec371e3a210808e99eeb7685910d975a4292156"
+  },
+  "visual_provenance": {
+    "generator": "Built-in ChatGPT imagegen",
+    "generation_reference": "exec-d6ba75dc-8684-4f92-be53-df7feb79dd42",
+    "generation_prompt": "Use case: infographic-diagram. Original English fact-check social card, portrait 4:5 ratio. Premium editorial graphic design, dark navy paper background, warm ivory bold typography, lavender accent, generous margins, crisp easy-to-read text. Upper left small header \"FACT CHECK\". Large headline \"ALIENS IN NOVEMBER 2026?\" Then prominent verdict pill \"UNVERIFIED ATTRIBUTION\". Center original symbolic paper-cut illustration: a whimsical small lavender flying saucer drawn on a blank sheet with an oversized question mark and magnifying glass, clearly stylized, not an actual UFO photograph. No real people, no Baba Vanga likeness, no invasion scene, no reconstructed event. Below illustration clear text \"No authenticated original record establishes the specific prediction attributed to Baba Vanga.\" Smaller bottom text \"Source: IBTimes UK · 14 Oct 2026\". Prominent high-contrast footer containing exact text \"AI illustration — not actual footage\". All text fully inside canvas, no additional text, no logos. Do not mention November 13, because this is a separate claim.",
+    "generated_at": null,
+    "generation_completed_by": "2026-10-30T13:14:09.953Z",
+    "generation_time_basis": "completion_observed",
+    "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+    "asset_sha256": "a6019840a3585a32a199211397c58101970f61c2b02aaa725459d6ba1c256f2e",
+    "third_party_inputs_used": false,
+    "input_assets": [],
+    "derived_from_denied_material": false,
+    "not_event_evidence": true,
+    "actual_event_reconstruction": false,
+    "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+    "context": "Symbolic drawing of saucer on paper, not a real sighting or prediction evidence.",
+    "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+    "final_jpeg_sha256": "4176a9c4a505832bef05e8fc3ec371e3a210808e99eeb7685910d975a4292156",
+    "kind": "ai_illustration",
+    "display_label": "AI illustration — not actual footage",
+    "generation_record_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/sources/oct30-alien-generation.json",
+    "generated_asset_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/cards/oct30-alien-original.png",
+    "user_approved": true,
+    "claim_presented_as_text": true,
+    "facts_independently_sourced": true,
+    "visual_review": {
+      "label_visible": true,
+      "context_verified": true,
+      "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+      "jpeg_sha256": "4176a9c4a505832bef05e8fc3ec371e3a210808e99eeb7685910d975a4292156",
+      "caption_sha256": "35e5a148c67934f4f08c369352bc5018acbdf6c6a8f2ef4d202841e59c6108ae",
+      "reviewed_at": "2026-10-30T13:16:19Z",
+      "notes": "Actual final pixels, exact caption bytes, original art and provenance independently reviewed; see public review record."
+    }
+  }
+}

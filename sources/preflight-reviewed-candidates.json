@@ -4,6 +4,36 @@
       "sha256": "bfedee9c26a07add89c820a7cf146dc2ad8b001ba43fadebb029c906f0866861",
       "approved_for_anonymous_preflight": true,
       "review_record": "sources/ukraine-ai-preflight-review.json"
+    },
+    "sources/oct30-doomsday-candidate.json": {
+      "sha256": "bfefa22fd25ceaa9ae9fc52444f9c74b3f0b552b1a4f538fb0d72fab84e81a4a",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-batch-preflight-review.json"
+    },
+    "sources/oct30-alien-candidate.json": {
+      "sha256": "2fab0a564dfe4b26e37c57b3e7cbac145d387a5912e87abc2db65ac528d186e2",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-batch-preflight-review.json"
+    },
+    "sources/oct30-c17-candidate.json": {
+      "sha256": "276d3f2a81841c99652ea27e09aaaae6a07be5575265bcdf1d1ea9aaac508610",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-batch-preflight-review.json"
+    },
+    "sources/oct30-spain-candidate.json": {
+      "sha256": "8df0a416af3aa5eccab827d3b47fcaf310f1f1dc53f5e4d97bba5b1433cfb995",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-batch-preflight-review.json"
+    },
+    "sources/oct30-ajman-candidate.json": {
+      "sha256": "1794a667e93cdfc451c4bd07da73778f8f5595b29e4ef84e1ac989d1a76bb673",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-batch-preflight-review.json"
+    },
+    "sources/oct30-mcc-candidate.json": {
+      "sha256": "5d2a0ba168b8158e429bc1e8d22ffb00bdafa5b16a2c47f8c55c92835f73dc6f",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-batch-preflight-review.json"
     }
   },
   "note": "Anonymous checking only; no publication authorization or queue promotion. Stop on denial. Ukraine candidate independently reviewed with public asset and provenance records."

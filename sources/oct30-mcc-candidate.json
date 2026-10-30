@@ -1,0 +1,83 @@
+{
+  "claim": "The circulating NEET UG Counselling 2026 percentile-reduction notice addressed by MCC on 13 October 2026 is genuine.",
+  "claim_id": "a1190599a5b634d1b2a63a3f37142dfdfc040aff515ff4074214420ed9e8ea53",
+  "caption": "FAKE NOTICE — NEET UG COUNSELLING 2026\n\nA circulating notice claimed a percentile reduction for NEET UG Counselling 2026. In its 13 October advisory, the Medical Counselling Committee (MCC) called that notice fake and said no such reduction decision had been taken.\n\nThis check concerns that specific notice as addressed on 13 October—not current cut-offs or separate PG/MDS counselling rules. Verify current counselling information at mcc.nic.in.\n\nSource: MCC official corrective advisory, published 13 October 2026:\nhttps://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/20261013881045664.pdf\nOfficial listing: https://mcc.nic.in/news-events-ug-medical/\nChecked: 30 October 2026.\n\nAI-assisted research and design. AI illustration — not actual footage.\nIndependent automated evidence and visual review completed.\n",
+  "reviewer": "/root/produce_more_factchecks/review_batch_cards",
+  "evidence_summary": "Symbolic blank clipboard, not original notice. Verdict only concerns notice addressed on 13 October, not current eligibility.",
+  "review_provenance": {
+    "mode": "independent_automated",
+    "producer_id": "/root/produce_more_factchecks/research_india_claims",
+    "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+    "review_notes": "Independent factual, date, pixel, provenance, rights and duplicate review passed. Public record: sources/oct30-mcc-review.json. Anonymous preflight remains a separate promotion gate."
+  },
+  "ready_for_publish": true,
+  "editorial_verified": true,
+  "evidence_supported": true,
+  "high_impact_identifiable_person": false,
+  "verdict": "false",
+  "language": "en",
+  "claim_date": null,
+  "claim_date_basis": "dated_fact_check_documents_circulation",
+  "circulation_observed_date": "2026-10-13",
+  "circulation_evidence_url": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/20261013881045664.pdf",
+  "claim_date_note": "The dated source documents this claim or contemporary corrective discussion by its publication date. Original claim-post timestamp unknown. Source role is stated accurately; explanatory reporting is not represented as an independently branded fact-check.",
+  "reviewed_at": "2026-10-30T13:19:06Z",
+  "created_at": "2026-10-30T19:49:37.080526+00:00",
+  "expires_at": "2026-11-06T19:49:37.080526+00:00",
+  "run_after": "2026-10-30T19:49:37.080526+00:00",
+  "run_before": "2026-10-31T18:49:37.080526+00:00",
+  "sources": [
+    {
+      "url": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/20261013881045664.pdf",
+      "title": "Advisory regarding Fake Notice",
+      "publisher": "Medical Counselling Committee, Government of India",
+      "supports": "Supports the narrow claim analysis in this card; original-source observations are attributed to the cited reporting where stated.",
+      "published_date": "2026-10-13",
+      "checked_at": "2026-10-30T13:19:06Z",
+      "supports_claim_analysis": true,
+      "evidence_role": "recent_reporting"
+    }
+  ],
+  "image": {
+    "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/cards/oct30-mcc.jpg",
+    "mime": "image/jpeg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "12b40197822334f3a7e5129fb538b76cde8f802ce1f62924501133bbdc71b955"
+  },
+  "visual_provenance": {
+    "generator": "Built-in ChatGPT imagegen",
+    "generation_reference": "exec-483280a5-b709-4b28-96dd-c6e3169ce59b",
+    "generation_prompt": "Use case: infographic-diagram. Create an original premium editorial fact-check social card, portrait 4:5, for @claimvsevidence. Cream paper background, dark navy typography, restrained rust and teal accents, large readable text, spacious margins. Original symbolic illustration of an abstract blank clipboard, magnifying glass, and red warning seal with an X. No people, actual documents, official seals, government logo, fake notice reproduction, exam answer sheets, or medical advice. All illustration clearly stylized. Exact text only:\n\"CLAIM VS EVIDENCE\"\n\"FAKE NOTICE\"\n\"CLAIM\"\n\"NEET UG 2026 percentile reduction?\"\n\"EVIDENCE\"\n\"MCC called the circulating notice fake in its 13 October advisory.\"\n\"No reduction decision had been taken as of that advisory.\"\n\"Specific notice check — not current cut-off guidance.\"\n\"Source: MCC • 13 Oct 2026\"\n\"Checked: 30 Oct 2026\"\n\"AI illustration — not actual footage\"\n\"@claimvsevidence\"\nProminent full-width contrasting disclosure band, crisp accurate spelling, obvious claim-versus-evidence separation, no additional text.\n",
+    "generated_at": null,
+    "generation_completed_by": "2026-10-30T13:16:12Z",
+    "generation_time_basis": "completion_observed",
+    "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+    "asset_sha256": "7f21e988ab1b41243047725fc05f97a3984d2a020a94f4a3670c5a36c4366ad9",
+    "third_party_inputs_used": false,
+    "input_assets": [],
+    "derived_from_denied_material": false,
+    "not_event_evidence": true,
+    "actual_event_reconstruction": false,
+    "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+    "context": "Symbolic blank clipboard, not original notice. Verdict only concerns notice addressed on 13 October, not current eligibility.",
+    "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+    "final_jpeg_sha256": "12b40197822334f3a7e5129fb538b76cde8f802ce1f62924501133bbdc71b955",
+    "kind": "ai_illustration",
+    "display_label": "AI illustration — not actual footage",
+    "generation_record_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/sources/oct30-mcc-generation.json",
+    "generated_asset_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/cards/oct30-mcc-original.png",
+    "user_approved": true,
+    "claim_presented_as_text": true,
+    "facts_independently_sourced": true,
+    "visual_review": {
+      "label_visible": true,
+      "context_verified": true,
+      "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+      "jpeg_sha256": "12b40197822334f3a7e5129fb538b76cde8f802ce1f62924501133bbdc71b955",
+      "caption_sha256": "f3a8c71ac4d3042b053ac3ab1bf7887a5597903dcaa3bc605ad709d06acbab42",
+      "reviewed_at": "2026-10-30T13:19:06Z",
+      "notes": "Actual final pixels, exact caption bytes, original art and provenance independently reviewed; see public review record."
+    }
+  }
+}

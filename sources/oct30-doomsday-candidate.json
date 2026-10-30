@@ -1,0 +1,83 @@
+{
+  "claim": "A 1960 population model proves the world will end on 13 November 2026.",
+  "claim_id": "00d4426dee59f5154295b9bc317820c1c1ba3309dbabaa13e101eae85fa55e36",
+  "caption": "November 13, 2026 is not a confirmed doomsday. The date comes from a 1960 population-growth model—not an observed approaching catastrophe. As birth rates fell, the world’s population stopped following that model’s projections. An old mathematical extrapolation is not a reliable forecast that the world will end.\n\nSource: ScienceDaily / The Conversation, 16 October 2026.\nhttps://www.sciencedaily.com/releases/2026/10/261016070639.htm\n\nAI illustration — not actual footage.\n\nChecked 30 October 2026. AI-assisted research, design and original illustration; independent automated review.\n",
+  "reviewer": "/root/produce_more_factchecks/review_batch_cards",
+  "evidence_summary": "Original symbolic calendar and question mark, not a demographic chart or evidence of a future event.",
+  "review_provenance": {
+    "mode": "independent_automated",
+    "producer_id": "/root/produce_more_factchecks",
+    "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+    "review_notes": "Independent factual, date, pixel, provenance, rights and duplicate review passed. Public record: sources/oct30-doomsday-review.json. Anonymous preflight remains a separate promotion gate."
+  },
+  "ready_for_publish": true,
+  "editorial_verified": true,
+  "evidence_supported": true,
+  "high_impact_identifiable_person": false,
+  "verdict": "misleading",
+  "language": "en",
+  "claim_date": null,
+  "claim_date_basis": "dated_fact_check_documents_circulation",
+  "circulation_observed_date": "2026-10-16",
+  "circulation_evidence_url": "https://www.sciencedaily.com/releases/2026/10/261016070639.htm",
+  "claim_date_note": "The dated source documents this claim or contemporary corrective discussion by its publication date. Original claim-post timestamp unknown. Source role is stated accurately; explanatory reporting is not represented as an independently branded fact-check.",
+  "reviewed_at": "2026-10-30T13:19:06Z",
+  "created_at": "2026-10-30T19:49:37.080526+00:00",
+  "expires_at": "2026-11-06T19:49:37.080526+00:00",
+  "run_after": "2026-10-30T19:49:37.080526+00:00",
+  "run_before": "2026-10-31T18:49:37.080526+00:00",
+  "sources": [
+    {
+      "url": "https://www.sciencedaily.com/releases/2026/10/261016070639.htm",
+      "title": "Scientists predicted doomsday for November 13, 2026. Should we be worried?",
+      "publisher": "ScienceDaily / The Conversation",
+      "supports": "Supports the narrow claim analysis in this card; original-source observations are attributed to the cited reporting where stated.",
+      "published_date": "2026-10-16",
+      "checked_at": "2026-10-30T13:19:06Z",
+      "supports_claim_analysis": true,
+      "evidence_role": "recent_reporting"
+    }
+  ],
+  "image": {
+    "url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/cards/oct30-doomsday.jpg",
+    "mime": "image/jpeg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "47252dcf1a55f8a4ce5f27816f9d9473de9124aa85290f629c11245ec17c99c0"
+  },
+  "visual_provenance": {
+    "generator": "Built-in ChatGPT imagegen",
+    "generation_reference": "exec-b52a37b7-5026-4c67-8202-45126775bbf7",
+    "generation_prompt": "Use case: infographic-diagram. Create an original English fact-check social card, portrait 4:5 ratio. Premium editorial graphic design, warm ivory paper, black bold typography, orange accent, generous margins, crisp easy-to-read text. Header 'CLAIM VS EVIDENCE'. Large headline 'NOVEMBER 13, 2026:' then 'NOT A CONFIRMED DOOMSDAY'. Prominent verdict pill 'MISLEADING'. Center original symbolic painted illustration of a desk calendar showing 13 NOV beside a magnifying glass and a large question mark. No curves, graphs, charts, statistics, people, planetary destruction or event reconstruction. Below illustration clear text 'A 1960 population model is being mistaken for a prediction that the world will end.' Bottom text 'Source: ScienceDaily / The Conversation · 16 Oct 2026'. Prominent high-contrast footer exact text 'AI illustration — not actual footage'. Final footer '@claimvsevidence'. All text inside canvas. No external inputs or logos.",
+    "generated_at": null,
+    "generation_completed_by": "2026-10-30T13:17:17Z",
+    "generation_time_basis": "completion_observed",
+    "generation_time_note": "Exact generation-event timestamp unavailable; recorded time is observed output completion.",
+    "asset_sha256": "769cf047f6fe999862b05aed524c24461080d072c87caf2a44c0efa07ce1fc9e",
+    "third_party_inputs_used": false,
+    "input_assets": [],
+    "derived_from_denied_material": false,
+    "not_event_evidence": true,
+    "actual_event_reconstruction": false,
+    "consent_basis": "User approved original AI illustrations and requested additional fact-check posts; public staging and existing source check authorized.",
+    "context": "Original symbolic calendar and question mark, not a demographic chart or evidence of a future event.",
+    "transformations": "Original full generated card converted and resized to 1080x1350 baseline sRGB JPEG; no third-party assets.",
+    "final_jpeg_sha256": "47252dcf1a55f8a4ce5f27816f9d9473de9124aa85290f629c11245ec17c99c0",
+    "kind": "ai_illustration",
+    "display_label": "AI illustration — not actual footage",
+    "generation_record_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/sources/oct30-doomsday-generation.json",
+    "generated_asset_url": "https://raw.githubusercontent.com/alis0003/claim-vs-evidence/a3d8a4009c37e89b862853bf7fd888c0fad21875/cards/oct30-doomsday-original.png",
+    "user_approved": true,
+    "claim_presented_as_text": true,
+    "facts_independently_sourced": true,
+    "visual_review": {
+      "label_visible": true,
+      "context_verified": true,
+      "reviewer_id": "/root/produce_more_factchecks/review_batch_cards",
+      "jpeg_sha256": "47252dcf1a55f8a4ce5f27816f9d9473de9124aa85290f629c11245ec17c99c0",
+      "caption_sha256": "e7323d4e5646d7c4dd277c6f5a4b540fcb8ce8f4160edc17c84c81a5e211c7d4",
+      "reviewed_at": "2026-10-30T13:19:06Z",
+      "notes": "Actual final pixels, exact caption bytes, original art and provenance independently reviewed; see public review record."
+    }
+  }
+}
