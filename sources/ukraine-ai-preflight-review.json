@@ -2,7 +2,7 @@
   "reviewer_id": "/root/prepare_factcheck_cards/review_held_card",
   "reviewer_type": "distinct_automated_agent_not_human",
   "producer_id": "/root/prepare_factcheck_cards",
-  "reviewed_at": "2026-10-30T04:15:19.792657Z",
+  "reviewed_at": "2026-10-30T04:16:17.473740Z",
   "verdict": "APPROVED_FOR_ANONYMOUS_PREFLIGHT_ONLY",
   "ready_for_publish": false,
   "editorial_verified": true,
@@ -32,8 +32,20 @@
     "limitation": "Publishing-state sent status was not independently fetched; queue duplicate determination is independent."
   },
   "remaining_gates": [
-    "Successful existing anonymous preflight against exact immutable assets and candidate.",
-    "Final candidate schema, caption and URL integrity inspection before queue promotion."
+    "Successful existing anonymous preflight against this exact candidate and immutable assets.",
+    "Recheck no intervening queue/state changes before promotion; preserve exact caption/image hashes."
   ],
-  "notes": "Original historical HOLD review remains preserved; this supplement resolves immutable repository staging metadata/identity gap, not anonymous fetch or publication readiness. No queue change or external write by reviewer."
+  "notes": "Original historical HOLD review remains preserved; this supplement resolves immutable repository staging metadata/identity gap, not anonymous fetch or publication readiness. No queue change or external write by reviewer.",
+  "candidate_review": {
+    "filename": "ukraine-ai-candidate.json",
+    "sha256": "bfedee9c26a07add89c820a7cf146dc2ad8b001ba43fadebb029c906f0866861",
+    "claim_id": "89924293a68cf109de9c5f0e9cefc7ebc95c91465ac11cfe8211bebe49a7e4df",
+    "result": "APPROVED_FOR_ANONYMOUS_PREFLIGHT_ONLY",
+    "exact_caption_bytes_match": true,
+    "immutable_urls_and_hashes_match": true,
+    "claims_dates_and_metadata_reviewed": true,
+    "schema_validation": "Publisher reports offline schema PASS; reviewer inspected full JSON and independently asserted key byte/hash matches.",
+    "ready_for_publish_field_caveat": "The candidate has ready_for_publish=true solely to satisfy existing checker schema. It remains outside queue and is NOT approved for publication or promotion until successful anonymous preflight. This supplement does not attest network success.",
+    "review_time_note": "Candidate retains original editorial review timestamp; supplement records current staging/candidate review time."
+  }
 }

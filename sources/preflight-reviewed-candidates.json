@@ -1,4 +1,10 @@
 {
-  "candidates": {},
-  "note": "No pending candidate currently meets all review gates. Add only an independently reviewed candidate path, exact file SHA256, approved_for_anonymous_preflight=true and public review_record path through reviewed repository changes. Never allowlist denied candidates or routes. This registry authorizes anonymous checking only, never publication."
+  "candidates": {
+    "sources/ukraine-ai-candidate.json": {
+      "sha256": "bfedee9c26a07add89c820a7cf146dc2ad8b001ba43fadebb029c906f0866861",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/ukraine-ai-preflight-review.json"
+    }
+  },
+  "note": "Anonymous checking only; no publication authorization or queue promotion. Stop on denial. Ukraine candidate independently reviewed with public asset and provenance records."
 }
