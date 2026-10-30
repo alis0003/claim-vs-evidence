@@ -34,6 +34,11 @@
       "sha256": "5d2a0ba168b8158e429bc1e8d22ffb00bdafa5b16a2c47f8c55c92835f73dc6f",
       "approved_for_anonymous_preflight": true,
       "review_record": "sources/oct30-batch-preflight-review.json"
+    },
+    "sources/oct30-binance-candidate.json": {
+      "sha256": "b59733161e87cf3ee5c0c04abc12ab89695e39628e70d05dd23aef68a6b0d449",
+      "approved_for_anonymous_preflight": true,
+      "review_record": "sources/oct30-binance-preflight-review.json"
     }
   },
   "note": "Anonymous checking only; no publication authorization or queue promotion. Stop on denial. Ukraine candidate independently reviewed with public asset and provenance records."

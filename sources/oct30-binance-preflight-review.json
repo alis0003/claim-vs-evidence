@@ -1,0 +1,14 @@
+{
+  "reviewer_id": "/root/review_binance_card",
+  "producer_id": "/root/prepare_binance_card",
+  "reviewed_at": "2026-10-30T20:01:46Z",
+  "candidate_sha256": "b59733161e87cf3ee5c0c04abc12ab89695e39628e70d05dd23aef68a6b0d449",
+  "claim_id": "aaca999680400d2ecd3ea8ef1b4febfef3ea6695d34e480f30f6752d078eed1c",
+  "asset_commit": "217ef726893391780099890de810f5f38affdeed",
+  "approval": "approved_for_anonymous_preflight_only",
+  "editorial_status": "pass",
+  "caption_sha256": "70f0166263c6ba0d308b3e33279c4bf4db8f79932c7e59eb161664834f9f3590",
+  "jpeg_sha256": "1e375a1df76ca1f76ba4657290eef6fba094dbd4350a32bb30fa889f40355283",
+  "notes": "Exact candidate reviewed. Narrow true claim independently supported by dated TRM investigative analysis and official Binance statements. Unknown original-post timestamp remains null; truthful dated independent-analysis circulation note retained, with recent_reporting role and no invented independent_fact_check assertion. Public immutable asset Git blob hashes match local inspected PNG/JPEG. Public generation and editorial-review metadata match. Caption unchanged from reviewed final text. Four-hour run window is appropriate for developing status. Existing queue/ledger contain no semantic duplicate. No allegation against identifiable person. Approved only for separate anonymous preflight; promotion requires successful preflight and current checks.",
+  "readiness": "Anonymous preflight not run by reviewer; no queue or workflow action authorized by this record."
+}
