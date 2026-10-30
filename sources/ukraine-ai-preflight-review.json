@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "/root/prepare_factcheck_cards/review_held_card",
+  "reviewer_type": "distinct_automated_agent_not_human",
+  "producer_id": "/root/prepare_factcheck_cards",
+  "reviewed_at": "2026-10-30T04:15:19.792657Z",
+  "verdict": "APPROVED_FOR_ANONYMOUS_PREFLIGHT_ONLY",
+  "ready_for_publish": false,
+  "editorial_verified": true,
+  "evidence_supported": true,
+  "rights_provenance_assessment": "Acceptable for preflight: authorized original symbolic AI artwork with prominent non-footage disclosure; no third-party inputs recorded. Earlier inspection of unchanged final pixels and full source stands. No legal rights warranty.",
+  "public_staging_review": {
+    "commit": "36a42beb49edc6cc55bd75325c929499ed59836b",
+    "generation_record_url": "https://github.com/alis0003/claim-vs-evidence/blob/36a42beb49edc6cc55bd75325c929499ed59836b/sources/ukraine-ai-generation.json",
+    "record_read": true,
+    "record_matches_local_hashes": true,
+    "method": "GitHub connector full generation-record read and immutable commit tree read; computed local Git blob SHA-1 equals tree object IDs for both original PNG and final JPEG. Local SHA-256 values equal reviewed bytes and generation record. This is NOT anonymous HTTP verification.",
+    "git_blob_ids": {
+      "cards/ukraine-ai-fact-check.jpg": "8398ba74fa8caf8511174b2c7a31aba9905beb94",
+      "cards/ukraine-ai-original.png": "aa4226cda4131ded0fd5ceb320e195f66c4671c4"
+    },
+    "authorization_basis": "Publishing agent reports specific user authorization for public staging and existing anonymous checker; public generation record records same."
+  },
+  "asset_hashes": {
+    "ukraine-ai-held.jpg": "592e262238e431041b4d8815d516893e046e051477059ace9cd48ea35a9c70fe",
+    "caption.txt": "6bcf24f2a2102f67de849b346c4a17cf7baebb45803ac71a401de71ae4e67fff"
+  },
+  "original_png_sha256": "ffdb15d32e9f6d5ceeb6f2512463fe4e6cc4f4f16578e2b22990de4897683ec9",
+  "duplicate_review": {
+    "result": "PASS",
+    "method": "Re-read full current main queue through GitHub connector at supplemental review time; only Hormuz-location and polar-bear AI rescue entries. Neither duplicates this Ukraine mushroom-cloud clip claim.",
+    "queue_blob_sha": "167c85b20b1dbfd2e6fc46124c646d5ba765aa08",
+    "limitation": "Publishing-state sent status was not independently fetched; queue duplicate determination is independent."
+  },
+  "remaining_gates": [
+    "Successful existing anonymous preflight against exact immutable assets and candidate.",
+    "Final candidate schema, caption and URL integrity inspection before queue promotion."
+  ],
+  "notes": "Original historical HOLD review remains preserved; this supplement resolves immutable repository staging metadata/identity gap, not anonymous fetch or publication readiness. No queue change or external write by reviewer."
+}
