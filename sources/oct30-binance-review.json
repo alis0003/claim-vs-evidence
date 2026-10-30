@@ -1,0 +1,35 @@
+{
+  "producer_id": "/root/prepare_binance_card",
+  "reviewer_id": "/root/review_binance_card",
+  "reviewed_at": "2026-10-30T19:52:11Z",
+  "mode": "independent_automated",
+  "editorial_status": "pass",
+  "ready_for_publish": false,
+  "jpeg_sha256": "1e375a1df76ca1f76ba4657290eef6fba094dbd4350a32bb30fa889f40355283",
+  "caption_sha256": "70f0166263c6ba0d308b3e33279c4bf4db8f79932c7e59eb161664834f9f3590",
+  "original_sha256": "26a8f285aca1fb169f36b69033b9c83a544596df0b6cbe615e229a6ae963d38c",
+  "label_visible": true,
+  "context_verified": true,
+  "sources": [
+    {
+      "url": "https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7",
+      "title": "Security Incident Update (2026-10-30)",
+      "publisher": "Binance",
+      "published_date": "2026-10-30",
+      "checked_at": "2026-10-30T19:48:40Z",
+      "publication_date_basis": "Full official page states Published on 2026-10-30 02:23 and Updated on 2026-10-30 11:36; timezone not inferred.",
+      "supports": "Binance estimate of $6.3 billion impact, approximately $3 billion frozen, promise to cover losses, temporary withdrawal suspension and investigation."
+    },
+    {
+      "url": "https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history",
+      "title": "North Korea Steals USD 6.36 Billion From Binance in the Largest Hack in History",
+      "publisher": "TRM Labs",
+      "published_date": "2026-10-29",
+      "checked_at": "2026-10-30T19:48:40Z",
+      "publication_date_basis": "Full report displays October 29, 2026.",
+      "supports": "Corroborates incident and approximate scale; technical/attribution claims are not included in this card."
+    }
+  ],
+  "review_notes": "Independently read full primary pages after initial transient web errors, inspected actual original PNG and final JPEG, reviewed exact revised caption. 1080x1350 RGB baseline JPEG with sRGB profile. Clear text and prominent AI disclosure. Original generic vault illustration is not actual event footage, screenshot or evidence. No third-party visual input is recorded in supplied generation prompt/provenance. Caption correctly distinguishes frozen from recovered and attributes compensation commitment. Added checked date and automated review disclosure are accurate. Remote queue and publishing-state ledger contained only Hormuz, polar bear and Ukraine stories; no semantic duplicate. No unsupported perpetrator or root-cause allegation.",
+  "scope_limits": "Editorial pass only. Public immutable original/JPEG, public generation metadata, hash-bound candidate and anonymous preflight remain separate required gates. Withdrawal status is developing and must be rechecked if posting delayed. No claim of independent guarantee of reimbursement. No human review claimed. Source #2 update link redirected to announcement index and was not treated as evidence."
+}

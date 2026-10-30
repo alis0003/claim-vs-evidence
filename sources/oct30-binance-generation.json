@@ -1,0 +1,19 @@
+{
+  "generator": "image_gen.imagegen",
+  "generation_reference": "exec-76446544-bf36-4c9c-a1b1-4f241db40cdb.png",
+  "generation_prompt": "Create a polished 1080x1350 portrait Instagram news card for CLAIM VS EVIDENCE. Dark navy and restrained gold, highly readable exact text. Top small brand CLAIM VS EVIDENCE. Gold tag DEVELOPING | 30 OCT 2026. Main headline: BINANCE REPORTS $6.3B SECURITY BREACH. Subhead: Withdrawals paused. Three short lines: Approximately $3B frozen • Binance says it will cover losses • Investigation ongoing. Footer sources: Sources: Binance, TRM Labs. Prominent bottom disclosure exact words: AI illustration — not actual footage. Use an original conceptual illustration of a generic gold digital vault and broken glowing circuit, no people, no real logo, no screenshot, not a reconstruction of an actual breach. All factual text presented as reporting, no guarantee funds recovered. Beautiful editorial typography, ample margins, no extra numbers or text.\n",
+  "generated_at": null,
+  "generation_completed_by": "2026-10-30T19:35:10Z",
+  "generation_time_basis": "completion_observed",
+  "generation_time_note": "Exact generation-event time unavailable; timestamp is observed output completion.",
+  "asset_sha256": "26a8f285aca1fb169f36b69033b9c83a544596df0b6cbe615e229a6ae963d38c",
+  "third_party_inputs_used": false,
+  "input_assets": [],
+  "derived_from_denied_material": false,
+  "not_event_evidence": true,
+  "actual_event_reconstruction": false,
+  "consent_basis": "User requested Binance breaking-news card within original AI illustration publishing workflow.",
+  "context": "Generic symbolic digital vault and circuit, not an event reconstruction or documentary evidence.",
+  "transformations": "Full original image converted to 1080x1350 baseline sRGB JPEG.",
+  "final_jpeg_sha256": "1e375a1df76ca1f76ba4657290eef6fba094dbd4350a32bb30fa889f40355283"
+}
