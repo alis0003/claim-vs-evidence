@@ -1,0 +1,47 @@
+# Explicitly authorized one-shot recovery. No Instagram POST or publishing path.
+name: Reconcile published MCC record
+on:
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: claimvsevidence-publishing
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    if: github.repository == 'alis0003/claim-vs-evidence' && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && vars.PUBLISHING_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - name: Read exact public commit without credentials
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git init .
+          git -c credential.helper= fetch --depth=1 https://github.com/alis0003/claim-vs-evidence.git "$SOURCE_SHA"
+          git checkout --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Offline tests
+        run: python3 -m unittest discover -s tests -q
+      - name: Validate recovery campaign gate without credentials
+        env:
+          PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
+        run: |
+          python3 - <<'PY'
+          import datetime,json,os
+          from pilot import gate
+          from publisher import UTC
+          gate(json.load(open('campaign.json')),os.environ,datetime.datetime.now(UTC))
+          print('Campaign gate passed; one-shot MCC reconciliation only.')
+          PY
+      - name: Query Instagram status and checkpoint only confirmed MCC publication
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          PUBLISHING_ENABLED: ${{ vars.PUBLISHING_ENABLED }}
+        run: python3 reconcile_mcc.py --apply
